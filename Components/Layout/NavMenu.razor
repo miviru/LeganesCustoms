@@ -1,0 +1,31 @@
+﻿<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="/">
+            <img src="Logo4.png" style="height: 100px;" alt="Logo" />
+        </a>
+
+        <!-- Botón toggle para dispositivos pequeños -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Contenedor de las opciones -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/performance" Match="NavLinkMatch.Prefix">Performance</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/servicios" Match="NavLinkMatch.Prefix">Servicios</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/pedircita" Match="NavLinkMatch.Prefix">Pedir Cita</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/login">Iniciar Sesión</NavLink>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,141 @@
+/* _content/LeganesCustomsBlazor/Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-6iqxi7duje] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-6iqxi7duje] {
+    flex: 1;
+}
+
+
+#blazor-error-ui[b-6iqxi7duje] {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss[b-6iqxi7duje] {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+/* _content/LeganesCustomsBlazor/Components/Layout/NavMenu.razor.rz.scp.css */
+/* Asegura que el botón hamburguesa solo sea visible en pantallas pequeñas */
+@media (min-width: 992px) {
+    .navbar-toggler[b-yfc7q3nt01] {
+        display: none !important;
+    }
+}
+
+/* Asegura que el menú colapsable se expanda automáticamente en pantallas grandes */
+@media (min-width: 992px) {
+    .collapse[b-yfc7q3nt01] {
+        display: flex !important; /* Asegura que sea visible */
+    }
+}
+
+/* Para pantallas pequeñas, el menú se comporta normalmente (colapsable) */
+.collapse[b-yfc7q3nt01] {
+    display: none; /* Oculto por defecto en pantallas pequeñas */
+}
+
+.collapse.show[b-yfc7q3nt01] {
+    display: block; /* Visible cuando el botón hamburguesa está activado */
+}
+
+/* Configuración del logo */
+.navbar-brand[b-yfc7q3nt01] {
+    display: flex;
+}
+
+/* Estilo de los elementos del menú */
+.nav-item[b-yfc7q3nt01] {
+    font-size: 1rem;
+}
+
+.nav-item[b-yfc7q3nt01]  .nav-link {
+    color: #d7d7d7;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem; /* Más espaciado */
+    text-decoration: none;
+}
+
+/* Elementos activos */
+.nav-item[b-yfc7q3nt01]  a.active {
+    background-color: rgba(255, 255, 255, 0.37);
+    color: white;
+}
+
+/* Hover en los enlaces */
+.nav-item[b-yfc7q3nt01]  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Iconos */
+.bi[b-yfc7q3nt01] {
+    display: inline-block;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+    top: -1px;
+    background-size: cover;
+}
+/* _content/LeganesCustomsBlazor/Components/Pages/Home.razor.rz.scp.css */
+/* Asegura que el video ocupe todo el contenedor */
+.video-container[b-kiot8z1fjx] {
+    position: relative; /* Posición relativa para contener el video y la superposición */
+    height: 90vh; /* Ajusta al alto de la pantalla o cambia según sea necesario */
+    overflow: hidden; /* Asegura que el video no se desborde */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+}
+
+.video-background[b-kiot8z1fjx] {
+    position: absolute; /* Video en posición absoluta */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa todo el alto */
+    object-fit: cover; /* Asegura que el video se ajuste correctamente */
+    z-index: -1; /* Envía el video al fondo */
+}
+
+/* Contenido superpuesto */
+.overlay-content[b-kiot8z1fjx] {
+    position: absolute; /* Superposición absoluta sobre el video */
+    top: 25%; /* Centrado verticalmente */
+    left: 55%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el contenido para centrarlo */
+    text-align: left; /* Alinea el texto hacia la izquierda */
+}
+
+.overlay-content h1[b-kiot8z1fjx] {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.overlay-content .btn[b-kiot8z1fjx] {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.servicios[b-kiot8z1fjx] {
+    background-image: url('fondo.jpg');
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+}

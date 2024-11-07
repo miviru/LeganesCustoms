@@ -1,0 +1,45 @@
+/* Asegura que el video ocupe todo el contenedor */
+.video-container {
+    position: relative; /* Posición relativa para contener el video y la superposición */
+    height: 90vh; /* Ajusta al alto de la pantalla o cambia según sea necesario */
+    overflow: hidden; /* Asegura que el video no se desborde */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+}
+
+.video-background {
+    position: absolute; /* Video en posición absoluta */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa todo el alto */
+    object-fit: cover; /* Asegura que el video se ajuste correctamente */
+    z-index: -1; /* Envía el video al fondo */
+}
+
+/* Contenido superpuesto */
+.overlay-content {
+    position: absolute; /* Superposición absoluta sobre el video */
+    top: 25%; /* Centrado verticalmente */
+    left: 55%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el contenido para centrarlo */
+    text-align: left; /* Alinea el texto hacia la izquierda */
+}
+
+.overlay-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.overlay-content .btn {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.servicios {
+    background-image: url('fondo.jpg');
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+}

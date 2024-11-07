@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LeganesCustomsBlazor.bundle.scp.css",
+      "PackagePath": "staticwebassets\\LeganesCustomsBlazor.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\Logo4.png",
+      "PackagePath": "staticwebassets\\Logo4.png"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\videoRWB.mp4",
+      "PackagePath": "staticwebassets\\videoRWB.mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LeganesCustomsBlazor.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.LeganesCustomsBlazor.props",
+      "PackagePath": "build\\LeganesCustomsBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.LeganesCustomsBlazor.props",
+      "PackagePath": "buildMultiTargeting\\LeganesCustomsBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.LeganesCustomsBlazor.props",
+      "PackagePath": "buildTransitive\\LeganesCustomsBlazor.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
