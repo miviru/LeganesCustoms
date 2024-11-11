@@ -1,6 +1,7 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+    font-family: "Odibee Sans", serif;
+    font-weight: 1800;
+    font-style: normal;}
 
 a, .btn-link {
     color: #006bb7;

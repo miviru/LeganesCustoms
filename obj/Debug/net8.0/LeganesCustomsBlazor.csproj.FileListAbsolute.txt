@@ -217,3 +217,5 @@ F:\LeganesCustomsBlazor\obj\Debug\net8.0\LeganesCustomsBlazor.pdb
 F:\LeganesCustomsBlazor\obj\Debug\net8.0\LeganesCustomsBlazor.genruntimeconfig.cache
 F:\LeganesCustomsBlazor\obj\Debug\net8.0\ref\LeganesCustomsBlazor.dll
 D:\LeganesCustomsBlazor\obj\Debug\net8.0\scopedcss\Components\Pages\Home.razor.rz.scp.css
+D:\LeganesCustomsBlazor\obj\Debug\net8.0\LeganesCustomsBlazor.sourcelink.json
+D:\LeganesCustomsBlazor\obj\Debug\net8.0\scopedcss\Components\Pages\Servicios.razor.rz.scp.css

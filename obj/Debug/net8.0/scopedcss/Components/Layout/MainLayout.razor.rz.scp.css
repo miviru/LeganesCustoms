@@ -2,6 +2,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    background-image: url('fondo.jpg');
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+    color: white;
 }
 
 main[b-6iqxi7duje] {

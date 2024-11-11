@@ -1,0 +1,6 @@
+.servicios[b-a79z8udoei] {
+    background-image: url('fondo2.jpg');
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+}

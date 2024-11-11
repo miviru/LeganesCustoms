@@ -25,6 +25,34 @@
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fondo.jpg",
+      "PackagePath": "staticwebassets\\fondo.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fondo2.jpg",
+      "PackagePath": "staticwebassets\\fondo2.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoDiscos.jpg",
+      "PackagePath": "staticwebassets\\fotoDiscos.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoDistribucion.jpg",
+      "PackagePath": "staticwebassets\\fotoDistribucion.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoEmbrague.jpg",
+      "PackagePath": "staticwebassets\\fotoEmbrague.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoFiltros.jpg",
+      "PackagePath": "staticwebassets\\fotoFiltros.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoRuedas.jpg",
+      "PackagePath": "staticwebassets\\fotoRuedas.jpg"
+    },
+    {
       "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\videoRWB.mp4",
       "PackagePath": "staticwebassets\\videoRWB.mp4"
     },
