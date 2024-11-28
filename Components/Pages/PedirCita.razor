@@ -1,6 +1,9 @@
 @page "/pedircita"
 @rendermode InteractiveServer
 
+@using LeganesCustomsBlazor.Models
+
+
 <PageTitle>Pedir cita</PageTitle>
 
 <div class="container-fluid">
@@ -9,4 +12,135 @@
             <h1>PEDIR CITA</h1>
         </div>
     </div>
+
+    <div>
+        @if (IsConfirmed)
+        {
+        <div class="alert alert-success mt-3">
+            ¡Cita confirmada exitosamente!
+        </div>
+        }
+        else
+        {
+            <div>
+                @if (CurrentStep == 1)
+                {
+                    <PasoDatosVehiculo OnNext="GoToNextStep" Vehiculo="@VehiculoData" />
+                }
+                else if (CurrentStep == 2)
+                {
+                    <PasoServicio OnNext="GoToNextStep" OnPrevious="GoToPreviousStep" SelectedService="@SelectedService" OnServiceChanged="UpdateSelectedService" />
+                }
+                else if (CurrentStep == 3)
+                {
+                    @if (SelectedService != null)
+                    {
+                        <PasoFecha OnNext="GoToNextStep" OnPrevious="GoToPreviousStep" ServiceDuration="@SelectedService.Duracion" />
+                    }
+                    else
+                    {
+                        <p>Por favor, selecciona un servicio primero.</p>
+                    }
+                }
+                else if (CurrentStep == 4)
+                {
+                    <PasoCliente OnNext="GoToNextStep" OnPrevious="GoToPreviousStep" Cliente="@ClientData" />
+                }
+                else if (CurrentStep == 5)
+                {
+                    <PasoResumen 
+                        VehicleData="@VehiculoData" 
+                        SelectedService="@SelectedService" 
+                        SelectedDateTime="@SelectedDateTime" 
+                        ClientData="@ClientData" 
+                        OnPrevious="GoToPreviousStep" 
+                        OnNext="ConfirmAppointment" />
+                }
+            </div>
+            }
+    </div>
 </div>
+
+@code {
+    private int CurrentStep = 1;
+    private bool IsConfirmed = false;
+
+    [Inject] private NavigationManager Navigation { get; set; } = null!;
+
+    private void UpdateSelectedService(Servicio? selectedService)
+    {
+        if (selectedService == null)
+        {
+            throw new ArgumentNullException(nameof(selectedService), "El servicio seleccionado no puede ser nulo.");
+        }
+
+        SelectedService = selectedService;
+        Console.WriteLine($"Servicio seleccionado: {selectedService.Nombre}");
+    }
+
+
+
+    // Step Data Models
+    private Vehiculo VehiculoData = new Vehiculo{
+        Fabricante = new Fabricante
+        {
+            Grupo = new Grupo
+            {
+                Fabricantes = new List<Fabricante>()
+            },
+            Vehiculos = new List<Vehiculo>()
+        },
+        Cliente = new Cliente
+        {
+            Vehiculos = new List<Vehiculo>()
+        },
+        Citas = new List<Cita>(),
+        Modelo = string.Empty,
+        Motorizacion = string.Empty,
+        Motor = string.Empty,
+        Matricula = string.Empty,
+        Fecha_matriculacion = DateTime.Now,
+        Color = "Rojo"
+    };
+    private Servicio SelectedService = new Servicio
+    {
+        Nombre = string.Empty,
+        Precio = 0,
+        Duracion = 0
+    };
+    private DateTime SelectedDateTime;
+private Cliente ClientData = new Cliente
+{
+    Vehiculos = new List<Vehiculo>()
+};
+
+    private void GoToNextStep()
+    {
+        CurrentStep++;
+    }
+
+    private void GoToPreviousStep()
+    {
+        if (CurrentStep > 1)
+        {
+            CurrentStep--;
+        }
+    }
+
+    private async Task ConfirmAppointment()
+    {
+        // Simulación de guardar en la base de datos
+        await GuardarCitaEnBaseDeDatos();
+        IsConfirmed = true;
+
+        Navigation.NavigateTo("/?citaConfirmada=true");
+    }
+
+    // Ejemplo de método para guardar en base de datos
+    private async Task GuardarCitaEnBaseDeDatos()
+    {
+        // Aquí realizarías una llamada real a un servicio o contexto de base de datos
+        await Task.Delay(500); // Simula una operación que toma tiempo
+    }
+
+}

@@ -1,0 +1,140 @@
+@page "/detallesCita/{Id:long}"
+@inject CitaService CitaService
+@inject NavigationManager NavigationManager
+@using LeganesCustomsBlazor.Dtos;
+@using LeganesCustomsBlazor.Services;
+
+<PageTitle>Detalles Cita</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <h3>DETALLES DE LA CITA</h3>
+        </div>
+    </div>
+
+    @if (cita == null)
+    {
+        <p>Cita no encontrada.</p>
+    }
+    else
+    {
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Fecha y Hora</h4>
+                <h5 class="card-title me-5 mt-2">@cita.Fecha.ToString("dd/MM/yyyy") - @cita.Hora</h5>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <!-- Columna de Información Personal -->
+            <div class="col-lg-6">
+                <h4>Información Personal</h4>
+                <table class="table table-bordered text-white">
+                    <tr>
+                        <th>Nombre</th>
+                        <td>@cita.ClienteNombre</td>
+                    </tr>
+                    <tr>
+                        <th>Primer Apellido</th>
+                        <td>@cita.ClienteApellido</td>
+                    </tr>
+                    <tr>
+                        <th>Segundo Apellido</th>
+                        <td>@cita.ClienteApellido2</td>
+                    </tr>
+                    <tr>
+                        <th>DNI</th>
+                        <td>@cita.DNI</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <h4 class="">Vehículo</h4>
+                <a href="@($"/detallesVehiculo/{cita.IdVehiculo}")" class="text-white text-decoration-none ms-2">
+                    @cita.VehiculoDetalles
+                </a> 
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Servicios -->
+            <div class="col-lg-6">
+                <h4>Servicios</h4>
+                @if (cita.Servicios.Any())
+                {
+                    <ul>
+                        @foreach (var servicio in cita.Servicios)
+                        {
+                            <li>@servicio</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No hay servicios asociados.</p>
+                }
+            </div>
+
+            <!-- Piezas -->
+            <div class="col-lg-6">
+                <h4>Piezas</h4>
+                @if (cita.Piezas.Any())
+                {
+                    <ul>
+                        @foreach (var pieza in cita.Piezas)
+                        {
+                            <li>@pieza</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No hay piezas asociadas.</p>
+                }
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Factura -->
+            <div class="col-lg-12">
+                <h4>Factura</h4>
+                @if (!string.IsNullOrEmpty(cita.FacturaNumero))
+                {
+                    <p>Número: @cita.FacturaNumero</p>
+                    <p>Total: @cita.FacturaTotal €</p>
+                }
+                else
+                {
+                    <p>No hay factura asociada.</p>
+                }
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <NavLink class="btn btn-outline-secondary text-white ms-2" href="@($"/editarCita/{cita.Id}")">Editar</NavLink>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public long Id { get; set; }
+
+    private CitaDto? cita;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            cita = await CitaService.GetCitaByIdAsync(Id);
+            Console.WriteLine($"Cita cargada: {cita?.ClienteNombre}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar cita: {ex.Message}");
+        }
+    }
+}

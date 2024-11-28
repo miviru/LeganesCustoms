@@ -1,0 +1,59 @@
+@using LeganesCustomsBlazor.Models
+
+<h4>Datos del Cliente</h4>
+
+<div>
+    <label>Nombre</label>
+    <input type="text" class="form-control" @bind="Cliente.Nombre" />
+
+    <label>Primer Apellido</label>
+    <input type="text" class="form-control" @bind="Cliente.Apellido1" />
+
+    <label>Segundo Apellido</label>
+    <input type="text" class="form-control" @bind="Cliente.Apellido2" />
+
+    <label>DNI</label>
+    <input type="text" class="form-control" @bind="Cliente.DNI" />
+
+    <label>Email</label>
+    <input type="email" class="form-control" @bind="Cliente.Email" />
+
+    <label>Teléfono</label>
+    <input type="tel" class="form-control" @bind="Cliente.Telefono" />
+
+    <label>Dirección</label>
+    <input type="text" class="form-control" @bind="Cliente.Direccion" />
+
+    <button class="btn btn-primary mt-3" @onclick="NextStep">Siguiente</button>
+    <button class="btn btn-secondary mt-3 ms-2" @onclick="PreviousStep">Anterior</button>
+</div>
+
+@code {
+    [Parameter] public EventCallback OnNext { get; set; }
+    [Parameter] public EventCallback OnPrevious { get; set; }
+    [Parameter] public Cliente Cliente { get; set; } = null!;
+
+    private Cliente ClientData = new Cliente
+    {
+        Vehiculos = new List<Vehiculo>() // Inicialización como lista vacía
+    };
+
+        protected override void OnInitialized()
+    {
+        if (Cliente == null)
+        {
+            throw new InvalidOperationException("El parámetro 'Cliente' es obligatorio y no puede ser nulo.");
+        }
+    }
+
+    private async Task NextStep()
+    {
+        // Validaciones y lógica de paso
+        await OnNext.InvokeAsync();
+    }
+
+    private async Task PreviousStep()
+    {
+        await OnPrevious.InvokeAsync();
+    }
+}

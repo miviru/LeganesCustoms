@@ -1,0 +1,78 @@
+@namespace LeganesCustomsBlazor.Components.Pages
+
+@using LeganesCustomsBlazor.Models
+
+<h4>Selecciona el Servicio</h4>
+<div>
+    <label for="service-select">Servicio</label>
+    <select id="service-select" class="form-select" @onchange="OnServiceSelected">
+        <option value="">-- Selecciona un servicio --</option>
+        @foreach (var service in Services)
+        {
+            <option value="@service.Id">@service.Nombre</option>
+        }
+    </select>
+
+    <label for="price-input">Precio</label>
+    <input id="price-input" type="text" class="form-control" value="@SelectedService?.Precio.ToString("C")" readonly />
+
+    <label for="duration-input">Duración (horas)</label>
+    <input id="duration-input" type="text" class="form-control" value="@SelectedService?.Duracion.ToString()" readonly />
+
+    <button class="btn btn-primary mt-3" @onclick="NextStep" disabled="@(SelectedService == null)">Siguiente</button>
+    <button class="btn btn-secondary mt-3 ms-2" @onclick="PreviousStep">Anterior</button>
+</div>
+
+@code {
+    [Parameter] public EventCallback OnNext { get; set; }
+    [Parameter] public EventCallback OnPrevious { get; set; }
+    [Parameter] public Servicio? SelectedService { get; set; }
+    [Parameter] public EventCallback<Servicio?> OnServiceChanged { get; set; }
+
+    private void OnServiceSelected(ChangeEventArgs e)
+    {
+        if (long.TryParse(e.Value?.ToString(), out var selectedId))
+        {
+            SelectedService = Services.FirstOrDefault(s => s.Id == selectedId);
+
+            // Notificar al componente padre sobre el cambio
+            OnServiceChanged.InvokeAsync(SelectedService);
+        }
+    }
+
+
+private List<Servicio> Services = new()
+{
+    new Servicio { Id = 1, Nombre = "Revisión", Duracion = 1, Precio = 100 },
+    new Servicio { Id = 2, Nombre = "Distribución", Duracion = 2, Precio = 250 },
+    new Servicio { Id = 3, Nombre = "Cambio de Discos", Duracion = 0.5m, Precio = 100 },
+    new Servicio { Id = 4, Nombre = "Cambio de Pastillas", Duracion = 0.5m, Precio = 50 },
+    new Servicio { Id = 5, Nombre = "Cambio de Ruedas", Duracion = 2.5m, Precio = 350 },
+    new Servicio { Id = 6, Nombre = "Cambio de Embrague", Duracion = 3, Precio = 500 }
+};
+
+    private async Task NextStep()
+    {
+        if (SelectedService != null)
+        {
+            await OnNext.InvokeAsync();
+        }
+    }
+
+    private async Task PreviousStep()
+    {
+        await OnPrevious.InvokeAsync();
+    }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        Console.WriteLine("Parámetros recibidos en PasoServicio:");
+        foreach (var parameter in parameters)
+        {
+            Console.WriteLine($"Nombre: {parameter.Name}, Valor: {parameter.Value}");
+        }
+
+        return base.SetParametersAsync(parameters);
+    }
+
+}

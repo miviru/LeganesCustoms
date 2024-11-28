@@ -1,0 +1,33 @@
+@page "/editarCita/{Id:long}"
+@inject CitaService CitaService
+@inject NavigationManager NavigationManager
+@using LeganesCustomsBlazor.Models;
+@using LeganesCustomsBlazor.Dtos;
+@using LeganesCustomsBlazor.Services;
+
+<PageTitle>Editar Cita</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <h3>EDITAR CITA</h3>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <!-- Aquí va el formulario o el contenido relacionado -->
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public long Id { get; set; } // Define el parámetro 'Id'
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Aquí puedes usar 'Id' para cargar los datos de la cita
+        Console.WriteLine($"Cargando cita con Id: {Id}");
+        await base.OnInitializedAsync();
+    }
+}

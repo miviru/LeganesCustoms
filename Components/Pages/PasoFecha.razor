@@ -1,0 +1,106 @@
+@using LeganesCustomsBlazor.Models
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Selecciona Fecha y Hora</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="date-select">Fecha</label>
+            <SfCalendar TValue="DateTime" @bind-Value="SelectedDate" CssClass="form-control sf-calendar" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="time-select">Hora</label>
+            <select id="time-select" class="form-select" @bind="SelectedTime">
+                <option value="">-- Selecciona una hora --</option>
+                @foreach (var time in AvailableHours)
+                {
+                    <option value="@time">@time</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary mt-3" @onclick="NextStep" disabled="@string.IsNullOrEmpty(SelectedTime)">Siguiente</button>
+            <button class="btn btn-secondary mt-3 ms-2" @onclick="PreviousStep">Anterior</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback OnNext { get; set; }
+    [Parameter] public EventCallback OnPrevious { get; set; }
+    [Parameter] public decimal ServiceDuration { get; set; }
+
+    private DateTime _selectedDate = DateTime.Today;
+    public DateTime SelectedDate
+    {
+        get => _selectedDate;
+        set
+        {
+            _selectedDate = value;
+            UpdateAvailableHours();
+        }
+    }
+
+    private string? SelectedTime;
+    private List<string> AvailableHours = new();
+
+    private Dictionary<DateTime, List<string>> Schedule = new()
+    {
+        { DateTime.Today.AddDays(1), new List<string> { "09:00", "10:00", "11:00", "14:00", "15:00" } },
+        { DateTime.Today.AddDays(2), new List<string> { "09:00", "10:00", "12:00", "15:00" } }
+    };
+
+    protected override void OnInitialized()
+    {
+        SelectedDate = DateTime.Today; // Valor predeterminado
+        base.OnInitialized();
+    }
+
+    private void UpdateAvailableHours()
+    {
+        if (Schedule.ContainsKey(SelectedDate.Date)) // Verifica si hay horarios para la fecha seleccionada
+        {
+            AvailableHours = Schedule[SelectedDate.Date]
+                .Where(time => CanFitService(time, ServiceDuration))
+                .ToList();
+        }
+        else
+        {
+            AvailableHours.Clear(); // Limpia las horas disponibles si no hay horarios para la fecha
+        }
+    }
+
+
+    private bool CanFitService(string startTime, decimal duration)
+    {
+        var start = DateTime.ParseExact(startTime, "HH:mm", null);
+        var end = start.AddHours((double)duration);
+
+        // Comprueba que el servicio cabe dentro del horario permitido
+        return end.TimeOfDay <= new TimeSpan(17, 0, 0);
+    }
+
+    private async Task NextStep()
+    {
+        if (!string.IsNullOrEmpty(SelectedTime))
+        {
+            await OnNext.InvokeAsync();
+        }
+    }
+
+    private async Task PreviousStep()
+    {
+        await OnPrevious.InvokeAsync();
+    }
+}
+
