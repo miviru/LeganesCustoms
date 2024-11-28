@@ -1,0 +1,162 @@
+@page "/editarFactura/{Id:long}"
+@inject FacturaService FacturaService
+@inject NavigationManager NavigationManager
+@using LeganesCustomsBlazor.Models;
+@using LeganesCustomsBlazor.Dtos;
+@using LeganesCustomsBlazor.Services;
+
+<PageTitle>Editar Factura</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <h3>EDITAR FACTURA</h3>
+        </div>
+    </div>
+
+    @if (factura == null)
+    {
+        <p>Cargando datos de la factura...</p>
+    }
+    else
+    {
+        <div class="row">
+            <EditForm Model="@factura" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group mt-3">
+                    <label for="piezas" class="form-label">Piezas:</label>
+                    <div>
+                        @foreach (var pieza in factura.Piezas)
+                        {
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card mb-3 p-3" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
+                                    <div class="form-group">
+                                        <label>Nombre de la Pieza:</label>
+                                        <InputSelect class="form-control" @bind-Value="pieza.Nombre">
+                                            @foreach (var opcionPieza in listaPiezas)
+                                            {
+                                                <option value="@opcionPieza.Nombre">@opcionPieza.Nombre</option>
+                                            }
+                                        </InputSelect>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label>Cantidad:</label>
+                                        <InputNumber class="form-control" @bind-Value="pieza.Cantidad" placeholder="Cantidad" />
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label>Precio Unitario:</label>
+                                        <InputNumber class="form-control" @bind-Value="pieza.PrecioUnitario" placeholder="Precio unitario" readonly/>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button class="btn btn-outline-danger" @onclick="() => EliminarPieza(pieza)">Eliminar</button>
+                                        <button class="btn btn-outline-light">Editar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <button class="btn btn-primary" @onclick="AgregarNuevaPieza">Agregar Nueva Pieza</button>
+                </div>
+
+
+                <div class="form-group mt-3">
+                    <label for="precio" class="form-label">Precio:</label>
+                    <div class="col-md-5">
+                        <InputNumber  id="precio" class="form-control" @bind-Value="factura.Precio" readonly/>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="descuento" class="form-label">Descuento:</label>
+                    <div class="col-md-5">
+                        <InputNumber  id="descuento" class="form-control" @bind-Value="factura.Descuento" />
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="total" class="form-label">Total:</label>
+                    <div class="col-md-1 bg-white">
+                        <p class="form-control-plaintext text-center">@factura.Total €</p>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-outline-success text-white">Guardar Cambios</button>
+                    <NavLink class="btn btn-outline-secondary ms-2 text-white" href="/factura">Cancelar</NavLink>
+                </div>
+            </EditForm>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public long Id { get; set; } // Parámetro recibido desde la URL
+
+    private FacturaDto? factura;
+    private List<PiezaDto> listaPiezas = new();
+    private EditContext? editContext;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            factura = await FacturaService.GetFacturaByIdAsync(Id);
+            if (factura != null)
+            {
+                editContext = new EditContext(factura);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar factura: {ex.Message}");
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {        
+        factura = await FacturaService.GetFacturaByIdAsync(Id);
+        if (factura == null)
+        {
+            Console.WriteLine("Error: La factura no está inicializada.");
+            return;
+        }
+
+        try
+        {
+            await FacturaService.UpdateFacturaAsync(Id, factura);
+            Console.WriteLine("Factura actualizada con éxito.");
+            NavigationManager.NavigateTo("/factura");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al actualizar factura: {ex.Message}");
+        }
+    }
+
+    private void EliminarPieza(PiezaDto pieza)
+    {
+        if (factura?.Piezas != null)
+        {
+            factura.Piezas.Remove(pieza);
+        }
+    }
+
+    private void AgregarNuevaPieza()
+    {
+        if (factura?.Piezas == null)
+        {
+            factura!.Piezas = new List<PiezaDto>();
+        }
+        factura.Piezas.Add(new PiezaDto
+        {
+            Nombre = string.Empty,
+            Cantidad = 1,
+            PrecioUnitario = 0
+        });
+    }
+}

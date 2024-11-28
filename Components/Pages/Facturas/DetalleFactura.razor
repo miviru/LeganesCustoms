@@ -1,0 +1,203 @@
+@page "/detallesFactura/{Id:long}"
+@inject FacturaService FacturaService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@using LeganesCustomsBlazor.Dtos;
+@using LeganesCustomsBlazor.Services;
+@using QuestPDF.Fluent;
+@using QuestPDF.Infrastructure;
+@inject PdfService PdfService
+
+
+
+<PageTitle>Detalles Factura</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <h3>DETALLES DE LA FACTURA</h3>
+        </div>
+    </div>
+
+    @if (factura == null)
+    {
+        <p>Factura no encontrada.</p>
+    }
+    else
+    {
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <button class="btn btn-outline-danger" @onclick="() => GeneratePdf(factura)">Generar PDF</button>
+            </div>
+        </div>
+        <!-- Cita Relacionada -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Cita Relacionada</h4>
+                @if (factura.Cita != null)
+                {
+                    <table class="table table-bordered text-white">
+                        <tr>
+                            <th>Fecha</th>
+                            <td>@factura.Cita.Fecha.ToShortDateString()</td>
+                        </tr>
+                        <tr>
+                            <th>Hora</th>
+                            <td>@factura.Cita.Hora</td>
+                        </tr>
+                    </table>
+                }
+                else
+                {
+                    <p>No hay cita asociada a esta factura.</p>
+                }
+            </div>
+        </div>
+
+        <!-- Servicios Realizados -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Servicios Realizados</h4>
+                @if (factura.Servicios.Any())
+                {
+                    <table class="table table-bordered text-white">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var servicio in factura.Servicios)
+                            {
+                                <tr>
+                                    <td>@servicio.Nombre</td>
+                                    <td>@servicio.Precio €</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>No hay servicios asociados.</p>
+                }
+            </div>
+        </div>
+
+        <!-- Piezas -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Piezas Utilizadas</h4>
+                @if (factura.Piezas.Any())
+                {
+                    <table class="table table-bordered text-white">
+                        <thead>
+                            <tr><th>Nombre</th><th>Cantidad</th><th>Precio Unitario</th><th>Subtotal</th></tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var pieza in factura.Piezas)
+                            {
+                                <tr>
+                                    <td>@pieza.Nombre</td>
+                                    <td>@pieza.Cantidad</td>
+                                    <td>@pieza.PrecioUnitario €</td>
+                                    <td>@(pieza.Cantidad * pieza.PrecioUnitario) €</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>No hay piezas utilizadas.</p>
+                }
+            </div>
+        </div>
+
+        <!-- Información del Cliente -->
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <h4>Información del Cliente</h4>
+                <table class="table table-bordered text-white">
+                    <tr><th>Nombre</th><td>@factura.ClienteNombre</td></tr>
+                    <tr><th>Primer Apellido</th><td>@factura.Apellido1</td></tr>
+                    <tr><th>Segundo Apellido</th><td>@factura.Apellido2</td></tr>
+                    <tr><th>DNI</th><td>@factura.DNI</td></tr>
+                    <tr><th>Email</th><td>@factura.Email</td></tr>
+                    <tr><th>Dirección</th><td>@factura.Direccion</td></tr>
+                </table>
+            </div>
+
+            <!-- Información del Vehículo -->
+            <div class="col-lg-6">
+                <h4>Vehículo Asociado</h4>
+                @if (factura.Vehiculo != null)
+                {
+                    <div class="card me-3" style="width: 18rem; margin-top: 10px; background-image: url('/fondo2.jpg'); background-size: cover; background-position: center; color: white;">
+                        <img src="@factura.Vehiculo.FotoUrl" class="card-img-top" alt="Imagen del Vehículo" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">@factura.Vehiculo.Fabricante - @factura.Vehiculo.Modelo</h5>
+                            <p><strong>Matrícula:</strong> @factura.Vehiculo.Matricula</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p>No hay vehículo asociado.</p>
+                }
+            </div>
+        </div>
+
+        <!-- Información de la Factura -->
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Información de la Factura</h4>
+                <table class="table table-bordered text-white">
+                    <tr><th>Precio</th><td>@factura.Precio €</td></tr>
+                    <tr><th>Descuento</th><td>@factura.Descuento €</td></tr>
+                    <tr><th>Total</th><td>@factura.Total €</td></tr>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public long Id { get; set; }
+
+    private FacturaDto? factura;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            factura = await FacturaService.GetFacturaByIdAsync(Id);
+
+            if (factura == null)
+            {
+                Console.WriteLine($"No se encontró la factura con ID: {Id}");
+            }
+            else
+            {
+                Console.WriteLine($"Factura cargada: {factura.Id}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar factura: {ex.Message}");
+        }
+    }
+    private async Task GeneratePdf(FacturaDto factura)
+    {
+        try
+        {
+            await PdfService.GenerateAndDownloadPdf(factura);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al generar PDF: {ex.Message}");
+        }
+    }
+}
