@@ -1,5 +1,54 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+
 <PageTitle>Home</PageTitle>
+
+<div class="container">
+    @if (ShowConfirmationMessage)
+    {
+        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmationModalLabel">Cita Confirmada</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Tu cita ha sido confirmada exitosamente. Te esperamos en nuestro taller.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private bool ShowConfirmationMessage = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = new Uri(NavigationManager.Uri);
+        var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+
+        if (query.ContainsKey("citaConfirmada") && query["citaConfirmada"] == "true")
+        {
+            ShowConfirmationMessage = true;
+
+            // Mostrar el modal
+            await ShowConfirmationModalAsync();
+        }
+    }
+
+    private async Task ShowConfirmationModalAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("bootstrapModal", "#confirmationModal");
+    }
+}
 
 <div class="container-fluid">
     <div class="row video-container">
