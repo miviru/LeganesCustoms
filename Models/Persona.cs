@@ -1,6 +1,5 @@
+using System.ComponentModel.DataAnnotations;
 
-using System;
-using System.Collections.Generic;
 
 namespace LeganesCustomsBlazor.Models;
 
@@ -8,12 +7,23 @@ public class Persona
 {
     public long Id { get; set; } // Clave primaria
 
-    public string? Nombre { get; set; } 
-    public string? Apellido1 { get; set; }
-    public string? Apellido2 { get; set; } 
-    public string? DNI { get; set; } 
+    [Required(ErrorMessage = "El nombre es obligatorio.")]
+    public string Nombre { get; set; } = string.Empty;
 
-    public string? Email { get; set; } 
-    public string? Telefono { get; set; } 
-    public string? Direccion { get; set; } 
+    [Required(ErrorMessage = "El primer apellido es obligatorio.")]
+    public string Apellido1 { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "El segundo apellido es obligatorio.")]
+    public string Apellido2 { get; set; } = string.Empty; 
+
+    [Required(ErrorMessage = "El DNI es obligatorio.")]
+    public string DNI { get; set; } = string.Empty;
+    
+    [Required(ErrorMessage = "El email es obligatorio.")]
+    public string Email { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "El telefono es obligatorio.")] 
+    public string Telefono { get; set; } = string.Empty;
+    
+    public string? Direccion { get; set; }
 }

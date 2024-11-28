@@ -10,4 +10,6 @@ public class Pago
     public MetodoPago Metodo_Pago { get; set; }
     public decimal Importe { get; set; }
    
+    // Relación 1:1 con Factura
+    public virtual Factura? Factura { get; set; }
 }

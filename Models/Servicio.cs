@@ -11,7 +11,9 @@ public class Servicio
     public int Precio { get; set; }
     public decimal Duracion { get; set; }
 
-    // Relacion 1:N con citas
-    public required List<Cita> Citas { get; set; }
-        
+    // Relacion N:M con citas
+    public virtual ICollection<CitaServicio> CitaServicios { get; set; } = new List<CitaServicio>();
+
+    // Relación N:M con Facturas
+    public virtual ICollection<FacturaServicio> FacturaServicios { get; set; } = new List<FacturaServicio>();
 }

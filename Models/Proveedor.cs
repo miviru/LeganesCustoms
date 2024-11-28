@@ -10,7 +10,6 @@ public class Proveedor
     public string? Nombre { get; set; }
     public string? CIF { get; set; }
 
-    // Relacion 1:N con piezas
-    public required List<Pieza> Piezas { get; set; }
-   
+    // Relación con Piezas a través de PiezaProveedor
+    public virtual ICollection<PiezaProveedor> PiezaProveedores { get; set; } = new List<PiezaProveedor>();   
 }
