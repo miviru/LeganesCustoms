@@ -1,24 +1,13 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+@using LeganesCustomsBlazor.Components.Layout
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="app.css" />
-    <link rel="stylesheet" href="LeganesCustomsBlazor.styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="Logo4.png" />
-    <HeadOutlet />
-</head>
+@namespace LeganesCustomsBlazor.Components
 
-<body>
-    <Routes />
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="_framework/blazor.web.js"></script>
-</body>
-
-</html>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <h1>Page not found</h1>
+    </NotFound>
+</Router>

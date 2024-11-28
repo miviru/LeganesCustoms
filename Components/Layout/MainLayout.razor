@@ -1,19 +1,61 @@
 ﻿@inherits LayoutComponentBase
+@namespace LeganesCustomsBlazor.Components.Layout
 
-<div class="page">
-    <div class="nav-header">
-        <NavMenu />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+
+    <!-- App Custom CSS -->
+    <link rel="stylesheet" href="/app.css" />
+    <link href="/LeganesCustomsBlazor.styles.css" rel="stylesheet" />
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+
+    <title>LeganesCustomsBlazor</title>
+</head>
+
+
+<body>
+    <div class="page">
+        <div class="nav-header">
+            <NavMenu />
+        </div>
+
+        <main class="content">
+            <article class="px-4">
+                @Body
+            </article>
+        </main>
     </div>
 
-    <main class="content">
-        <article class="px-4">
-            @Body
-        </article>
-    </main>
-</div>
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+</body>
+
+<script>
+    function saveAsFile(fileName, byteBase64) {
+        const link = document.createElement('a');
+        link.download = fileName;
+        link.href = "data:application/pdf;base64," + byteBase64;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+</html>
