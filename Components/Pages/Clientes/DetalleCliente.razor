@@ -1,0 +1,144 @@
+@page "/detallesCliente/{Id:long}"
+@inject ClienteService ClienteService
+@inject NavigationManager NavigationManager
+@using LeganesCustomsBlazor.Dtos;
+
+<PageTitle>Detalles Cliente</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <h3>DETALLES DEL CLIENTE</h3>
+        </div>
+    </div>
+
+    @if (cliente == null)
+    {
+        <p>Cliente no encontrado.</p>
+    }
+    else
+    {
+        <div class="row mt-4">
+            <!-- Columna de Información Personal -->
+            <div class="col-lg-6">
+                <h4>Información Personal</h4>
+                <table class="table table-bordered text-white">
+                    <tr>
+                        <th>Nombre</th>
+                        <td>@cliente.Nombre</td>
+                    </tr>
+                    <tr>
+                        <th>Primer Apellido</th>
+                        <td>@cliente.Apellido1</td>
+                    </tr>
+                    <tr>
+                        <th>Segundo Apellido</th>
+                        <td>@cliente.Apellido2</td>
+                    </tr>
+                    <tr>
+                        <th>DNI</th>
+                        <td>@cliente.DNI</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>@cliente.Email</td>
+                    </tr>
+                </table>
+
+                <!-- Vehículos debajo de la tabla -->
+                <h4 class="mt-4">Vehículos</h4>
+                @if (cliente.Vehiculos != null && cliente.Vehiculos.Any())
+                {
+                    <div class="d-flex flex-wrap">
+                        @foreach (var vehiculo in cliente.Vehiculos)
+                        {
+                            <div class="card me-3" style="width: 18rem; margin-top: 10px; background-image: url('/fondo2.jpg'); background-size: cover; background-position: center; color: white;">
+                                <img src="@vehiculo.FotoUrl" class="card-img-top" alt="Imagen del Vehículo" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@vehiculo.Fabricante - @vehiculo.Modelo</h5>
+                                    <div class="card-text bg-white text-black col-lg-4 text-center">
+                                        @vehiculo.Matricula
+                                    </div>
+                                    <NavLink class="btn btn-outline-warning text-white mt-4" href="@($"/detallesVehiculo/{vehiculo.Id_Vehiculo}")">
+                                        Ver Detalles
+                                    </NavLink>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p>No hay vehículos asociados.</p>
+                }
+            </div>
+
+            <!-- Columna de Citas y Facturas -->
+            <div class="col-lg-6">
+                <div class="row">
+                    <!-- Citas -->
+                    <div class="col-lg-12 mt-3">
+                        <h4>Citas</h4>
+                        @if (cliente.Citas != null && cliente.Citas.Any())
+                        {
+                            <ul>
+                                @foreach (var cita in cliente.Citas)
+                                {
+                                    <li>Fecha: @cita.Fecha.ToShortDateString()</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>No hay citas asociadas.</p>
+                        }
+                    </div>
+
+                    <!-- Facturas -->
+                    <div class="col-lg-12 mt-3">
+                        <h4>Facturas</h4>
+                        @if (cliente.Facturas != null && cliente.Facturas.Any())
+                        {
+                            <ul>
+                                @foreach (var factura in cliente.Facturas)
+                                {
+                                    <li>Total: @factura.Total €</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>No hay facturas asociadas.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <NavLink class="btn btn-outline-secondary text-white ms-2" href="@($"/editarCliente/{cliente.Id_Cliente}")">Editar</NavLink>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public long Id { get; set; }
+
+    private ClienteDto? cliente;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            cliente = await ClienteService.GetClienteByIdAsync(Id);
+            Console.WriteLine($"Cliente cargado: {cliente?.Nombre}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar cliente: {ex.Message}");
+        }
+    }
+}

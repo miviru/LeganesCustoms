@@ -1,0 +1,85 @@
+@page "/crearCliente"
+@inject ClienteService ClienteService
+@using LeganesCustomsBlazor.Models;
+
+<PageTitle>Crear Clientes</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <h3>CREAR CLIENTES</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <EditForm Model="@cliente" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="name" class="form-label">Nombre:</label>
+                <div class="col-md-5">
+                    <InputText id="name" class="form-control" @bind-Value="cliente.Nombre" />
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="apellido1" class="form-label">Primer apellido:</label>
+                <div class="col-md-5">
+                    <InputText id="apellido1" class="form-control" @bind-Value="cliente.Apellido1" />
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="apellido2" class="form-label">Segundo apellido:</label>
+                <div class="col-md-5">
+                    <InputText id="apellido2" class="form-control" @bind-Value="cliente.Apellido2" />
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="dni" class="form-label">DNI:</label>
+                <div class="col-md-5">
+                    <InputText id="dni" class="form-control" @bind-Value="cliente.DNI" />
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="email" class="form-label">Email:</label>
+                <div class="col-md-5">
+                    <InputText id="email" class="form-control" @bind-Value="cliente.Email" />
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="telefono" class="form-label">Telefono:</label>
+                <div class="col-md-5">
+                    <InputText id="telefono" class="form-control" @bind-Value="cliente.Telefono" />
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="direccion" class="form-label">Dirección:</label>
+                <div class="col-md-5">
+                    <InputText id="direccion" class="form-control" @bind-Value="cliente.Direccion" />
+                </div>
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Crear Cliente</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private Cliente cliente = new Cliente();
+
+    private async Task HandleValidSubmit()
+    {
+        Console.WriteLine($"Cliente creado: {cliente.Nombre} {cliente.Apellido1}");
+        try
+        {
+            // Llama al servicio para crear el cliente
+            await ClienteService.CrearClienteAsync(cliente);
+            Console.WriteLine("Cliente creado con éxito.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al crear cliente: {ex.Message}");
+        }
+    }
+}
