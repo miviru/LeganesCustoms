@@ -1,0 +1,99 @@
+@page "/vehiculo"
+@inject VehiculoService VehiculoService
+@inject NavigationManager NavigationManager
+@using LeganesCustomsBlazor.Models;
+@using LeganesCustomsBlazor.Dtos;
+
+<PageTitle>Vehiculos</PageTitle>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 mb-4 mt-3">
+            <h3>VEHICULOS</h3>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <!-- Tarjeta para registrar un nuevo vehiculo -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <NavLink class="btn btn-outline-warning" href="/crearVehiculo">
+                        Registrar vehículo
+                    </NavLink>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Tarjetas para los vehiculos existentes -->
+        @if (vehiculos != null && vehiculos.Any())
+        {
+            @foreach (var vehiculo in vehiculos)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mt-4" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
+                        <div class="card-body d-flex flex-wrap align-items-center">
+                            <h5 class="card-title me-5 mt-2">@vehiculo.Fabricante @vehiculo.Modelo @vehiculo.Matricula</h5>
+                            <NavLink class="btn btn-outline-secondary text-white me-2" href="@($"/detallesVehiculo/{vehiculo.Id_Vehiculo}")">Detalles</NavLink>
+                            <NavLink class="btn btn-outline-light me-2" href="@($"/editarVehiculo/{vehiculo.Id_Vehiculo}")">Editar</NavLink>
+                            <button @onclick="() => DeleteVehiculo(vehiculo.Id_Vehiculo)" class="btn btn-outline-danger">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <p>No hay vehiculos registrados.</p>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<VehiculoDto> vehiculos = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadVehiculosAsync();
+    }
+
+    private async Task LoadVehiculosAsync()
+    {
+        try
+        {
+            var vehiculosModel = await VehiculoService.GetVehiculosAsync();
+            vehiculos = vehiculosModel.Select(v => new VehiculoDto
+            {
+                Id_Vehiculo = v.Id_Vehiculo,
+                Matricula = v.Matricula,
+                Modelo = v.Modelo,
+                Fabricante = v.Fabricante
+            }).ToList();
+
+            Console.WriteLine($"Vehiculos cargados: {vehiculos.Count}");
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar los vehiculos: {ex.Message}");
+        }
+    }
+
+    private async Task DeleteVehiculo(long vehiculoId)
+    {
+        try
+        {
+            await VehiculoService.DeleteVehiculoAsync(vehiculoId);
+            vehiculos = vehiculos.Where(v => v.Id_Vehiculo != vehiculoId).ToList();
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al eliminar el vehiculo: {ex.Message}");
+        }
+    }
+}

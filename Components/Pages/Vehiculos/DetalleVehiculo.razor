@@ -1,0 +1,140 @@
+@page "/detallesVehiculo/{Id:long}"
+@inject VehiculoService VehiculoService
+@inject NavigationManager NavigationManager
+@using LeganesCustomsBlazor.Dtos;
+
+<PageTitle>Detalles Vehiculo</PageTitle>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <h3>DETALLES DEL VEHICULO</h3>
+        </div>
+    </div>
+
+    @if (vehiculo == null)
+    {
+        <p>Vehiculo no encontrado.</p>
+    }
+    else
+    {
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <h4>Información</h4>
+                <table class="table table-bordered text-white">
+                    <tr>
+                        <th>Fabricante</th>
+                        <td>@vehiculo.Fabricante</td>
+                    </tr>
+                    <tr>
+                        <th>Modelo</th>
+                        <td>@vehiculo.Modelo</td>
+                    </tr>
+                    <tr>
+                        <th>Motorización</th>
+                        <td>@vehiculo.Motorizacion</td>
+                    </tr>
+                    <tr>
+                        <th>Motor</th>
+                        <td>@vehiculo.Motor</td>
+                    </tr>
+                    <tr>
+                        <th>Matrícula</th>
+                        <td>@vehiculo.Matricula</td>
+                    </tr>
+                    <tr>
+                        <th>Fecha Matriculación</th>
+                        <td>@vehiculo.Fecha_matriculacion</td>
+                    </tr>
+                    <tr>
+                        <th>Color</th>
+                        <td>@vehiculo.Color</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <h4>Foto del Vehículo</h4>
+                @if (!string.IsNullOrEmpty(vehiculo.FotoUrl))
+                {
+                    <img src="@vehiculo.FotoUrl" alt="Foto del Vehículo" class="img-fluid img-thumbnail" />
+                }
+                else
+                {
+                    <p>Foto no disponible.</p>
+                }
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <h4>Propietario/a</h4>
+                @if (vehiculo.Cliente != null)
+                {
+                    <table class="table table-bordered text-white">
+                        <tr>
+                            <th>Nombre</th>
+                            <td>@vehiculo.Cliente.Nombre @vehiculo.Cliente.Apellido1 @vehiculo.Cliente.Apellido2</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>@vehiculo.Cliente.Email</td>
+                        </tr>
+                        <tr>
+                            <th>Teléfono</th>
+                            <td>@vehiculo.Cliente.Telefono</td>
+                        </tr>
+                    </table>
+                }
+                else
+                {
+                    <p>Información del propietario no disponible.</p>
+                }
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <h4>Citas</h4>
+                @if (vehiculo.Citas != null && vehiculo.Citas.Any())
+                {
+                    <ul>
+                        @foreach (var cita in vehiculo.Citas)
+                        {
+                            <li>Fecha: @cita.Fecha.ToShortDateString()</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No hay citas asociadas.</p>
+                }
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <NavLink class="btn btn-outline-secondary text-white ms-2" href="@($"/editarVehiculo/{vehiculo.Id_Vehiculo}")">Editar</NavLink>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public long Id { get; set; }
+
+    private VehiculoDto? vehiculo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            vehiculo = await VehiculoService.GetVehiculoByIdAsync(Id);
+            Console.WriteLine($"Vehiculo cargado: {vehiculo?.Modelo}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar vehiculo: {ex.Message}");
+        }
+    }
+}
