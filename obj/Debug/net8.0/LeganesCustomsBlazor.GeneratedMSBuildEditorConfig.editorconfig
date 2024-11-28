@@ -22,8 +22,92 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/LeganesCustomsBlazor/Components/Pages/AdminIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbkluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Citas/DetalleCita.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaXRhc1xEZXRhbGxlQ2l0YS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Citas/EditarCita.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaXRhc1xFZGl0YXJDaXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Citas/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaXRhc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/ClientesIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc0luZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Clientes/CrearCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xDcmVhckNsaWVudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Clientes/DetalleCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xEZXRhbGxlQ2xpZW50ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Clientes/EditarClientes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xFZGl0YXJDbGllbnRlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Clientes/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Empleados/CrearEmpleado.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbXBsZWFkb3NcQ3JlYXJFbXBsZWFkby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Empleados/DetalleEmpleado.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbXBsZWFkb3NcRGV0YWxsZUVtcGxlYWRvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Empleados/EditarEmpleado.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbXBsZWFkb3NcRWRpdGFyRW1wbGVhZG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Empleados/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbXBsZWFkb3NcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/LeganesCustomsBlazor/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Facturas/DetalleFactura.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGYWN0dXJhc1xEZXRhbGxlRmFjdHVyYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Facturas/EditarFactura.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGYWN0dXJhc1xFZGl0YXJGYWN0dXJhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Facturas/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGYWN0dXJhc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/MecanicoIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZWNhbmljb0luZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/PasoCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXNvQ2xpZW50ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/PasoDatosVehiculo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXNvRGF0b3NWZWhpY3Vsby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/PasoResumen.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXNvUmVzdW1lbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/PasoServicio.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXNvU2VydmljaW8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/LeganesCustomsBlazor/Components/Pages/PedirCita.razor]
@@ -32,6 +116,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/LeganesCustomsBlazor/Components/Pages/Performance.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXJmb3JtYW5jZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Recepcionista.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNlcGNpb25pc3RhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Vehiculos/CrearVehiculo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZWhpY3Vsb3NcQ3JlYXJWZWhpY3Vsby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Vehiculos/DetalleVehiculo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZWhpY3Vsb3NcRGV0YWxsZVZlaGljdWxvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Vehiculos/EditarVehiculo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZWhpY3Vsb3NcRWRpdGFyVmVoaWN1bG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/LeganesCustomsBlazor/Components/Pages/Vehiculos/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZWhpY3Vsb3NcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/LeganesCustomsBlazor/Components/Routes.razor]
@@ -53,6 +157,10 @@ build_metadata.AdditionalFiles.CssScope = b-yfc7q3nt01
 [D:/LeganesCustomsBlazor/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-kiot8z1fjx
+
+[D:/LeganesCustomsBlazor/Components/Pages/PasoFecha.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXNvRmVjaGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-uhs8a41mlu
 
 [D:/LeganesCustomsBlazor/Components/Pages/Servicios.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZXJ2aWNpb3MucmF6b3I=

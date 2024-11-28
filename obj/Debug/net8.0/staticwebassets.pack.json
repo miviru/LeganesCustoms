@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\LeganesCustomsBlazor.bundle.scp.css"
     },
     {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\Corolla.png",
+      "PackagePath": "staticwebassets\\Corolla.png"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\Focus.png",
+      "PackagePath": "staticwebassets\\Focus.png"
+    },
+    {
       "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\Logo4.png",
       "PackagePath": "staticwebassets\\Logo4.png"
     },
@@ -51,6 +59,18 @@
     {
       "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoRuedas.jpg",
       "PackagePath": "staticwebassets\\fotoRuedas.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\mclarenRotativo.jpg",
+      "PackagePath": "staticwebassets\\mclarenRotativo.jpg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\rx7.jpeg",
+      "PackagePath": "staticwebassets\\rx7.jpeg"
+    },
+    {
+      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\supraV10.jpg",
+      "PackagePath": "staticwebassets\\supraV10.jpg"
     },
     {
       "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\videoRWB.mp4",
