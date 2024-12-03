@@ -42,6 +42,18 @@
                         <th>Email</th>
                         <td>@empleado.Email</td>
                     </tr>
+                    <tr>
+                        <th>Dirección</th>
+                        <td>@empleado.Direccion</td>
+                    </tr>
+                    <tr>
+                        <th>Puesto</th>
+                        <td>@empleado.Puesto</td>
+                    </tr>
+                    <tr>
+                        <th>Sueldo</th>
+                        <td>@empleado.Sueldo</td>
+                    </tr>
                 </table>
             </div>
         </div>
@@ -81,6 +93,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine($"Id recibido: {Id}");
         try
         {
             empleado = await EmpleadoService.GetEmpleadoByIdAsync(Id);

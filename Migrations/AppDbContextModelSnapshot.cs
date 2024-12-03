@@ -322,7 +322,7 @@ namespace LeganesCustomsBlazor.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persona", (string)null);
+                    b.ToTable("Personas", (string)null);
 
                     b.UseTptMappingStrategy();
                 });
@@ -471,9 +471,12 @@ namespace LeganesCustomsBlazor.Migrations
                     b.HasBaseType("LeganesCustomsBlazor.Models.Persona");
 
                     b.Property<long>("Id_Cliente")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.ToTable("Cliente", (string)null);
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id_Cliente"));
+
+                    b.ToTable("Clientes", (string)null);
                 });
 
             modelBuilder.Entity("LeganesCustomsBlazor.Models.Empleado", b =>
@@ -481,15 +484,19 @@ namespace LeganesCustomsBlazor.Migrations
                     b.HasBaseType("LeganesCustomsBlazor.Models.Persona");
 
                     b.Property<long>("Id_Empleado")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id_Empleado"));
+
                     b.Property<string>("Puesto")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Sueldo")
                         .HasColumnType("integer");
 
-                    b.ToTable("Empleado", (string)null);
+                    b.ToTable("Empleados", (string)null);
                 });
 
             modelBuilder.Entity("LeganesCustomsBlazor.Models.Cita", b =>

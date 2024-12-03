@@ -1,79 +1,79 @@
 {
   "Files": [
     {
-      "Id": "D:\\LeganesCustomsBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LeganesCustomsBlazor.bundle.scp.css",
+      "Id": "F:\\LeganesCustomsBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LeganesCustomsBlazor.bundle.scp.css",
       "PackagePath": "staticwebassets\\LeganesCustomsBlazor.bundle.scp.css"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\Corolla.png",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\Corolla.png",
       "PackagePath": "staticwebassets\\Corolla.png"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\Focus.png",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\Focus.png",
       "PackagePath": "staticwebassets\\Focus.png"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\Logo4.png",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\Logo4.png",
       "PackagePath": "staticwebassets\\Logo4.png"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\app.css",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\css\\bootstrap.min.css",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\css\\bootstrap.min.css.map",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\bootstrap\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fondo.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\fondo.jpg",
       "PackagePath": "staticwebassets\\fondo.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fondo2.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\fondo2.jpg",
       "PackagePath": "staticwebassets\\fondo2.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoDiscos.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\fotoDiscos.jpg",
       "PackagePath": "staticwebassets\\fotoDiscos.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoDistribucion.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\fotoDistribucion.jpg",
       "PackagePath": "staticwebassets\\fotoDistribucion.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoEmbrague.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\fotoEmbrague.jpg",
       "PackagePath": "staticwebassets\\fotoEmbrague.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoFiltros.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\fotoFiltros.jpg",
       "PackagePath": "staticwebassets\\fotoFiltros.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\fotoRuedas.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\fotoRuedas.jpg",
       "PackagePath": "staticwebassets\\fotoRuedas.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\mclarenRotativo.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\mclarenRotativo.jpg",
       "PackagePath": "staticwebassets\\mclarenRotativo.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\rx7.jpeg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\rx7.jpeg",
       "PackagePath": "staticwebassets\\rx7.jpeg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\supraV10.jpg",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\supraV10.jpg",
       "PackagePath": "staticwebassets\\supraV10.jpg"
     },
     {
-      "Id": "D:\\LeganesCustomsBlazor\\wwwroot\\videoRWB.mp4",
+      "Id": "F:\\LeganesCustomsBlazor\\wwwroot\\videoRWB.mp4",
       "PackagePath": "staticwebassets\\videoRWB.mp4"
     },
     {

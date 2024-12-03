@@ -5,6 +5,7 @@ namespace LeganesCustomsBlazor.Models;
 
 public class Persona 
 {
+    [Key]
     public long Id { get; set; } // Clave primaria
 
     [Required(ErrorMessage = "El nombre es obligatorio.")]

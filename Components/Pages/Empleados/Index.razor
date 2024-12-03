@@ -1,6 +1,7 @@
 @page "/empleado"
 @inject EmpleadoService EmpleadoService
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 @using LeganesCustomsBlazor.Models;
 @using LeganesCustomsBlazor.Dtos;
 
@@ -12,7 +13,7 @@
             <h3> EMPLEADOS</h3>
         </div>
     </div>
-
+    
     <div class="row mb-4">
         <!-- Tarjeta para crear un nuevo empleado -->
         <div class="col-12 col-md-6 col-lg-4">
@@ -38,7 +39,10 @@
                             <h5 class="card-title me-5 mt-2">@empleado.Nombre @empleado.Apellido1 @empleado.Apellido2</h5>
                             <NavLink class="btn btn-outline-secondary text-white me-2" href="@($"/detallesEmpleado/{empleado.Id_Empleado}")">Detalles</NavLink>
                             <NavLink class="btn btn-outline-light me-2" href="@($"/editarEmpleado/{empleado.Id_Empleado}")">Editar</NavLink>
-                            <button @onclick="() => DeleteEmpleado(empleado.Id_Empleado)" class="btn btn-outline-danger">Eliminar</button>
+<button @onclick="() => ConfirmAndDelete(empleado.Id_Empleado)" class="btn btn-outline-danger">
+    Eliminar
+</button>
+
                         </div>
                     </div>
                 </div>
@@ -52,6 +56,7 @@
         }
     </div>
 </div>
+
 
 @code {
     private List<EmpleadoDto> empleados = new();
@@ -75,9 +80,42 @@
         NavigationManager.NavigateTo($"/editarEmpleado/{empleadoId}");
     }
 
-    private void DeleteEmpleado(long empleadoId)
+private async Task DeleteEmpleado(long id)
+{
+    try
     {
-        // Lógica para eliminar el empleado
-        Console.WriteLine($"Eliminar empleado con ID: {empleadoId}");
+        Console.WriteLine($"Eliminando empleado con ID: {id}");
+        await EmpleadoService.DeleteEmpleadoAsync(id);
+        Console.WriteLine($"Empleado con ID {id} eliminado del servidor.");
+
+        empleados.Remove(empleados.First(e => e.Id_Empleado == id)); // Actualiza la lista local
+        Console.WriteLine($"Empleado con ID {id} eliminado localmente.");
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error al eliminar el empleado con ID {id}: {ex.Message}");
+    }
+}
+
+
+private async Task ConfirmAndDelete(long id)
+{
+    Console.WriteLine($"Confirmación de eliminación para el empleado con ID: {id}");
+
+    string mensaje = $"¿Estás seguro de que deseas eliminar el empleado con ID {id}?";
+    if (await JSRuntime.InvokeAsync<bool>("confirm", mensaje))
+    {
+        Console.WriteLine($"Usuario confirmó la eliminación del empleado con ID: {id}");
+        await DeleteEmpleado(id);
+    }
+    else
+    {
+        Console.WriteLine("El usuario canceló la eliminación.");
+    }
+}
+private void TestLog()
+{
+    Console.WriteLine("Botón Global Funcionó");
+}
+
 }

@@ -199,6 +199,28 @@ namespace LeganesCustomsBlazor.Data
                 .Property(f => f.VehiculoId)
                 .IsRequired(); // Asegura que VehiculoId no pueda ser nulo
 
+             modelBuilder.Entity<Persona>()
+                .ToTable("Personas");
+
+            modelBuilder.Entity<Cliente>()
+                .ToTable("Clientes")
+                .HasOne<Persona>()
+                .WithOne()
+                .HasForeignKey<Cliente>(c => c.Id); // Relación 1:1 con Persona
+
+            modelBuilder.Entity<Cliente>()
+                .Property(c => c.Id_Cliente)
+                .ValueGeneratedOnAdd(); // Autogenerar Id_Cliente
+
+            modelBuilder.Entity<Empleado>()
+                .ToTable("Empleados")
+                .HasOne<Persona>()
+                .WithOne()
+                .HasForeignKey<Empleado>(e => e.Id); // Relación 1:1 con Persona
+
+            modelBuilder.Entity<Empleado>()
+                .Property(e => e.Id_Empleado)
+                .ValueGeneratedOnAdd(); // Autogenerar Id_Empleado
         }
     }
 }

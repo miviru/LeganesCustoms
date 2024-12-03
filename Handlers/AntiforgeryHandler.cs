@@ -17,16 +17,29 @@ namespace LeganesCustomsBlazor.Handlers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+       protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var token = _antiforgery.GetAndStoreTokens(_httpContextAccessor.HttpContext).RequestToken;
+            var httpContext = _httpContextAccessor.HttpContext;
 
-            if (!string.IsNullOrEmpty(token))
+            if (httpContext == null)
             {
-                request.Headers.Add("RequestVerificationToken", token);
+                Console.WriteLine("HttpContext is null. Cannot add antiforgery token.");
+                throw new InvalidOperationException("No HttpContext available.");
+            }
+
+            var tokens = _antiforgery.GetAndStoreTokens(httpContext);
+
+            if (string.IsNullOrEmpty(tokens.RequestToken))
+            {
+                Console.WriteLine("Antiforgery token is null or empty.");
+            }
+            else
+            {
+                request.Headers.Add("RequestVerificationToken", tokens.RequestToken);
             }
 
             return await base.SendAsync(request, cancellationToken);
         }
+
     }
 }

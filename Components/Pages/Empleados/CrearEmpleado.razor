@@ -2,6 +2,15 @@
 @inject EmpleadoService EmpleadoService
 @using LeganesCustomsBlazor.Models;
 @using LeganesCustomsBlazor.Dtos;
+@using Microsoft.AspNetCore.Antiforgery;
+@using Newtonsoft.Json;
+@using System.Text;
+@inject NavigationManager NavigationManager
+@inject IAntiforgery Antiforgery
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IJSRuntime JSRuntime
+@inject HttpClient HttpClient
+
 
 <PageTitle>Crear Empleados</PageTitle>
 
@@ -15,6 +24,17 @@
     <div class="row">
         <EditForm Model="@empleado" OnValidSubmit="HandleValidSubmit" FormName="CrearEmpleado">
             <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            @if (Antiforgery != null && HttpContextAccessor.HttpContext != null)
+            {
+                var tokens = Antiforgery.GetAndStoreTokens(HttpContextAccessor.HttpContext);
+                <input type="hidden" name="X-XSRF-TOKEN" value="@tokens.RequestToken" />
+            }
+            else
+            {
+                <div class="alert alert-danger">No se pudo generar el token antiforgery.</div>
+            }
 
             <!-- Mostrar mensaje de error -->
             @if (!string.IsNullOrEmpty(errorMessage))
@@ -111,39 +131,112 @@
     };
 
     private string errorMessage = string.Empty;
-    private EditContext editContext;
+    private EditContext editContext = new EditContext(new EmpleadoDto());
+    private bool shouldRedirect = false;
+    private string antiforgeryToken = string.Empty;
+
 
     protected override void OnInitialized()
     {
         editContext = new EditContext(empleado);
+
+        if (HttpContextAccessor.HttpContext == null)
+        {
+            Console.WriteLine("Error: HttpContext no disponible.");
+            antiforgeryToken = string.Empty; // Valor predeterminado
+            return;
+        }
+}
+
+
+private async Task HandleValidSubmit()
+{
+    // Imprimir los datos introducidos para ver si funciona
+    Console.WriteLine("Datos del formulario introducidos:");
+    Console.WriteLine(JsonConvert.SerializeObject(empleado, Formatting.Indented));
+    
+    if (!editContext.Validate())
+    {
+        Console.WriteLine("Errores de validación en el formulario.");
+        return;
     }
 
-    private async Task HandleValidSubmit()
+    try
     {
-        if (!editContext.Validate())
+
+        // Verificar que HttpContext no sea nulo
+        if (HttpContextAccessor.HttpContext == null)
         {
-            Console.WriteLine("Errores de validación en el formulario.");
+            Console.WriteLine("Error: HttpContext no disponible.");
+            errorMessage = "No se puede obtener el contexto HTTP.";
             return;
         }
 
-        try
-        {
-            // Llama al servicio con el EmpleadoDto directamente
-            await EmpleadoService.CrearEmpleadoAsync(empleado);
+        // Obtener los tokens antiforgery
+        var tokens = Antiforgery.GetAndStoreTokens(HttpContextAccessor.HttpContext);
 
+        // **Imprimir información del token para depuración**
+        Console.WriteLine($"Token Antiforgery generado: {tokens.RequestToken}");
+
+        // Crear la solicitud HTTP
+        var request = new HttpRequestMessage(HttpMethod.Post, "api/empleado")
+        {
+            Content = new StringContent(JsonConvert.SerializeObject(empleado), Encoding.UTF8, "application/json")
+        };
+
+        // **Agregar el token antiforgery al encabezado**
+        request.Headers.Add("X-XSRF-TOKEN", tokens.RequestToken);
+
+        // **Incluir la cookie en la solicitud**
+        if (HttpContextAccessor.HttpContext.Request.Cookies.TryGetValue("XSRF-TOKEN", out var cookieValue))
+        {
+            request.Headers.Add("Cookie", $"XSRF-TOKEN={cookieValue}");
+            Console.WriteLine($"Cookie enviada: XSRF-TOKEN={cookieValue}");
+        }
+        else
+        {
+            Console.WriteLine("Advertencia: No se encontró la cookie XSRF-TOKEN.");
+        }
+
+        // Enviar la solicitud
+        var response = await HttpClient.SendAsync(request);
+
+        // **Manejo de respuesta**
+        if (response.IsSuccessStatusCode)
+        {
             errorMessage = string.Empty;
             Console.WriteLine("Empleado creado con éxito.");
+
+            shouldRedirect = true;
+            StateHasChanged(); // Solicita un renderizado
         }
-        catch (HttpRequestException ex)
+        else
         {
-            Console.WriteLine($"Error al crear empleado: {ex.Message}");
-        }
-        catch (Exception ex)
-        {
-            errorMessage = $"Error al crear empleado: {ex.Message}";
+            var errorContent = await response.Content.ReadAsStringAsync();
+            errorMessage = $"Error al crear empleado: {response.StatusCode}, {errorContent}";
             Console.WriteLine(errorMessage);
         }
     }
+    catch (HttpRequestException ex)
+    {
+        Console.WriteLine($"Error al crear empleado: {ex.Message}");
+    }
+    catch (Exception ex)
+    {
+        errorMessage = $"Error al crear empleado: {ex.Message}";
+        Console.WriteLine(errorMessage);
+    }
+}
+
+
+protected override void OnAfterRender(bool firstRender)
+{
+    if (shouldRedirect)
+    {
+        shouldRedirect = false;
+        NavigationManager.NavigateTo("/empleado", forceLoad: true);
+    }
+}
 
     private Empleado MapToEmpleado(EmpleadoDto dto)
     {

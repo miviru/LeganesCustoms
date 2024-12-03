@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LeganesCustomsBlazor.Models;
 
 public class Cliente : Persona
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Generado automáticamente
     public long Id_Cliente { get; set; } // Clave primaria
 
     // Relacion 1:N con vehiculos

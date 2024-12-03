@@ -3,6 +3,7 @@
 @inject NavigationManager NavigationManager
 @using LeganesCustomsBlazor.Models;
 @using LeganesCustomsBlazor.Dtos;
+@using System.Text.Json
 
 <PageTitle>Editar Empleado</PageTitle>
 
@@ -108,14 +109,19 @@
     // Cargar datos del empleado
     protected override async Task OnParametersSetAsync()
     {
+        Console.WriteLine("Entrando a OnParametersSetAsync");
         try
         {
-            // Llama al servicio para obtener los datos del empleado
-            empleado = await EmpleadoService.GetEmpleadoByIdAsync(Id);
+            Console.WriteLine($"Cargando datos del empleado con ID: {Id}");
+            empleado = await EmpleadoService.GetEmpleadoByIdAsync(Id); // Vuelve a cargar los datos
             if (empleado == null)
             {
                 errorMessage = "Empleado no encontrado.";
                 Console.WriteLine(errorMessage);
+            }
+            else
+            {
+                Console.WriteLine($"Datos del empleado cargados: {JsonSerializer.Serialize(empleado)}");
             }
         }
         catch (Exception ex)
@@ -123,8 +129,8 @@
             errorMessage = $"Error al cargar los datos del empleado: {ex.Message}";
             Console.WriteLine(errorMessage);
         }
+        Console.WriteLine("Saliendo de OnParametersSetAsync");
     }
-
 
     private async Task HandleValidSubmit()
     {
@@ -136,19 +142,22 @@
 
         try
         {
-            // Llama al servicio con el EmpleadoDto directamente
+            // Actualiza los datos en la base de datos
             await EmpleadoService.UpdateEmpleadoAsync(empleado);
 
+            // Recarga los datos del servidor
+            empleado = await EmpleadoService.GetEmpleadoByIdAsync(empleado.Id_Empleado);
+            Console.WriteLine($"Datos actualizados del empleado: {JsonSerializer.Serialize(empleado)}");
+
+            Console.WriteLine("Empleado actualizado correctamente.");
             errorMessage = string.Empty;
-            Console.WriteLine("Empleado creado con éxito.");
-        }
-        catch (HttpRequestException ex)
-        {
-            Console.WriteLine($"Error al editar el empleado: {ex.Message}");
+
+            NavigationManager.NavigateTo($"/empleado");
+
         }
         catch (Exception ex)
         {
-            errorMessage = $"Error al editar el empleado: {ex.Message}";
+            errorMessage = $"Error al guardar los cambios: {ex.Message}";
             Console.WriteLine(errorMessage);
         }
     }

@@ -65,7 +65,7 @@ namespace LeganesCustomsBlazor.Data
 
         private static void SeedClientes(AppDbContext context)
         {
-            var cliente = context.Personas.OfType<Cliente>().FirstOrDefault(c => c.Nombre == "Maikel");
+            var cliente = context.Clientes.OfType<Cliente>().FirstOrDefault(c => c.Nombre == "Maikel");
             if (cliente == null)
             {
                 cliente = new Cliente
@@ -79,7 +79,7 @@ namespace LeganesCustomsBlazor.Data
                     Direccion = "Calle Ejemplo, 123",
                     Vehiculos = new List<Vehiculo>()
                 };
-                context.Personas.Add(cliente);
+                context.Clientes.Add(cliente);
             }
             else
             {
@@ -94,7 +94,7 @@ namespace LeganesCustomsBlazor.Data
 
         private static void SeedEmpleados(AppDbContext context)
         {
-            var empleado = context.Personas.OfType<Empleado>().FirstOrDefault(e => e.Nombre == "Daniel");
+            var empleado = context.Empleados.OfType<Empleado>().FirstOrDefault(e => e.Nombre == "Daniel");
             if (empleado == null)
             {
                 empleado = new Empleado
@@ -109,7 +109,7 @@ namespace LeganesCustomsBlazor.Data
                     Sueldo = 3000,
                     Puesto = "Mecánico"
                 };
-                context.Personas.Add(empleado);
+                context.Empleados.Add(empleado);
             }
             else
             {

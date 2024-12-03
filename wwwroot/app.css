@@ -1,7 +1,14 @@
 html, body {
     font-family: "Odibee Sans", serif;
     font-weight: 1800;
-    font-style: normal;}
+    font-style: normal;
+}
+
+.page {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
 
 a, .btn-link {
     color: #006bb7;
@@ -45,4 +52,21 @@ h1:focus {
 
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #ddd;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
