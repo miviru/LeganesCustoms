@@ -72,32 +72,44 @@ public class ClienteService
     }
 
 
-    public async Task<ClienteDto> GetClienteByIdAsync(long id)
+public async Task<ClienteDto> GetClienteByIdAsync(long id)
 {
     try
     {
-        // Llamada a la API para obtener el cliente por ID
+        // Realiza la solicitud al endpoint de la API
         var response = await _http.GetAsync($"api/cliente/{id}");
 
+        // Verifica si la solicitud fue exitosa
         if (response.IsSuccessStatusCode)
         {
+            // Lee el contenido de la respuesta y deserializa a ClienteDto
             var cliente = await response.Content.ReadFromJsonAsync<ClienteDto>();
+
+            // Verifica si se recibió un cliente válido
             if (cliente == null)
+            {
+                Console.WriteLine("El cliente no fue encontrado.");
                 throw new Exception("Cliente no encontrado.");
-            
-            return cliente; // Los datos ya están en el formato ClienteDto
+            }
+
+            return cliente;
         }
         else
         {
+            // Maneja el error si el código de estado no es exitoso
+            var errorContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error al obtener cliente: {errorContent}");
             throw new Exception($"Error al obtener cliente: {response.StatusCode}");
         }
     }
     catch (Exception ex)
     {
+        // Maneja errores inesperados
         Console.WriteLine($"Error inesperado al obtener cliente: {ex.Message}");
         throw;
     }
 }
+
 
     public async Task<List<ClienteDto>> GetClientesAsync()
     {
@@ -145,6 +157,16 @@ public class ClienteService
 
     public async Task DeleteClienteAsync(long id)
     {
-        await _http.DeleteAsync($"api/Cliente/{id}");
+        Console.WriteLine($"Enviando solicitud DELETE para el cliente con ID {id}...");
+
+        var response = await _http.DeleteAsync($"api/cliente/{id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error en la solicitud DELETE: {response.StatusCode}, {error}");
+            throw new Exception($"Error al eliminar el cliente: {error}");
+        }
+
+        Console.WriteLine($"Cliente con ID {id} eliminado exitosamente.");
     }
 }

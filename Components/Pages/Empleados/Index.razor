@@ -39,10 +39,7 @@
                             <h5 class="card-title me-5 mt-2">@empleado.Nombre @empleado.Apellido1 @empleado.Apellido2</h5>
                             <NavLink class="btn btn-outline-secondary text-white me-2" href="@($"/detallesEmpleado/{empleado.Id_Empleado}")">Detalles</NavLink>
                             <NavLink class="btn btn-outline-light me-2" href="@($"/editarEmpleado/{empleado.Id_Empleado}")">Editar</NavLink>
-<button @onclick="() => ConfirmAndDelete(empleado.Id_Empleado)" class="btn btn-outline-danger">
-    Eliminar
-</button>
-
+                            <button @onclick="() => ConfirmAndDelete(empleado.Id_Empleado)" class="btn btn-outline-danger">Eliminar</button>
                         </div>
                     </div>
                 </div>
@@ -112,10 +109,6 @@ private async Task ConfirmAndDelete(long id)
     {
         Console.WriteLine("El usuario canceló la eliminación.");
     }
-}
-private void TestLog()
-{
-    Console.WriteLine("Botón Global Funcionó");
 }
 
 }

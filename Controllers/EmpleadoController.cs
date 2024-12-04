@@ -135,54 +135,54 @@ namespace LeganesCustomsBlazor.Controllers
 
         // PUT: api/Empleado/{id}
         [HttpPut("{id}")]
-public async Task<IActionResult> UpdateEmpleadoAsync(long id, EmpleadoDto empleadoDto)
-{
-    try
-    {
-        if (id != empleadoDto.Id_Empleado)
+        public async Task<IActionResult> UpdateEmpleadoAsync(long id, EmpleadoDto empleadoDto)
         {
-            Console.WriteLine($"Error: ID URL ({id}) no coincide con ID DTO ({empleadoDto.Id_Empleado}).");
-            return BadRequest("El ID del empleado no coincide con el ID proporcionado en el DTO.");
+            try
+            {
+                if (id != empleadoDto.Id_Empleado)
+                {
+                    Console.WriteLine($"Error: ID URL ({id}) no coincide con ID DTO ({empleadoDto.Id_Empleado}).");
+                    return BadRequest("El ID del empleado no coincide con el ID proporcionado en el DTO.");
+                }
+
+                _context.ChangeTracker.Clear(); // Limpia el contexto
+                var empleadoExistente = await _context.Empleados
+                    .FirstOrDefaultAsync(e => e.Id_Empleado == id);
+
+                if (empleadoExistente == null)
+                {
+                    Console.WriteLine($"Error: No se encontró un empleado con ID {id}.");
+                    return NotFound($"No se encontró un empleado con ID {id}.");
+                }
+
+                Console.WriteLine($"Empleado encontrado: {JsonConvert.SerializeObject(empleadoExistente)}");
+
+                empleadoExistente.Email = empleadoDto.Email ?? empleadoExistente.Email;
+                empleadoExistente.Telefono = empleadoDto.Telefono ?? empleadoExistente.Telefono;
+                empleadoExistente.Direccion = empleadoDto.Direccion ?? empleadoExistente.Direccion;
+                empleadoExistente.Puesto = empleadoDto.Puesto ?? empleadoExistente.Puesto;
+                empleadoExistente.Sueldo = empleadoDto.Sueldo;
+
+                await _context.SaveChangesAsync();
+                Console.WriteLine($"Empleado con ID {id} actualizado correctamente.");
+
+                return NoContent();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!await EmpleadoExists(id))
+                {
+                    Console.WriteLine($"Error: Concurrencia detectada. El empleado con ID {id} no existe.");
+                    return NotFound($"Empleado con ID {id} no existe.");
+                }
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar empleado: {ex.Message}");
+                return StatusCode(500, "Ocurrió un error interno al actualizar el empleado.");
+            }
         }
-
-        _context.ChangeTracker.Clear(); // Limpia el contexto
-        var empleadoExistente = await _context.Empleados
-            .FirstOrDefaultAsync(e => e.Id_Empleado == id);
-
-        if (empleadoExistente == null)
-        {
-            Console.WriteLine($"Error: No se encontró un empleado con ID {id}.");
-            return NotFound($"No se encontró un empleado con ID {id}.");
-        }
-
-        Console.WriteLine($"Empleado encontrado: {JsonConvert.SerializeObject(empleadoExistente)}");
-
-        empleadoExistente.Email = empleadoDto.Email ?? empleadoExistente.Email;
-        empleadoExistente.Telefono = empleadoDto.Telefono ?? empleadoExistente.Telefono;
-        empleadoExistente.Direccion = empleadoDto.Direccion ?? empleadoExistente.Direccion;
-        empleadoExistente.Puesto = empleadoDto.Puesto ?? empleadoExistente.Puesto;
-        empleadoExistente.Sueldo = empleadoDto.Sueldo;
-
-        await _context.SaveChangesAsync();
-        Console.WriteLine($"Empleado con ID {id} actualizado correctamente.");
-
-        return NoContent();
-    }
-    catch (DbUpdateConcurrencyException)
-    {
-        if (!await EmpleadoExists(id))
-        {
-            Console.WriteLine($"Error: Concurrencia detectada. El empleado con ID {id} no existe.");
-            return NotFound($"Empleado con ID {id} no existe.");
-        }
-        throw;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error al actualizar empleado: {ex.Message}");
-        return StatusCode(500, "Ocurrió un error interno al actualizar el empleado.");
-    }
-}
 
         // DELETE: api/Empleado/{id}
         [HttpDelete("{id}")]

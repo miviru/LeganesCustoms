@@ -7,9 +7,9 @@ public class ClienteDto
     public string Apellido1 { get; set; } = string.Empty;
     public string Apellido2 { get; set; } = string.Empty;
     public string DNI { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string Telefono { get; set; } = string.Empty;
-    public string Direccion { get; set; } = string.Empty;
+    public string? Email { get; set; }
+    public string? Telefono { get; set; }
+    public string? Direccion { get; set; }
 
     public List<VehiculoDto> Vehiculos { get; set; } = new();
     public List<CitaDto> Citas { get; set; } = new();

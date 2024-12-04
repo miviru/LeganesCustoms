@@ -3,6 +3,7 @@ using LeganesCustomsBlazor.Models;
 using Microsoft.EntityFrameworkCore;
 using LeganesCustomsBlazor.Data;
 using LeganesCustomsBlazor.Dtos;
+using Newtonsoft.Json;
 
 
 
@@ -84,56 +85,39 @@ namespace LeganesCustomsBlazor.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ClienteDto>> GetCliente(long id)
         {
-            if (_context.Clientes == null)
+            try
             {
-                return Problem("Clientes no está disponible en el contexto.");
+                if (_context.Clientes == null)
+                {
+                    return Problem("El contexto no está disponible.");
+                }
+
+                var cliente = await _context.Clientes
+                    .AsNoTracking()
+                    .Include(c => c.Vehiculos) // Incluir relaciones necesarias
+                    .Include(c => c.Citas)
+                    .Include(c => c.Facturas)
+                    .FirstOrDefaultAsync(c => c.Id_Cliente == id);
+
+                if (cliente == null)
+                {
+                    return NotFound(new ProblemDetails
+                    {
+                        Status = 404,
+                        Title = "Cliente no encontrado",
+                        Detail = $"No existe un cliente con ID {id}."
+                    });
+                }
+
+                return Ok(MapToClienteDto(cliente));
             }
-
-            var cliente = await _context.Clientes
-                .Include(c => c.Vehiculos)
-                    .ThenInclude(v => v.Fabricante)
-                .Include(c => c.Citas)
-                .Include(c => c.Facturas)
-                .FirstOrDefaultAsync(c => c.Id_Cliente == id);
-
-            if (cliente == null)
+            catch (Exception ex)
             {
-                return NotFound();
+                Console.WriteLine($"Error al obtener cliente con ID {id}: {ex.Message}");
+                return StatusCode(500, "Ocurrió un error interno al obtener el cliente.");
             }
-
-            // Transformar Cliente a ClienteDto
-            var clienteDto = new ClienteDto
-            {
-                Id_Cliente = cliente.Id_Cliente,
-                Nombre = cliente.Nombre,
-                Apellido1 = cliente.Apellido1,
-                Apellido2 = cliente.Apellido2,
-                DNI = cliente.DNI,
-                Email = cliente.Email,
-                Vehiculos = cliente.Vehiculos.Select(v => new VehiculoDto
-                {
-                    Id_Vehiculo = v.Id, // Mapea correctamente el ID del modelo al DTO
-                    Matricula = v.Matricula,
-                    Modelo = v.Modelo,
-                    Fabricante = v.Fabricante != null ? v.Fabricante.Nombre : "Desconocido",
-                    FotoUrl = v.FotoUrl
-                }).ToList(),
-                Citas = cliente.Citas?.Select(c => new CitaDto
-                {
-                    Fecha = c.Fecha != null 
-                        ? new DateTime(c.Fecha.Año, c.Fecha.Mes, c.Fecha.Dia) 
-                        : DateTime.MinValue // Fecha predeterminada si es nula
-                }).ToList() ?? new List<CitaDto>(),
-                Facturas = cliente.Facturas.Select(f => new FacturaDto
-                {
-                    Precio = f.Precio,
-                    Descuento = f.Descuento,
-                    ClienteNombre = f.Cliente?.Nombre ?? "Desconocido"
-                }).ToList()
-            };
-
-            return Ok(clienteDto);
         }
+
 
         // POST: api/Cliente
        [HttpPost]
@@ -163,79 +147,85 @@ namespace LeganesCustomsBlazor.Controllers
 
             return CreatedAtAction(nameof(GetCliente), new { id = cliente.Id_Cliente }, clienteDto);
         }
-
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCliente(long id, ClienteDto clienteDto)
+        public async Task<IActionResult> UpdateClienteAsync(long id, ClienteDto clienteDto)
         {
-            // Verificar que el ID del cliente en la URL coincide con el del DTO
-            if (id != clienteDto.Id_Cliente)
-            {
-                return BadRequest("El ID del cliente no coincide con el ID proporcionado en el DTO.");
-            }
-
-            // Validar que _context.Clientes no es nulo
-            if (_context.Clientes == null)
-            {
-                return Problem("Clientes no está disponible en el contexto.");
-            }
-
-            // Buscar el cliente existente en la base de datos
-            var clienteExistente = await _context.Clientes.FindAsync(id);
-            if (clienteExistente == null)
-            {
-                return NotFound("No se encontró el cliente especificado.");
-            }
-
-            // Actualizar manualmente los campos necesarios
-            clienteExistente.Nombre = clienteDto.Nombre ?? clienteExistente.Nombre;
-            clienteExistente.Apellido1 = clienteDto.Apellido1 ?? clienteExistente.Apellido1;
-            clienteExistente.Apellido2 = clienteDto.Apellido2 ?? clienteExistente.Apellido2;
-            clienteExistente.DNI = clienteDto.DNI ?? clienteExistente.DNI;
-            clienteExistente.Email = clienteDto.Email ?? clienteExistente.Email;
-            clienteExistente.Telefono = clienteDto.Telefono ?? clienteExistente.Telefono;
-            clienteExistente.Direccion = clienteDto.Direccion ?? clienteExistente.Direccion;
-
-            // Aquí puedes actualizar relaciones adicionales si son necesarias (por ejemplo, Vehiculos, Facturas, etc.)
-            
             try
             {
+                Console.WriteLine($"ID URL: {id}, ID DTO: {clienteDto.Id_Cliente}");
+                if (id != clienteDto.Id_Cliente)
+                {
+                    Console.WriteLine($"Error: ID URL ({id}) no coincide con ID DTO ({clienteDto.Id_Cliente}).");
+                    return BadRequest("El ID del cliente no coincide con el ID proporcionado en el DTO.");
+                }
+
+                var clienteExistente = await _context.Clientes.FirstOrDefaultAsync(e => e.Id_Cliente == id);
+
+                if (clienteExistente == null)
+                {
+                    Console.WriteLine($"Error: No se encontró un cliente con ID {id}.");
+                    return NotFound($"No se encontró un cliente con ID {id}.");
+                }
+
+                Console.WriteLine($"Cliente encontrado: {JsonConvert.SerializeObject(clienteExistente)}");
+
+                // Solo actualiza los campos que se envían en el DTO
+                clienteExistente.Nombre = clienteDto.Nombre ?? clienteExistente.Nombre;
+                clienteExistente.Apellido1 = clienteDto.Apellido1 ?? clienteExistente.Apellido1;
+                clienteExistente.Apellido2 = clienteDto.Apellido2 ?? clienteExistente.Apellido2;
+                clienteExistente.DNI = clienteDto.DNI ?? clienteExistente.DNI;
+                clienteExistente.Email = clienteDto.Email ?? clienteExistente.Email;
+                clienteExistente.Telefono = clienteDto.Telefono ?? clienteExistente.Telefono;
+                clienteExistente.Direccion = clienteDto.Direccion ?? clienteExistente.Direccion;
+
                 await _context.SaveChangesAsync();
+                Console.WriteLine($"Cliente con ID {id} actualizado correctamente.");
+
+                return NoContent();
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!await ClienteExists(id))
                 {
-                    return NotFound("El cliente no existe.");
+                    Console.WriteLine($"Error: Concurrencia detectada. El cliente con ID {id} no existe.");
+                    return NotFound($"Cliente con ID {id} no existe.");
                 }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
-
-            return NoContent();
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar cliente: {ex.Message}");
+                return StatusCode(500, "Ocurrió un error interno al actualizar el cliente.");
+            }
         }
-
 
         // DELETE: api/Cliente/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCliente(long id)
         {
-            if (_context.Clientes == null)
+            try
             {
-                return Problem("Clientes no está disponible en el contexto.");
-            }
+                if (_context.Clientes == null)
+                {
+                    return Problem("El contexto no está disponible.");
+                }
 
-            var cliente = await _context.Clientes.FindAsync(id);
-            if (cliente == null)
+                var cliente = await _context.Clientes.FirstOrDefaultAsync(e => e.Id_Cliente == id);
+                if (cliente == null)
+                {
+                    return NotFound($"Cliente con ID {id} no existe.");
+                }
+
+                _context.Clientes.Remove(cliente);
+                await _context.SaveChangesAsync();
+
+                return NoContent();
+            }
+            catch (Exception ex)
             {
-                return NotFound("No se encontró el cliente especificado.");
+                Console.WriteLine($"Error al eliminar el cliente: {ex.Message}");
+                return StatusCode(500, "Ocurrió un error interno al eliminar el cliente.");
             }
-
-            _context.Clientes.Remove(cliente);
-            await _context.SaveChangesAsync();
-            return NoContent();
         }
 
         private async Task<bool> ClienteExists(long id)
@@ -246,6 +236,45 @@ namespace LeganesCustomsBlazor.Controllers
             }
 
             return await _context.Clientes.AnyAsync(c => c.Id_Cliente == id);
+        }
+
+        private ClienteDto MapToClienteDto(Cliente cliente)
+        {
+            return new ClienteDto
+            {
+                Id_Cliente = cliente.Id_Cliente,
+                Nombre = cliente.Nombre,
+                Apellido1 = cliente.Apellido1,
+                Apellido2 = cliente.Apellido2,
+                DNI = cliente.DNI,
+                Email = cliente.Email,
+                Telefono = cliente.Telefono ?? string.Empty,
+                Direccion = cliente.Direccion ?? string.Empty,
+                Vehiculos = cliente.Vehiculos.Select(v => new VehiculoDto
+                {
+                    Id_Vehiculo = v.Id,
+                    Fabricante = v.Fabricante.Nombre,
+                    Modelo = v.Modelo,
+                    Matricula = v.Matricula,
+                    Fecha_matriculacion = v.Fecha_matriculacion
+                }).ToList(),
+                Citas = cliente.Citas.Select(ci => new CitaDto
+                {
+                    Id = ci.Id,
+                    Fecha = new DateTime(ci.Fecha.Año, ci.Fecha.Mes, ci.Fecha.Dia), // Conversión explícita
+                    Hora = $"{ci.Hora.Horas:D2}:{ci.Hora.Minutos:D2}",
+                    ClienteNombre = ci.Cliente?.Nombre ?? "Sin Nombre",
+                    EmpleadoNombre = ci.Empleado?.Nombre ?? "Sin Empleado",
+                    VehiculoDetalles = $"{ci.Vehiculo?.Fabricante.Nombre ?? "Desconocida"} {ci.Vehiculo?.Modelo ?? "Desconocido"}"
+                }).ToList() ?? new List<CitaDto>(),
+                Facturas = cliente.Facturas.Select(f => new FacturaDto
+                {
+                    Id = f.Id,
+                    Precio = f.Precio,
+                    Descuento = f.Descuento,    
+                    ClienteNombre = f.Cliente?.Nombre ?? "Sin Nombre"
+                }).ToList()
+            };
         }
     }
 }

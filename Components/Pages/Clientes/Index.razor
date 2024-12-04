@@ -1,6 +1,7 @@
 @page "/cliente"
 @inject ClienteService ClienteService
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 @using LeganesCustomsBlazor.Models;
 @using LeganesCustomsBlazor.Dtos;
 
@@ -38,7 +39,7 @@
                             <h5 class="card-title me-5 mt-2">@cliente.Nombre @cliente.Apellido1 @cliente.Apellido2</h5>
                             <NavLink class="btn btn-outline-secondary text-white me-2" href="@($"/detallesCliente/{cliente.Id_Cliente}")">Detalles</NavLink>
                             <NavLink class="btn btn-outline-light me-2" href="@($"/editarCliente/{cliente.Id_Cliente}")">Editar</NavLink>
-                            <button @onclick="() => DeleteCliente(cliente.Id_Cliente)" class="btn btn-outline-danger">Eliminar</button>
+                            <button @onclick="() => ConfirmAndDelete(cliente.Id_Cliente)" class="btn btn-outline-danger">Eliminar</button>
                         </div>
                     </div>
                 </div>
@@ -75,9 +76,36 @@
         NavigationManager.NavigateTo($"/editarCliente/{clienteId}");
     }
 
-    private void DeleteCliente(long clienteId)
+    private async Task DeleteCliente(long id)
     {
-        // Lógica para eliminar el cliente
-        Console.WriteLine($"Eliminar cliente con ID: {clienteId}");
+        try
+        {
+            Console.WriteLine($"Eliminando cliente con ID: {id}");
+            await ClienteService.DeleteClienteAsync(id);
+            Console.WriteLine($"Cliente con ID {id} eliminado del servidor.");
+
+            clientes.Remove(clientes.First(e => e.Id_Cliente == id)); // Actualiza la lista local
+            Console.WriteLine($"Cliente con ID {id} eliminado localmente.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al eliminar el cliente con ID {id}: {ex.Message}");
+        }
     }
+
+    private async Task ConfirmAndDelete(long id)
+{
+    Console.WriteLine($"Confirmación de eliminación para el cliente con ID: {id}");
+
+    string mensaje = $"¿Estás seguro de que deseas eliminar el cliente con ID {id}?";
+    if (await JSRuntime.InvokeAsync<bool>("confirm", mensaje))
+    {
+        Console.WriteLine($"Usuario confirmó la eliminación del cliente con ID: {id}");
+        await DeleteCliente(id);
+    }
+    else
+    {
+        Console.WriteLine("El usuario canceló la eliminación.");
+    }
+}
 }

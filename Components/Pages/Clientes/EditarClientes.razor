@@ -3,6 +3,7 @@
 @inject NavigationManager NavigationManager
 @using LeganesCustomsBlazor.Models;
 @using LeganesCustomsBlazor.Dtos;
+@using System.Text.Json
 
 <PageTitle>Editar Cliente</PageTitle>
 
@@ -58,42 +59,82 @@
     [Parameter]
     public long Id { get; set; } // Parámetro recibido desde la URL
 
-    private ClienteDto? cliente;
+    private ClienteDto cliente = new ClienteDto();
     private EditContext? editContext;
 
-    protected override async Task OnInitializedAsync()
+    private string errorMessage = string.Empty;
+    protected override void OnInitialized()
     {
+        editContext = new EditContext(cliente);
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Console.WriteLine("Entrando a OnParametersSetAsync");
         try
         {
-            cliente = await ClienteService.GetClienteByIdAsync(Id);
-            if (cliente != null)
+            Console.WriteLine($"Cargando datos del cliente con ID: {Id}");
+            cliente = await ClienteService.GetClienteByIdAsync(Id); // Vuelve a cargar los datos
+            if (cliente == null)
             {
-                editContext = new EditContext(cliente);
+                errorMessage = "Cliente no encontrado.";
+                Console.WriteLine(errorMessage);
+            }
+            else
+            {
+                Console.WriteLine($"Datos del cliente cargados: Teléfono: {cliente.Telefono}, Dirección: {cliente.Direccion}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error al cargar cliente: {ex.Message}");
+            errorMessage = $"Error al cargar los datos del cliente: {ex.Message}";
+            Console.WriteLine(errorMessage);
         }
+        Console.WriteLine("Saliendo de OnParametersSetAsync");
     }
 
     private async Task HandleValidSubmit()
     {
-        if (cliente == null)
+        if (!editContext.Validate())
         {
-            Console.WriteLine("Error: El cliente no está inicializado.");
+            Console.WriteLine("Errores de validación en el formulario.");
             return;
         }
 
         try
         {
+            // Actualiza los datos en la base de datos
             await ClienteService.UpdateClienteAsync(cliente);
-            Console.WriteLine("Cliente actualizado con éxito.");
-            NavigationManager.NavigateTo("/cliente");
+
+            // Recarga los datos del servidor
+            cliente = await ClienteService.GetClienteByIdAsync(cliente.Id_Cliente);
+            Console.WriteLine($"Datos actualizados del cliente: {JsonSerializer.Serialize(cliente)}");
+
+            Console.WriteLine("Cliente actualizado correctamente.");
+            errorMessage = string.Empty;
+
+            NavigationManager.NavigateTo($"/cliente");
+
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error al actualizar cliente: {ex.Message}");
+            errorMessage = $"Error al guardar los cambios: {ex.Message}";
+            Console.WriteLine(errorMessage);
         }
+    }
+
+    private Cliente MapToCliente(ClienteDto dto)
+    {
+        return new Cliente
+        {
+            Id_Cliente = dto.Id_Cliente,
+            Nombre = dto.Nombre,
+            Apellido1 = dto.Apellido1,
+            Apellido2 = dto.Apellido2,
+            DNI = dto.DNI,
+            Email = dto.Email,
+            Telefono = dto.Telefono,
+            Direccion = dto.Direccion
+        };
     }
 }

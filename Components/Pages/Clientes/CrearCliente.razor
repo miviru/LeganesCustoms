@@ -1,5 +1,6 @@
 @page "/crearCliente"
 @inject ClienteService ClienteService
+@inject NavigationManager NavigationManager
 @using LeganesCustomsBlazor.Models;
 
 <PageTitle>Crear Clientes</PageTitle>
@@ -76,6 +77,9 @@
             // Llama al servicio para crear el cliente
             await ClienteService.CrearClienteAsync(cliente);
             Console.WriteLine("Cliente creado con éxito.");
+
+            // Redirigir a la página de clientes
+            NavigationManager.NavigateTo("/cliente");
         }
         catch (Exception ex)
         {

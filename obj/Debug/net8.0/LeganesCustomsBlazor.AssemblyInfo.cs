@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LeganesCustomsBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e41df7dfc75cf2b4ad43789374ce6df9970586c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19470112a8a38e6e55a4f92bc2ac3b2683ee642e")]
 [assembly: System.Reflection.AssemblyProductAttribute("LeganesCustomsBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LeganesCustomsBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
