@@ -68,26 +68,21 @@
         <div class="row mt-4">
             <div class="col-lg-12">
                 <h4>Propietario/a</h4>
-                @if (vehiculo.Cliente != null)
+               @if (vehiculo.Cliente != null)
                 {
-                    <table class="table table-bordered text-white">
-                        <tr>
-                            <th>Nombre</th>
-                            <td>@vehiculo.Cliente.Nombre @vehiculo.Cliente.Apellido1 @vehiculo.Cliente.Apellido2</td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td>@vehiculo.Cliente.Email</td>
-                        </tr>
-                        <tr>
-                            <th>Teléfono</th>
-                            <td>@vehiculo.Cliente.Telefono</td>
-                        </tr>
-                    </table>
+                    <p>Propietario: @vehiculo.Cliente.Nombre @vehiculo.Cliente.Apellido1 @vehiculo.Cliente.Apellido2</p>
+                    <p>Email: @vehiculo.Cliente.Email</p>
+                    <h5>Otros Vehículos del Cliente:</h5>
+                    <ul>
+                        @foreach (var otherVehiculo in vehiculo.Cliente.Vehiculos)
+                        {
+                            <li>@otherVehiculo.Matricula - @otherVehiculo.Modelo (@otherVehiculo.Fabricante)</li>
+                        }
+                    </ul>
                 }
                 else
                 {
-                    <p>Información del propietario no disponible.</p>
+                    <p>Este vehículo no tiene cliente asociado.</p>
                 }
             </div>
         </div>

@@ -1,5 +1,6 @@
 using LeganesCustomsBlazor.Models;
 using LeganesCustomsBlazor.Dtos;
+using Newtonsoft.Json;
 
 public class VehiculoService
 {
@@ -21,21 +22,31 @@ public class VehiculoService
         }
     }
 
-    public async Task CrearVehiculoAsync(Vehiculo vehiculo)
+    public async Task<List<Cliente>> ObtenerClientesAsync()
+    {
+        var response = await _http.GetFromJsonAsync<List<Cliente>>("api/clientes");
+        if (response == null)
+        {
+            throw new Exception("No se pudo obtener la lista de clientes.");
+        }
+        return response;
+    }
+
+    public async Task CrearVehiculoAsync(VehiculoDto vehiculoDto)
     {
         try
         {
-            var response = await _http.PostAsJsonAsync("api/vehiculo", vehiculo);
+            var response = await _http.PostAsJsonAsync("api/vehiculo", vehiculoDto);
 
             if (!response.IsSuccessStatusCode)
             {
                 var error = await response.Content.ReadAsStringAsync();
-                throw new Exception($"Error al crear vehiculo: {error}");
+                throw new Exception($"Error al crear el vehículo: {error}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error inesperado al crear vehiculo: {ex.Message}");
+            Console.WriteLine($"Error inesperado al crear el vehículo: {ex.Message}");
             throw;
         }
     }
@@ -122,4 +133,19 @@ public class VehiculoService
             throw;
         }
     }
+
+    public async Task<List<Fabricante>> ObtenerFabricantesAsync()
+    {
+        try
+        {
+            var response = await _http.GetFromJsonAsync<List<Fabricante>>("api/vehiculo/Fabricantes");
+            return response ?? new List<Fabricante>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al obtener fabricantes: {ex.Message}");
+            return new List<Fabricante>();
+        }
+    }
+
 }

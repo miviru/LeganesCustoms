@@ -11,7 +11,7 @@ public class ClienteDto
     public string? Telefono { get; set; }
     public string? Direccion { get; set; }
 
-    public List<VehiculoDto> Vehiculos { get; set; } = new();
+    public List<VehiculoDto> Vehiculos { get; set; } = new List<VehiculoDto>();
     public List<CitaDto> Citas { get; set; } = new();
     public List<FacturaDto> Facturas { get; set; } = new();
 }

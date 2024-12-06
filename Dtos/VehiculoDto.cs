@@ -12,6 +12,7 @@ public class VehiculoDto
     public string? Color { get; set;}
     public string? FotoUrl { get; set; }
     public List<CitaDto>? Citas { get; set; }
+    public long? Id_cliente { get; set; }
     public ClienteDto? Cliente { get; set; } 
 
 }

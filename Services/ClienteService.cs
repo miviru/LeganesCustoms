@@ -1,6 +1,7 @@
 
 using LeganesCustomsBlazor.Models;
 using LeganesCustomsBlazor.Dtos;
+using System.Text.Json;
 
 public class ClienteService
 {
@@ -71,45 +72,43 @@ public class ClienteService
         }
     }
 
-
-public async Task<ClienteDto> GetClienteByIdAsync(long id)
-{
-    try
+    public async Task<ClienteDto> GetClienteByIdAsync(long id)
     {
-        // Realiza la solicitud al endpoint de la API
-        var response = await _http.GetAsync($"api/cliente/{id}");
-
-        // Verifica si la solicitud fue exitosa
-        if (response.IsSuccessStatusCode)
+        try
         {
-            // Lee el contenido de la respuesta y deserializa a ClienteDto
-            var cliente = await response.Content.ReadFromJsonAsync<ClienteDto>();
+            // Realiza la solicitud al endpoint de la API
+            var response = await _http.GetAsync($"api/cliente/{id}");
 
-            // Verifica si se recibió un cliente válido
-            if (cliente == null)
+            // Verifica si la solicitud fue exitosa
+            if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("El cliente no fue encontrado.");
-                throw new Exception("Cliente no encontrado.");
+                // Lee el contenido de la respuesta y deserializa a ClienteDto
+                var cliente = await response.Content.ReadFromJsonAsync<ClienteDto>();
+
+                // Verifica si se recibió un cliente válido
+                if (cliente == null)
+                {
+                    Console.WriteLine("El cliente no fue encontrado.");
+                    throw new Exception("Cliente no encontrado.");
+                }
+
+                return cliente;
             }
-
-            return cliente;
+            else
+            {
+                // Maneja el error si el código de estado no es exitoso
+                var errorContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error al obtener cliente: {errorContent}");
+                throw new Exception($"Error al obtener cliente: {response.StatusCode}");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            // Maneja el error si el código de estado no es exitoso
-            var errorContent = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"Error al obtener cliente: {errorContent}");
-            throw new Exception($"Error al obtener cliente: {response.StatusCode}");
+            // Maneja errores inesperados
+            Console.WriteLine($"Error inesperado al obtener cliente: {ex.Message}");
+            throw;
         }
     }
-    catch (Exception ex)
-    {
-        // Maneja errores inesperados
-        Console.WriteLine($"Error inesperado al obtener cliente: {ex.Message}");
-        throw;
-    }
-}
-
 
     public async Task<List<ClienteDto>> GetClientesAsync()
     {
@@ -169,4 +168,19 @@ public async Task<ClienteDto> GetClienteByIdAsync(long id)
 
         Console.WriteLine($"Cliente con ID {id} eliminado exitosamente.");
     }
+
+    public async Task<List<ClienteDto>> ObtenerClientesAsync()
+    {
+        try
+        {
+            var response = await _http.GetFromJsonAsync<List<ClienteDto>>("api/cliente");
+            return response ?? new List<ClienteDto>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al obtener clientes: {ex.Message}");
+            throw;
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 @page "/vehiculo"
 @inject VehiculoService VehiculoService
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 @using LeganesCustomsBlazor.Models;
 @using LeganesCustomsBlazor.Dtos;
 
@@ -38,7 +39,7 @@
                             <h5 class="card-title me-5 mt-2">@vehiculo.Fabricante @vehiculo.Modelo @vehiculo.Matricula</h5>
                             <NavLink class="btn btn-outline-secondary text-white me-2" href="@($"/detallesVehiculo/{vehiculo.Id_Vehiculo}")">Detalles</NavLink>
                             <NavLink class="btn btn-outline-light me-2" href="@($"/editarVehiculo/{vehiculo.Id_Vehiculo}")">Editar</NavLink>
-                            <button @onclick="() => DeleteVehiculo(vehiculo.Id_Vehiculo)" class="btn btn-outline-danger">Eliminar</button>
+                            <button @onclick="() => ConfirmAndDelete(vehiculo.Id_Vehiculo)" class="btn btn-outline-danger">Eliminar</button>
                         </div>
                     </div>
                 </div>
@@ -94,6 +95,22 @@
         catch (Exception ex)
         {
             Console.WriteLine($"Error al eliminar el vehiculo: {ex.Message}");
+        }
+    }
+    
+    private async Task ConfirmAndDelete(long id)
+    {
+        Console.WriteLine($"Confirmación de eliminación para el empleado con ID: {id}");
+
+        string mensaje = $"¿Estás seguro de que deseas eliminar el empleado con ID {id}?";
+        if (await JSRuntime.InvokeAsync<bool>("confirm", mensaje))
+        {
+            Console.WriteLine($"Usuario confirmó la eliminación del empleado con ID: {id}");
+            await DeleteVehiculo(id);
+        }
+        else
+        {
+            Console.WriteLine("El usuario canceló la eliminación.");
         }
     }
 }

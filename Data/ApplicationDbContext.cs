@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using LeganesCustomsBlazor.Models;
  
 
 namespace LeganesCustomsBlazor.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -176,7 +178,8 @@ namespace LeganesCustomsBlazor.Data
             modelBuilder.Entity<Cliente>()
                 .HasMany(cli => cli.Vehiculos)
                 .WithOne(v => v.Cliente)
-                .HasForeignKey(v => v.Id_cliente);
+                .HasForeignKey(v => v.Id_cliente)
+                .IsRequired(false);
 
             // Configuración de enums
             modelBuilder.Entity<Grupo>()
@@ -189,10 +192,10 @@ namespace LeganesCustomsBlazor.Data
 
             // Configurar relación 1:N entre Vehiculo y Factura
             modelBuilder.Entity<Factura>()
-                .HasOne(f => f.Vehiculo) // Factura tiene un Vehículo
-                .WithMany(v => v.Facturas) // Un Vehículo tiene muchas Facturas
-                .HasForeignKey(f => f.VehiculoId) // Clave foránea en Factura
-                .OnDelete(DeleteBehavior.Restrict); // Evitar eliminación en cascada
+                .HasOne(f => f.Vehiculo)
+                .WithMany(v => v.Facturas)
+                .HasForeignKey(f => f.VehiculoId)
+                .OnDelete(DeleteBehavior.Restrict);
         
             // Configuración de la relación y propiedad VehiculoId
             modelBuilder.Entity<Factura>()
@@ -221,6 +224,13 @@ namespace LeganesCustomsBlazor.Data
             modelBuilder.Entity<Empleado>()
                 .Property(e => e.Id_Empleado)
                 .ValueGeneratedOnAdd(); // Autogenerar Id_Empleado
+
+            modelBuilder.Entity<Vehiculo>()
+                .Property(v => v.Fecha_matriculacion)
+                .HasConversion(
+                    v => v.ToUniversalTime(), // Convertir a UTC al guardar
+                    v => DateTime.SpecifyKind(v, DateTimeKind.Utc) // Convertir a UTC al leer
+                );
         }
     }
 }

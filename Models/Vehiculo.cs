@@ -13,11 +13,16 @@ public class Vehiculo
     public string? Motorizacion { get; set; }
     public string? Motor { get; set; }
     public string Matricula { get; set; } = string.Empty;
-    public DateTime Fecha_matriculacion { get; set; }
+    public DateTime Fecha_matriculacion
+    {
+        get => _fecha_matriculacion;
+        set => _fecha_matriculacion = DateTime.SpecifyKind(value, DateTimeKind.Utc);
+    }
+private DateTime _fecha_matriculacion;
     public string? Color { get; set; }
     public string? FotoUrl { get; set; }
-    public long Id_cliente { get; set; } // Clave foránea
-    public required Cliente Cliente { get; set; }
+    public long? Id_cliente { get; set; } // Clave foránea
+    public Cliente? Cliente { get; set; }
 
     // Relacion 1:N con citas
     public List<Cita> Citas { get; set; } = new List<Cita>();
@@ -26,21 +31,19 @@ public class Vehiculo
     public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
     
 public Vehiculo()
-{
-    Fabricante = new Fabricante
     {
-        Grupo = new Grupo
+        Fabricante = new Fabricante
         {
-            Fabricantes = new List<Fabricante>() // Inicializa Fabricantes en Grupo
-        },
-        Vehiculos = new List<Vehiculo>() // Inicializa Vehiculos en Fabricante
-    };
-    Cliente = new Cliente
-    {
-        Vehiculos = new List<Vehiculo>() // Inicializa Vehiculos en Cliente
-    };
-}
-
-
+            Grupo = new Grupo
+            {
+                Nombre = string.Empty,
+                Fabricantes = new List<Fabricante>()
+            },
+            Vehiculos = new List<Vehiculo>()
+        };
+        Cliente = null;
+        Citas = new List<Cita>();
+        Facturas = new List<Factura>();
+    }
 
 }

@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace LeganesCustomsBlazor.Models;
 
@@ -11,6 +12,7 @@ public class Grupo
     public Pais Pais { get; set; } 
 
     // Relacion 1:N con fabricante
-    public required List<Fabricante> Fabricantes { get; set; } = new();
+    [JsonIgnore]
+    public ICollection<Fabricante> Fabricantes { get; set; } = new List<Fabricante>();
   
 }

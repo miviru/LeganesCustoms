@@ -1,16 +1,19 @@
-﻿<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+﻿@inject IHttpClientFactory HttpClientFactory
+@inject NavigationManager NavigationManager
+@inject ILocalStorageService LocalStorage
+@using Blazored.LocalStorage
+
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid">
-        <!-- Logo -->
         <a class="navbar-brand" href="/">
             <img src="/Logo4.png" style="height: 100px;" alt="Logo" />
         </a>
 
-        <!-- Botón toggle para dispositivos pequeños -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Contenedor de las opciones -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -22,10 +25,105 @@
                 <li class="nav-item">
                     <NavLink class="nav-link" href="/pedircita" Match="NavLinkMatch.Prefix">Pedir Cita</NavLink>
                 </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="/admin">Iniciar Sesión</NavLink>
-                </li>
+                @if (isAuthenticated)
+                {
+                    @if (isAdmin)
+                    {
+                        <li class="nav-item">
+                            <NavLink class="nav-link" href="/admin">Admin</NavLink>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <button class="btn btn-link" @onclick="LogOut">Cerrar sesión</button>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/Identity/Account/Login">Iniciar Sesión</NavLink>
+                    </li>
+                }
             </ul>
         </div>
     </div>
 </nav>
+
+@code {
+    private bool isAuthenticated = false;
+    private bool isAdmin = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = HttpClientFactory.CreateClient("DefaultClient");
+
+        try
+        {
+            // Solicitar información del usuario
+            var response = await client.GetAsync("api/auth/userinfo");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Contenido de la respuesta: {content}");
+
+                var userInfo = await response.Content.ReadFromJsonAsync<UserInfo>();
+
+                if (userInfo != null)
+                {
+                    isAuthenticated = userInfo.IsAuthenticated;
+                    isAdmin = userInfo.Roles.Contains("Admin");
+
+                    // Forzar actualización de la UI
+                    StateHasChanged();
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Error al obtener datos del usuario: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al procesar la solicitud: {ex.Message}");
+        }
+    }
+
+    private class UserInfo
+    {
+        public bool IsAuthenticated { get; set; }
+        public List<string> Roles { get; set; } = new List<string>();
+    }
+
+    private async Task LogOut()
+{
+    try
+    {
+        var client = HttpClientFactory.CreateClient("DefaultClient");
+
+        // Enviar la solicitud de logout
+        var response = await client.PostAsync("api/auth/logout", null);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // Inspeccionar contenido de la respuesta
+            var content = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Contenido de la respuesta: {content}");
+
+            // Redirigir al usuario a la página principal
+            NavigationManager.NavigateTo("/", true);
+        }
+        else
+        {
+            // Mostrar detalles del error
+            var errorContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error al cerrar sesión en el servidor: {response.StatusCode}, Detalles: {errorContent}");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error al procesar la solicitud: {ex.Message}");
+    }
+}
+
+
+}

@@ -7,61 +7,121 @@ namespace LeganesCustomsBlazor.Data
     {
         public static void SeedData(AppDbContext context)
         {
-            // Inicializa fabricantes
-            SeedFabricantes(context);
+            // Verificar si ya hay datos antes de insertar
+            if (!context.Fabricantes.Any()) SeedFabricantes(context);
 
             // Inicializa clientes
-            SeedClientes(context);
+            if (!context.Clientes.Any()) SeedClientes(context);
 
             // Inicializa empleados
-            SeedEmpleados(context);
+            if (!context.Empleados.Any()) SeedEmpleados(context);
 
             // Inicializa vehículos
-            SeedVehiculos(context);
+            if (!context.Vehiculos.Any()) SeedVehiculos(context);
 
             // Inicializa citas
-            SeedCitas(context);
+            if (!context.Citas.Any()) SeedCitas(context);
 
             // Inicializa facturas
-            SeedFacturas(context);
+            if (!context.Facturas.Any()) SeedFacturas(context);
         }
 
         private static void SeedFabricantes(AppDbContext context)
         {
-            var fabricanteToyota = context.Fabricantes.FirstOrDefault(f => f.Nombre == "Toyota");
-            if (fabricanteToyota == null)
+            Console.WriteLine("Ejecutando SeedFabricantes...");
+            if (!context.Fabricantes.Any())
             {
-                fabricanteToyota = new Fabricante
+                var fabricantes = new List<Fabricante>
                 {
-                    Nombre = "Toyota",
-                    Grupo = new Grupo
-                    {
-                        Nombre = "Toyota Group",
-                        Fabricantes = new List<Fabricante>()
-                    },
-                    Vehiculos = new List<Vehiculo>()
-                };
-                context.Fabricantes.Add(fabricanteToyota);
-            }
+                    new Fabricante { Nombre = "Alpine", Grupo = new Grupo { Nombre = "Renault-Nissan-Mitsubishi ", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Dacia", Grupo = new Grupo { Nombre = "Renault-Nissan-Mitsubishi", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Lada", Grupo = new Grupo { Nombre = "Renault-Nissan-Mitsubishi", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Renault", Grupo = new Grupo { Nombre = "Renault-Nissan-Mitsubishi", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Nissan", Grupo = new Grupo { Nombre = "Renault-Nissan-Mitsubishi", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Mitsubishi", Grupo = new Grupo { Nombre = "Renault-Nissan-Mitsubishi", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Infiniti", Grupo = new Grupo { Nombre = "Renault-Nissan-Mitsubishi", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Mini", Grupo = new Grupo { Nombre = "BMW Group", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Rolls Royce", Grupo = new Grupo { Nombre = "BMW Group", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "BMW", Grupo = new Grupo { Nombre = "BMW Group", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Ferrari", Grupo = new Grupo { Nombre = "Ferrari", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Ford", Grupo = new Grupo { Nombre = "Ford Motor Company", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Lincoln", Grupo = new Grupo { Nombre = "Ford Motor Company", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Lotus", Grupo = new Grupo { Nombre = "Geely", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Geely", Grupo = new Grupo { Nombre = "Geely", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Lynk&Co", Grupo = new Grupo { Nombre = "Geely", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Polestar", Grupo = new Grupo { Nombre = "Geely", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Volvo", Grupo = new Grupo { Nombre = "Geely", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Buick", Grupo = new Grupo { Nombre = "General Motors", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Cadillac", Grupo = new Grupo { Nombre = "General Motors", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Chevrolet", Grupo = new Grupo { Nombre = "General Motors", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "GMC", Grupo = new Grupo { Nombre = "General Motors", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Alfa Romeo", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Fiat", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Lancia", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Maserati", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Jeep", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Chrysler", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Dodge", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Peugeot", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Citröen", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "DS Automobiles", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Opel", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Vauxhall", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Abarth", Grupo = new Grupo { Nombre = "Grupo Stellantis", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Aiways", Grupo = new Grupo { Nombre = "Aiways", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Aston Martin", Grupo = new Grupo { Nombre = "Aston Martin Lagonda Global Holdings PLC", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Bugatti", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "BYD", Grupo = new Grupo { Nombre = "BYD Company Limited", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Caterham", Grupo = new Grupo { Nombre = "VT Holdings", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "DR Automobile", Grupo = new Grupo { Nombre = "DR Automobiles Groupe", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Isuzu", Grupo = new Grupo { Nombre = "Isuzu Motors Ltd.", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Jaecoo", Grupo = new Grupo { Nombre = "Chery", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Koenigsegg", Grupo = new Grupo { Nombre = "Koenigsegg Automotive AB", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "KTM", Grupo = new Grupo { Nombre = "KTM Group", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "McLaren", Grupo = new Grupo { Nombre = "McLaren Group", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Mercedes-Benz", Grupo = new Grupo { Nombre = "Mercedes-Benz Group AG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "MG", Grupo = new Grupo { Nombre = "SAIC Motor", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Morgan", Grupo = new Grupo { Nombre = "Morgan Motor Company Ltd.", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Omoda", Grupo = new Grupo { Nombre = "Chery", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Rimac", Grupo = new Grupo { Nombre = "Rimac Automobili", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Smart", Grupo = new Grupo { Nombre = "Mercedes-Benz Group AG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Acura", Grupo = new Grupo { Nombre = "Honda Motor Company Limited", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Honda", Grupo = new Grupo { Nombre = "Honda Motor Company Limited", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Kia", Grupo = new Grupo { Nombre = "Hyundai Motor Company", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Hyundai", Grupo = new Grupo { Nombre = "Hyundai Motor Company", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Genesis", Grupo = new Grupo { Nombre = "Hyundai Motor Company", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Mazda", Grupo = new Grupo { Nombre = "Mazda Motor Corporation", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Subaru", Grupo = new Grupo { Nombre = "Subaru Corporation", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Suzuki", Grupo = new Grupo { Nombre = "Suzuki Motor Corporation", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Jaguar", Grupo = new Grupo { Nombre = "Tata Motors", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Land Rover", Grupo = new Grupo { Nombre = "Tata Motors", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Tata Motors", Grupo = new Grupo { Nombre = "Tata Motors", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Tesla", Grupo = new Grupo { Nombre = "Tesla Inc.", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Toyota", Grupo = new Grupo { Nombre = "Toyota Motor Corporation", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Daihatsu", Grupo = new Grupo { Nombre = "Toyota Motor Corporation", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Lexus", Grupo = new Grupo { Nombre = "Toyota Motor Corporation", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Audi", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Bentley", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Cupra", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Lamborghini", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Porsche", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "SEAT", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Skoda", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Volkswagen", Grupo = new Grupo { Nombre = "Grupo VAG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "SsangYong", Grupo = new Grupo { Nombre = " KG", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
+                    new Fabricante { Nombre = "Otros", Grupo = new Grupo { Nombre = "Otros", Fabricantes = new List<Fabricante>() }, Vehiculos = new List<Vehiculo>() },
 
-            var fabricanteFord = context.Fabricantes.FirstOrDefault(f => f.Nombre == "Ford");
-            if (fabricanteFord == null)
-            {
-                fabricanteFord = new Fabricante
-                {
-                    Nombre = "Ford",
-                    Grupo = new Grupo
-                    {
-                        Nombre = "Ford Motor Company",
-                        Fabricantes = new List<Fabricante>()
-                    },
-                    Vehiculos = new List<Vehiculo>()
-                };
-                context.Fabricantes.Add(fabricanteFord);
-            }
+            };
 
+            context.Fabricantes.AddRange(fabricantes);
             context.SaveChanges();
+            Console.WriteLine("Fabricantes añadidos a la base de datos.");
         }
+        else
+        {
+            Console.WriteLine("Los fabricantes ya existen en la base de datos.");
+        }
+    }
 
         private static void SeedClientes(AppDbContext context)
         {

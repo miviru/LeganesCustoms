@@ -23,101 +23,62 @@ namespace LeganesCustomsBlazor.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ClienteDto>>> GetClientes()
         {
-            if (_context.Clientes == null)
-            {
-                return Problem("Clientes no está disponible en el contexto.");
-            }
-
-            try
-            {
-                var clientes = await _context.Clientes
-                    .Include(c => c.Vehiculos)
-                    .Include(c => c.Citas)
-                    .Include(c => c.Facturas)
-                    .ToListAsync();
-
-                if (!clientes.Any())
-                {
-                    Console.WriteLine("No se encontraron clientes en la base de datos.");
-                    return Ok(new List<ClienteDto>()); // Devuelve una lista vacía
-                }
-
-                // Transformar a ClienteDto
-                var clientesDto = clientes.Select(c => new ClienteDto
+            var clientes = await _context.Clientes
+                .Include(c => c.Vehiculos) // Incluye vehículos asociados
+                .Select(c => new ClienteDto
                 {
                     Id_Cliente = c.Id_Cliente,
-                    Nombre = c.Nombre ?? string.Empty,
-                    Apellido1 = c.Apellido1 ?? string.Empty,
-                    Apellido2 = c.Apellido2 ?? string.Empty,
-                    DNI = c.DNI ?? string.Empty,
-                    Email = c.Email ?? string.Empty,
-                    Vehiculos = c.Vehiculos?.Select(v => new VehiculoDto
+                    Nombre = c.Nombre,
+                    Apellido1 = c.Apellido1,
+                    Apellido2 = c.Apellido2,
+                    DNI = c.DNI,
+                    Email = c.Email,
+                    Vehiculos = c.Vehiculos.Select(v => new VehiculoDto
                     {
-                        Matricula = v.Matricula ?? string.Empty,
-                        Modelo = v.Modelo ?? string.Empty,
-                        Fabricante = v.Fabricante?.Nombre ?? string.Empty
-                    }).ToList() ?? new List<VehiculoDto>(),
-                    Citas = c.Citas?.Select(c => new CitaDto
-                    {
-                        Fecha = c.Fecha != null
-                            ? new DateTime(c.Fecha.Año, c.Fecha.Mes, c.Fecha.Dia)
-                            : DateTime.MinValue
-                    }).ToList() ?? new List<CitaDto>(),
-                    Facturas = c.Facturas?.Select(f => new FacturaDto
-                    {
-                        Precio = f.Precio,
-                        Descuento = f.Descuento,
-                        ClienteNombre = f.Cliente?.Nombre ?? string.Empty
-                    }).ToList() ?? new List<FacturaDto>()
-                }).ToList();
+                        Id_Vehiculo = v.Id,
+                        Matricula = v.Matricula,
+                        Modelo = v.Modelo,
+                        Fabricante = v.Fabricante != null ? v.Fabricante.Nombre : string.Empty
+                    }).ToList()
+                })
+                .ToListAsync();
 
-                return Ok(clientesDto);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al obtener clientes: {ex.Message}");
-                return Problem("Ocurrió un error al intentar obtener los clientes.");
-            }
+            return Ok(clientes);
         }
-
 
         // GET: api/Cliente/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ClienteDto>> GetCliente(long id)
         {
-            try
+            var cliente = await _context.Clientes
+                .Include(c => c.Vehiculos) // Incluir vehículos asociados
+                .ThenInclude(v => v.Fabricante) // Incluir datos del fabricante si es necesario
+                .FirstOrDefaultAsync(c => c.Id_Cliente == id);
+
+            if (cliente == null)
             {
-                if (_context.Clientes == null)
-                {
-                    return Problem("El contexto no está disponible.");
-                }
-
-                var cliente = await _context.Clientes
-                    .AsNoTracking()
-                    .Include(c => c.Vehiculos) // Incluir relaciones necesarias
-                    .Include(c => c.Citas)
-                    .Include(c => c.Facturas)
-                    .FirstOrDefaultAsync(c => c.Id_Cliente == id);
-
-                if (cliente == null)
-                {
-                    return NotFound(new ProblemDetails
-                    {
-                        Status = 404,
-                        Title = "Cliente no encontrado",
-                        Detail = $"No existe un cliente con ID {id}."
-                    });
-                }
-
-                return Ok(MapToClienteDto(cliente));
+                return NotFound();
             }
-            catch (Exception ex)
+
+            var clienteDto = new ClienteDto
             {
-                Console.WriteLine($"Error al obtener cliente con ID {id}: {ex.Message}");
-                return StatusCode(500, "Ocurrió un error interno al obtener el cliente.");
-            }
+                Id_Cliente = cliente.Id_Cliente,
+                Nombre = cliente.Nombre,
+                Apellido1 = cliente.Apellido1,
+                Apellido2 = cliente.Apellido2,
+                Email = cliente.Email,
+                Telefono = cliente.Telefono,
+                Vehiculos = cliente.Vehiculos.Select(v => new VehiculoDto
+                {
+                    Id_Vehiculo = v.Id,
+                    Matricula = v.Matricula,
+                    Modelo = v.Modelo,
+                    Fabricante = v.Fabricante?.Nombre ?? "Desconocido"
+                }).ToList()
+            };
+
+            return Ok(clienteDto);
         }
-
 
         // POST: api/Cliente
        [HttpPost]
@@ -135,8 +96,8 @@ namespace LeganesCustomsBlazor.Controllers
                 Apellido1 = clienteDto.Apellido1,
                 Apellido2 = clienteDto.Apellido2,
                 DNI = clienteDto.DNI,
-                Email = clienteDto.Email,
-                Telefono = clienteDto.Telefono,
+                Email = clienteDto.Email ?? string.Empty,
+                Telefono = clienteDto.Telefono ?? string.Empty,
                 Direccion = clienteDto.Direccion
             };
 
@@ -258,14 +219,16 @@ namespace LeganesCustomsBlazor.Controllers
                     Matricula = v.Matricula,
                     Fecha_matriculacion = v.Fecha_matriculacion
                 }).ToList(),
-                Citas = cliente.Citas.Select(ci => new CitaDto
+                Citas = cliente.Citas?.Select(ci => new CitaDto
                 {
                     Id = ci.Id,
-                    Fecha = new DateTime(ci.Fecha.Año, ci.Fecha.Mes, ci.Fecha.Dia), // Conversión explícita
+                    Fecha = ci.Fecha != null 
+                        ? new DateTime(ci.Fecha.Año, ci.Fecha.Mes, ci.Fecha.Dia) 
+                        : DateTime.MinValue,
                     Hora = $"{ci.Hora.Horas:D2}:{ci.Hora.Minutos:D2}",
                     ClienteNombre = ci.Cliente?.Nombre ?? "Sin Nombre",
                     EmpleadoNombre = ci.Empleado?.Nombre ?? "Sin Empleado",
-                    VehiculoDetalles = $"{ci.Vehiculo?.Fabricante.Nombre ?? "Desconocida"} {ci.Vehiculo?.Modelo ?? "Desconocido"}"
+                    VehiculoDetalles = $"{ci.Vehiculo?.Fabricante?.Nombre ?? "Desconocida"} {ci.Vehiculo?.Modelo ?? "Desconocido"}"
                 }).ToList() ?? new List<CitaDto>(),
                 Facturas = cliente.Facturas.Select(f => new FacturaDto
                 {

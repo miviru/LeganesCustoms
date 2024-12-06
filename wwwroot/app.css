@@ -8,6 +8,18 @@ html, body {
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-image: url('fondo.jpg');
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+    color: white;
+}
+
+main {
+    flex: 1;
 }
 
 a, .btn-link {
@@ -21,7 +33,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 h1:focus {
@@ -46,9 +58,9 @@ h1:focus {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
 
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
@@ -59,6 +71,7 @@ h1:focus {
     color: white;
     padding: 20px 0;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .footer a {
@@ -69,4 +82,23 @@ h1:focus {
 .footer a:hover {
     color: #fff;
     text-decoration: underline;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
 }
