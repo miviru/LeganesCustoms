@@ -12,12 +12,22 @@ public class AuthController : ControllerBase
         _signInManager = signInManager;
     }
     
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Logout(string returnUrl = null)
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
     {
-        await _signInManager.SignOutAsync();
-        return LocalRedirect(returnUrl ?? Url.Page("/", new { area = "" }));
+        try
+        {
+            // Cerrar sesión y eliminar cookie de autenticación
+            await _signInManager.SignOutAsync();
+
+            // Devolver respuesta exitosa
+            return Ok(new { message = "Logged out successfully" });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error en el endpoint de logout: {ex.Message}");
+            return BadRequest(new { error = "Logout failed", details = ex.Message });
+        }
     }
 
     [HttpGet("userinfo")]

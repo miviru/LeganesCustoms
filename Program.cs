@@ -51,6 +51,7 @@ builder.Services.AddAuthentication("Identity.Application")
         options.Cookie.SameSite = SameSiteMode.Lax; // Asegurar compatibilidad
         options.LoginPath = "/Identity/Account/Login"; // Ruta para login
         options.LogoutPath = "/Identity/Account/Logout"; // Ruta para logout
+        options.AccessDeniedPath = "/Identity/Account/AccessDenied"; // Redirección si acceso denegado
         options.SlidingExpiration = true; // Extender expiración en actividad
         options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Tiempo de expiración de cookie
     });
@@ -87,13 +88,17 @@ using (var scope = app.Services.CreateScope())
     // Migrar la base de datos
     context.Database.Migrate();
 
-    // Crear rol "Admin" si no existe
-    if (!await roleManager.RoleExistsAsync("Admin"))
+    // Crear roles si no existen
+    string[] roleNames = { "Admin", "Cliente", "EmpleadoMecanico", "EmpleadoRecepcionista" };
+    foreach (var roleName in roleNames)
     {
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
+        if (!await roleManager.RoleExistsAsync(roleName))
+        {
+            await roleManager.CreateAsync(new IdentityRole(roleName));
+        }
     }
 
-    // Crear usuario admin si no existe
+    // Crear usuario Admin si no existe
     var adminEmail = "admin@example.com";
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
     if (adminUser == null)
@@ -103,6 +108,45 @@ using (var scope = app.Services.CreateScope())
         if (result.Succeeded)
         {
             await userManager.AddToRoleAsync(adminUser, "Admin");
+        }
+    }
+
+    // Crear usuario Cliente si no existe
+    var clienteEmail = "cliente@example.com";
+    var clienteUser = await userManager.FindByEmailAsync(clienteEmail);
+    if (clienteUser == null)
+    {
+        clienteUser = new IdentityUser { UserName = clienteEmail, Email = clienteEmail };
+        var result = await userManager.CreateAsync(clienteUser, "Cliente123!");
+        if (result.Succeeded)
+        {
+            await userManager.AddToRoleAsync(clienteUser, "Cliente");
+        }
+    }
+
+    // Crear usuario EmpleadoMecanico si no existe
+    var mecanicoEmail = "mecanico@example.com";
+    var mecanicoUser = await userManager.FindByEmailAsync(mecanicoEmail);
+    if (mecanicoUser == null)
+    {
+        mecanicoUser = new IdentityUser { UserName = mecanicoEmail, Email = mecanicoEmail };
+        var result = await userManager.CreateAsync(mecanicoUser, "Mecanico123!");
+        if (result.Succeeded)
+        {
+            await userManager.AddToRoleAsync(mecanicoUser, "EmpleadoMecanico");
+        }
+    }
+
+    // Crear usuario EmpleadoRecepcionista si no existe
+    var recepcionistaEmail = "recepcionista@example.com";
+    var recepcionistaUser = await userManager.FindByEmailAsync(recepcionistaEmail);
+    if (recepcionistaUser == null)
+    {
+        recepcionistaUser = new IdentityUser { UserName = recepcionistaEmail, Email = recepcionistaEmail };
+        var result = await userManager.CreateAsync(recepcionistaUser, "Recepcionista123!");
+        if (result.Succeeded)
+        {
+            await userManager.AddToRoleAsync(recepcionistaUser, "EmpleadoRecepcionista");
         }
     }
 }
