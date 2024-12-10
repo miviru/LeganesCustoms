@@ -1,5 +1,6 @@
 @page "/editarCliente/{Id:long}"
 @inject ClienteService ClienteService
+@inject VehiculoService VehiculoService
 @inject NavigationManager NavigationManager
 @using LeganesCustomsBlazor.Models;
 @using LeganesCustomsBlazor.Dtos;
@@ -46,8 +47,45 @@
                     </div>
                 </div>
 
+                <div class="form-group mt-3">
+                    <label for="password">Contraseña:</label>
+                    <div class="col-md-5">
+                        <InputText id="password" type="password" class="form-control" @bind-Value="cliente.Password" />
+                    </div>
+                    <ValidationMessage For="@(() => cliente.Password)" />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <div class="col-md-5">
+                        <InputText id="confirmPassword" type="password" class="form-control" @bind-Value="cliente.ConfirmPassword" />
+                    </div>
+                    <ValidationMessage For="@(() => cliente.ConfirmPassword)" />
+                </div>
+
+                 <!-- Asociación de vehículos -->
+                <div class="form-group mt-3">
+                    <div class="col-md-5">
+                        <input type="checkbox" id="asociarVehiculo" @bind="AsociarVehiculo" />
+                        <label for="asociarVehiculo">¿Desea asociar un vehículo existente?</label>
+                        @if (AsociarVehiculo)
+                        {
+                            <div class="mt-3">
+                                <label for="vehiculo">Vehículo:</label>
+                                <select id="vehiculo" class="form-select" @bind="VehiculoSeleccionadoId">
+                                    <option value="">Seleccione un vehículo</option>
+                                    @foreach (var vehiculo in VehiculosDisponibles)
+                                    {
+                                        <option value="@vehiculo.Id_Vehiculo">@vehiculo.Fabricante - @vehiculo.Modelo (@vehiculo.Matricula)</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+                    </div>
+                </div>
+
                 <div class="mt-3">
-                    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-outline-success">Guardar Cambios</button>
                     <NavLink class="btn btn-outline-secondary ms-2 text-white" href="/cliente">Cancelar</NavLink>
                 </div>
             </EditForm>
@@ -61,11 +99,34 @@
 
     private ClienteDto cliente = new ClienteDto();
     private EditContext? editContext;
+    private List<VehiculoDto> VehiculosDisponibles = new List<VehiculoDto>();
+    private bool AsociarVehiculo = false;
+    private long? VehiculoSeleccionadoId = null;
 
     private string errorMessage = string.Empty;
-    protected override void OnInitialized()
+
+    protected override async Task OnInitializedAsync()
     {
-        editContext = new EditContext(cliente);
+        try
+        {
+            cliente = await ClienteService.GetClienteByIdAsync(Id);
+
+            if (cliente == null)
+            {
+                errorMessage = "Cliente no encontrado.";
+                return;
+            }
+
+            // Inicializa editContext después de cargar los datos
+            editContext = new EditContext(cliente);
+
+            // Cargar vehículos disponibles sin propietario
+            VehiculosDisponibles = await VehiculoService.ObtenerVehiculosSinPropietarioAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error al cargar datos: {ex.Message}";
+        }
     }
 
     protected override async Task OnParametersSetAsync()
@@ -93,35 +154,60 @@
         Console.WriteLine("Saliendo de OnParametersSetAsync");
     }
 
-    private async Task HandleValidSubmit()
+  private async Task HandleValidSubmit()
+{
+    if (!editContext.Validate())
     {
-        if (!editContext.Validate())
+        Console.WriteLine("Errores de validación en el formulario.");
+        return;
+    }
+
+    if (!string.IsNullOrEmpty(cliente.Password) || !string.IsNullOrEmpty(cliente.ConfirmPassword))
+    {
+        if (cliente.Password != cliente.ConfirmPassword)
         {
-            Console.WriteLine("Errores de validación en el formulario.");
+            errorMessage = "La contraseña y la confirmación no coinciden.";
+            Console.WriteLine(errorMessage);
             return;
         }
 
-        try
+        if (cliente.Password!.Length < 8)
         {
-            // Actualiza los datos en la base de datos
-            await ClienteService.UpdateClienteAsync(cliente);
-
-            // Recarga los datos del servidor
-            cliente = await ClienteService.GetClienteByIdAsync(cliente.Id_Cliente);
-            Console.WriteLine($"Datos actualizados del cliente: {JsonSerializer.Serialize(cliente)}");
-
-            Console.WriteLine("Cliente actualizado correctamente.");
-            errorMessage = string.Empty;
-
-            NavigationManager.NavigateTo($"/cliente");
-
-        }
-        catch (Exception ex)
-        {
-            errorMessage = $"Error al guardar los cambios: {ex.Message}";
+            errorMessage = "La contraseña debe tener al menos 8 caracteres.";
             Console.WriteLine(errorMessage);
+            return;
         }
     }
+
+    try
+    {
+        if (AsociarVehiculo && VehiculoSeleccionadoId.HasValue)
+        {
+            var vehiculoDto = VehiculosDisponibles.FirstOrDefault(v => v.Id_Vehiculo == VehiculoSeleccionadoId.Value);
+            if (vehiculoDto != null)
+            {
+                if (cliente.Id_Cliente <= 0)
+                {
+                    errorMessage = "El cliente no tiene un ID válido.";
+                    Console.WriteLine(errorMessage);
+                    return;
+                }
+
+                vehiculoDto.Id_cliente = cliente.Id_Cliente; // Asocia el cliente al vehículo
+                cliente.Vehiculos.Add(vehiculoDto);
+            }
+        }
+
+        await ClienteService.UpdateClienteAsync(cliente);
+        Console.WriteLine($"Cliente actualizado: {JsonSerializer.Serialize(cliente)}");
+        NavigationManager.NavigateTo("/cliente");
+    }
+    catch (Exception ex)
+    {
+        errorMessage = $"Error al guardar los cambios: {ex.Message}";
+        Console.WriteLine(errorMessage);
+    }
+}
 
     private Cliente MapToCliente(ClienteDto dto)
     {

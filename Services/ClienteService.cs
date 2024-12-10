@@ -2,6 +2,7 @@
 using LeganesCustomsBlazor.Models;
 using LeganesCustomsBlazor.Dtos;
 using System.Text.Json;
+using System.Text;
 
 public class ClienteService
 {
@@ -22,48 +23,28 @@ public class ClienteService
         }
     }
 
-   public async Task CrearClienteAsync(Cliente cliente)
+   public async Task CrearClienteAsync(ClienteDto clienteDto)
     {
         try
         {
-            // Mapeo manual de Cliente a ClienteDto
-            var clienteDto = new ClienteDto
+            // Serializar el cliente en JSON
+            var jsonContent = JsonSerializer.Serialize(clienteDto, new JsonSerializerOptions
             {
-                Id_Cliente = cliente.Id_Cliente,
-                Nombre = cliente.Nombre,
-                Apellido1 = cliente.Apellido1,
-                Apellido2 = cliente.Apellido2,
-                DNI = cliente.DNI,
-                Email = cliente.Email,
-                Telefono = cliente.Telefono,
-                Direccion = cliente.Direccion ?? string.Empty,
-                Vehiculos = cliente.Vehiculos.Select(v => new VehiculoDto
-                {
-                    // Mapear propiedades de Vehiculo aquí
-                }).ToList(),
-                Citas = cliente.Citas?.Select(c => new CitaDto
-                {
-                    Id = c.Id,
-                    Fecha = new DateTime(c.Fecha.Año, c.Fecha.Mes, c.Fecha.Dia),
-                    Hora = $"{c.Hora.Horas:D2}:{c.Hora.Minutos:D2}",
-                    ClienteNombre = c.Cliente.Nombre,
-                    EmpleadoNombre = c.Empleado.Nombre,
-                    VehiculoDetalles = $"{c.Vehiculo.Fabricante} {c.Vehiculo.Modelo}"
-                }).ToList() ?? new List<CitaDto>(),
-                Facturas = cliente.Facturas.Select(f => new FacturaDto
-                {
-                    ClienteNombre = f.Cliente.Nombre,
-                }).ToList()
-            };
+                WriteIndented = false
+            });
 
-            // Enviar clienteDto al backend
-            var response = await _http.PostAsJsonAsync("api/cliente", clienteDto);
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            // Realizar la solicitud POST al endpoint de creación de cliente
+            var response = await _http.PostAsync("api/cliente", content);
 
             if (!response.IsSuccessStatusCode)
             {
-                var error = await response.Content.ReadAsStringAsync();
-                throw new Exception($"Error al crear cliente: {error}");
+                var errorContent = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Error al crear cliente: {response.StatusCode}, {errorContent}");
             }
+
+            Console.WriteLine("Cliente creado exitosamente");
         }
         catch (Exception ex)
         {
@@ -140,6 +121,13 @@ public class ClienteService
     {
         try
         {
+            if (!string.IsNullOrEmpty(clienteDto.Password))
+            {
+                // Enviar contraseña al backend para actualización
+                clienteDto.Password = clienteDto.Password.Trim();
+                clienteDto.ConfirmPassword = clienteDto.ConfirmPassword?.Trim();
+            }
+
             var response = await _http.PutAsJsonAsync($"api/cliente/{clienteDto.Id_Cliente}", clienteDto);
 
             if (!response.IsSuccessStatusCode)
@@ -181,6 +169,23 @@ public class ClienteService
             Console.WriteLine($"Error al obtener clientes: {ex.Message}");
             throw;
         }
+    }
+
+    public async Task<List<Vehiculo>> GetVehiculosPorClienteIdAsync(long clienteId)
+    {
+        var url = $"api/vehiculos/cliente/{clienteId}";
+        var response = await _http.GetAsync(url);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<List<Vehiculo>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
+
+        return new List<Vehiculo>();
     }
 
 }

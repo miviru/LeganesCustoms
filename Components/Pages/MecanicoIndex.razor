@@ -1,48 +1,55 @@
 @page "/mecanico"
+@inject IEmpleadoService EmpleadoService
 @inject NavigationManager NavigationManager
-@using LeganesCustomsBlazor.Models;
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@using Microsoft.AspNetCore.Components.Authorization
+@using LeganesCustomsBlazor.Dtos
+@using LeganesCustomsBlazor.Services
 
 <PageTitle>Mecánico</PageTitle>
 
-<div class="container-fluid">
-    <div class="row mt-3">
-        <div class="col-lg-12">
-            <h3>BIENVENIDO, @empleado.Nombre</h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-6 col-lg-2"></div>
-
-        <div class="col-12 col-lg-4">
-            <div class="card mt-4" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
-                <div class="card-body d-flex justify-content-center align-items-center h-100">
-                    <NavLink class="text-white text-center" href="@($"/detallesEmpleado/{empleado.Id}")" style="text-decoration: none;">MIS DATOS</NavLink>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-4">
-            <div class="card mt-4" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
-                <div class="card-body d-flex justify-content-center align-items-center h-100">
-                    <NavLink class=" text-white me-2" href="@($"/detallesCita/{empleado.Id}")" style="text-decoration: none;">CITAS</NavLink>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-</div>
+@if (!tienePermiso)
+{
+    <p>No tienes permisos para acceder a esta página.</p>
+    <p><a href="/">Volver al inicio</a></p>
+}
+else if (isAdmin)
+{
+    <h3>Bienvenido, Administrador</h3>
+    <p>Acceso a las funcionalidades del mecánico concedido.</p>
+}
+else if (empleado != null)
+{
+    <h3>Bienvenido, @empleado.Nombre</h3>
+}
 
 @code {
-    private Empleado empleado;
+    private bool tienePermiso = false;
+    private bool isAdmin = false;
+    private EmpleadoDto? empleado;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        // Simulación de cliente logueado
-        empleado = new Empleado
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Diagnóstico
+        Console.WriteLine($"Usuario autenticado: {user.Identity.IsAuthenticated}");
+        Console.WriteLine($"Roles: {string.Join(", ", user.Claims.Where(c => c.Type == "role").Select(c => c.Value))}");
+
+        if (user.IsInRole("Admin"))
         {
-            Id = 1,
-            Nombre = "Ernesto Mojamuto"
-        };
+            isAdmin = true;
+            tienePermiso = true;
+        }
+        else if (user.IsInRole("EmpleadoMecanico"))
+        {
+            tienePermiso = true;
+            empleado = await EmpleadoService.GetEmpleadoLogueadoAsync();
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
     }
 }

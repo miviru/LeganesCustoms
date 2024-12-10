@@ -51,7 +51,7 @@
                         </li>
                     }
                     <li class="nav-item">
-                        <button class="btn btn-link" @onclick="LogOut">Cerrar sesión</button>
+                        <button class="btn nav-link" @onclick="LogOut">Cerrar sesión</button>
                     </li>
                 }
                 else
@@ -74,50 +74,55 @@
     private string userName = string.Empty;
 
     protected override async Task OnInitializedAsync()
+{
+    try
     {
         var client = HttpClientFactory.CreateClient("DefaultClient");
+        var response = await client.GetAsync("api/auth/userinfo");
 
-        try
+        if (response.IsSuccessStatusCode)
         {
-            // Solicitar información del usuario
-            var response = await client.GetAsync("api/auth/userinfo");
+            var userInfo = await response.Content.ReadFromJsonAsync<UserInfo>();
 
-            if (response.IsSuccessStatusCode)
+            if (userInfo != null)
             {
-                var content = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Contenido de la respuesta: {content}");
+                isAuthenticated = userInfo.IsAuthenticated;
+                isAdmin = userInfo.Roles.Contains("Admin");
+                userName = userInfo.Name;
 
-                var userInfo = await response.Content.ReadFromJsonAsync<UserInfo>();
-
-                if (userInfo != null)
-                {
-                    isAuthenticated = userInfo.IsAuthenticated;
-                    isAdmin = userInfo.Roles.Contains("Admin");
-                    isMechanic = userInfo.Roles.Contains("empleadomecanico"); // Verificar rol de mecánico
-                    isReceptionist = userInfo.Roles.Contains("empleadorecepcionista"); // Verificar rol de recepcionista
-                    isClient = userInfo.Roles.Contains("cliente"); // Verificar rol de cliente
-                    userName = userInfo.Name; // Almacenar el nombre del usuario
-
-                    // Forzar actualización de la UI
-                    StateHasChanged();
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Error al obtener datos del usuario: {response.StatusCode}");
+                StateHasChanged();
             }
         }
-        catch (Exception ex)
+        else
         {
-            Console.WriteLine($"Error al procesar la solicitud: {ex.Message}");
+            isAuthenticated = false; // Asegurar el estado cuando la solicitud falla
         }
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error al procesar la solicitud: {ex.Message}");
+        isAuthenticated = false; // Asegurar el estado en caso de excepción
+    }
+}
 
     private class UserInfo
     {
         public bool IsAuthenticated { get; set; }
         public List<string> Roles { get; set; } = new List<string>();
-        public string Name { get; set; } = string.Empty; // Nuevo campo para el nombre del usuario
+        public string Name { get; set; } = string.Empty;
+    }
+
+    // Método que limpia el estado de autenticación
+    private void ResetAuthenticationState()
+    {
+        isAuthenticated = false;
+        isAdmin = false;
+        isMechanic = false;
+        isReceptionist = false;
+        isClient = false;
+        userName = string.Empty;
+
+        StateHasChanged(); // Forzar actualización de la UI
     }
 
     private async Task LogOut()
@@ -125,27 +130,19 @@
         try
         {
             var client = HttpClientFactory.CreateClient("DefaultClient");
-
-            // Llamar al endpoint de logout
             var response = await client.PostAsync("api/auth/logout", null);
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Logout exitoso");
-
-                // Limpiar el estado del cliente
-                if (AuthenticationStateProvider is RevalidatingIdentityAuthenticationStateProvider<IdentityUser> revalidatingProvider)
-                {
-                    await revalidatingProvider.SignOutAsync();
-                }
-
-                // Redirigir al usuario a la página principal
+                ResetAuthenticationState();
+                userName = string.Empty;
+                // Limpia estado local
+                await LocalStorage.ClearAsync();
                 NavigationManager.NavigateTo("/", true);
             }
             else
             {
-                var content = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Error al cerrar sesión: {response.StatusCode}, Detalles: {content}");
+                Console.WriteLine($"Error al cerrar sesión: {response.StatusCode}");
             }
         }
         catch (Exception ex)

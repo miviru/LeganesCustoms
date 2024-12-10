@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using LeganesCustomsBlazor.Models;
-using Microsoft.EntityFrameworkCore;
-using LeganesCustomsBlazor.Data;
 using LeganesCustomsBlazor.Dtos;
+using LeganesCustomsBlazor.Data;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-
+using System.Text.Json;
 
 
 namespace LeganesCustomsBlazor.Controllers
@@ -14,10 +15,12 @@ namespace LeganesCustomsBlazor.Controllers
     public class ClienteController : ControllerBase
     {
         private readonly AppDbContext  _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ClienteController(AppDbContext  context)
+        public ClienteController(AppDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         }
         // Get 
         [HttpGet]
@@ -25,6 +28,7 @@ namespace LeganesCustomsBlazor.Controllers
         {
             var clientes = await _context.Clientes
                 .Include(c => c.Vehiculos) // Incluye vehículos asociados
+                .ThenInclude(v => v.Fabricante)
                 .Select(c => new ClienteDto
                 {
                     Id_Cliente = c.Id_Cliente,
@@ -38,7 +42,7 @@ namespace LeganesCustomsBlazor.Controllers
                         Id_Vehiculo = v.Id,
                         Matricula = v.Matricula,
                         Modelo = v.Modelo,
-                        Fabricante = v.Fabricante != null ? v.Fabricante.Nombre : string.Empty
+                        Fabricante = v.Fabricante != null ? v.Fabricante.Nombre : "Desconocido" // Cambiar operador ?. por una comprobación explícita
                     }).ToList()
                 })
                 .ToListAsync();
@@ -66,8 +70,10 @@ namespace LeganesCustomsBlazor.Controllers
                 Nombre = cliente.Nombre,
                 Apellido1 = cliente.Apellido1,
                 Apellido2 = cliente.Apellido2,
+                DNI = cliente.DNI, 
                 Email = cliente.Email,
                 Telefono = cliente.Telefono,
+                Direccion = cliente.Direccion,
                 Vehiculos = cliente.Vehiculos.Select(v => new VehiculoDto
                 {
                     Id_Vehiculo = v.Id,
@@ -82,83 +88,132 @@ namespace LeganesCustomsBlazor.Controllers
 
         // POST: api/Cliente
        [HttpPost]
-        public async Task<ActionResult<ClienteDto>> CreateCliente(ClienteDto clienteDto)
+        public async Task<IActionResult> CreateCliente(ClienteDto clienteDto)
         {
-            if (clienteDto == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("El cliente no puede ser nulo.");
+                return BadRequest("Datos no válidos.");
             }
 
-            // Mapear ClienteDto a Cliente
-            var cliente = new Cliente
-            {
-                Nombre = clienteDto.Nombre,
-                Apellido1 = clienteDto.Apellido1,
-                Apellido2 = clienteDto.Apellido2,
-                DNI = clienteDto.DNI,
-                Email = clienteDto.Email ?? string.Empty,
-                Telefono = clienteDto.Telefono ?? string.Empty,
-                Direccion = clienteDto.Direccion
-            };
-
-            _context.Clientes.Add(cliente);
-            await _context.SaveChangesAsync();
-
-            clienteDto.Id_Cliente = cliente.Id_Cliente;
-
-            return CreatedAtAction(nameof(GetCliente), new { id = cliente.Id_Cliente }, clienteDto);
-        }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateClienteAsync(long id, ClienteDto clienteDto)
-        {
             try
             {
-                Console.WriteLine($"ID URL: {id}, ID DTO: {clienteDto.Id_Cliente}");
-                if (id != clienteDto.Id_Cliente)
+                // Crear un IdentityUser
+                var identityUser = new IdentityUser
                 {
-                    Console.WriteLine($"Error: ID URL ({id}) no coincide con ID DTO ({clienteDto.Id_Cliente}).");
-                    return BadRequest("El ID del cliente no coincide con el ID proporcionado en el DTO.");
+                    UserName = clienteDto.Email,
+                    Email = clienteDto.Email
+                };
+
+                var createUserResult = await _userManager.CreateAsync(identityUser, clienteDto.Password);
+                if (!createUserResult.Succeeded)
+                {
+                    var errors = string.Join(", ", createUserResult.Errors.Select(e => e.Description));
+                    return BadRequest(new { message = $"Error al crear usuario: {errors}" });
                 }
 
-                var clienteExistente = await _context.Clientes.FirstOrDefaultAsync(e => e.Id_Cliente == id);
-
-                if (clienteExistente == null)
+                // Asignar el rol "Cliente"
+                var addRoleResult = await _userManager.AddToRoleAsync(identityUser, "Cliente");
+                if (!addRoleResult.Succeeded)
                 {
-                    Console.WriteLine($"Error: No se encontró un cliente con ID {id}.");
-                    return NotFound($"No se encontró un cliente con ID {id}.");
+                    var errors = string.Join(", ", addRoleResult.Errors.Select(e => e.Description));
+                    return BadRequest(new { message = $"Error al asignar rol: {errors}" });
                 }
 
-                Console.WriteLine($"Cliente encontrado: {JsonConvert.SerializeObject(clienteExistente)}");
+                // Crear el cliente en la base de datos
+                var cliente = new Cliente
+                {
+                    Nombre = clienteDto.Nombre,
+                    Apellido1 = clienteDto.Apellido1,
+                    Apellido2 = clienteDto.Apellido2,
+                    DNI = clienteDto.DNI,
+                    Email = clienteDto.Email,
+                    Telefono = clienteDto.Telefono,
+                    Direccion = clienteDto.Direccion,
+                    IdentityUserId = identityUser.Id
+                };
 
-                // Solo actualiza los campos que se envían en el DTO
-                clienteExistente.Nombre = clienteDto.Nombre ?? clienteExistente.Nombre;
-                clienteExistente.Apellido1 = clienteDto.Apellido1 ?? clienteExistente.Apellido1;
-                clienteExistente.Apellido2 = clienteDto.Apellido2 ?? clienteExistente.Apellido2;
-                clienteExistente.DNI = clienteDto.DNI ?? clienteExistente.DNI;
-                clienteExistente.Email = clienteDto.Email ?? clienteExistente.Email;
-                clienteExistente.Telefono = clienteDto.Telefono ?? clienteExistente.Telefono;
-                clienteExistente.Direccion = clienteDto.Direccion ?? clienteExistente.Direccion;
+                _context.Clientes.Add(cliente);
+
+                // Asociar los vehículos seleccionados
+                if (clienteDto.Vehiculos != null && clienteDto.Vehiculos.Any())
+                {
+                    foreach (var vehiculoDto in clienteDto.Vehiculos)
+                    {
+                        var vehiculo = await _context.Vehiculos.FirstOrDefaultAsync(v => v.Id == vehiculoDto.Id_Vehiculo);
+                        if (vehiculo == null)
+                        {
+                            return NotFound($"Vehículo con ID {vehiculoDto.Id_Vehiculo} no encontrado.");
+                        }
+
+                        vehiculo.Cliente = cliente;
+                    }
+                }
 
                 await _context.SaveChangesAsync();
-                Console.WriteLine($"Cliente con ID {id} actualizado correctamente.");
 
-                return NoContent();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await ClienteExists(id))
-                {
-                    Console.WriteLine($"Error: Concurrencia detectada. El cliente con ID {id} no existe.");
-                    return NotFound($"Cliente con ID {id} no existe.");
-                }
-                throw;
+                return CreatedAtAction(nameof(GetCliente), new { id = cliente.Id_Cliente }, clienteDto);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al actualizar cliente: {ex.Message}");
-                return StatusCode(500, "Ocurrió un error interno al actualizar el cliente.");
+                return StatusCode(500, $"Ocurrió un error al crear el cliente: {ex.Message}");
             }
         }
+
+       [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateClienteAsync(long id, ClienteDto clienteDto)
+    {
+        try
+        {
+            // Verifica que el cliente existe
+            var clienteExistente = await _context.Clientes
+                .Include(c => c.Vehiculos) // Incluye vehículos asociados
+                .FirstOrDefaultAsync(c => c.Id_Cliente == id);
+
+            if (clienteExistente == null)
+            {
+                return NotFound($"Cliente con ID {id} no encontrado.");
+            }
+
+            // Actualiza los datos del cliente
+            clienteExistente.Nombre = clienteDto.Nombre ?? clienteExistente.Nombre;
+            clienteExistente.Apellido1 = clienteDto.Apellido1 ?? clienteExistente.Apellido1;
+            clienteExistente.Apellido2 = clienteDto.Apellido2 ?? clienteExistente.Apellido2;
+            clienteExistente.Email = clienteDto.Email ?? clienteExistente.Email;
+            clienteExistente.Telefono = clienteDto.Telefono ?? clienteExistente.Telefono;
+            clienteExistente.Direccion = clienteDto.Direccion ?? clienteExistente.Direccion;
+
+            // Asocia el vehículo si hay un ID de vehículo
+            if (clienteDto.Vehiculos.Any())
+            {
+                var vehiculoDto = clienteDto.Vehiculos.First();
+                var vehiculo = await _context.Vehiculos.FirstOrDefaultAsync(v => v.Id == vehiculoDto.Id_Vehiculo);
+
+                if (vehiculo == null)
+                {
+                    return NotFound($"Vehículo con ID {vehiculoDto.Id_Vehiculo} no encontrado.");
+                }
+
+                vehiculo.Id_cliente = clienteExistente.Id_Cliente; // Asociar cliente al vehículo
+                _context.Vehiculos.Update(vehiculo);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!await ClienteExists(id))
+            {
+                return NotFound($"Cliente con ID {id} no existe.");
+            }
+            throw;
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error inesperado al actualizar cliente: {ex.Message}");
+        }
+    }
 
         // DELETE: api/Cliente/5
         [HttpDelete("{id}")]
@@ -239,5 +294,6 @@ namespace LeganesCustomsBlazor.Controllers
                 }).ToList()
             };
         }
+
     }
 }

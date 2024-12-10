@@ -1,8 +1,7 @@
 @page "/pedircita"
 @rendermode InteractiveServer
-
+@using LeganesCustomsBlazor.Components.Pages
 @using LeganesCustomsBlazor.Models
-
 
 <PageTitle>Pedir cita</PageTitle>
 
@@ -16,35 +15,61 @@
     <div>
         @if (IsConfirmed)
         {
-        <div class="alert alert-success mt-3">
-            ¡Cita confirmada exitosamente!
-        </div>
+            <div class="alert alert-success mt-3">
+                ¡Cita confirmada exitosamente!
+            </div>
         }
         else
         {
+            <ul class="steps-indicator">
+                <li class="@(CurrentStep == 1 ? "active" : "")">Paso 1: Cliente</li>
+                <li class="@(CurrentStep == 2 ? "active" : "")">Paso 2: Vehículo</li>
+                <li class="@(CurrentStep == 3 ? "active" : "")">Paso 3: Servicio</li>
+                <li class="@(CurrentStep == 4 ? "active" : "")">Paso 4: Fecha y Hora</li>
+                <li class="@(CurrentStep == 5 ? "active" : "")">Paso 5: Resumen</li>
+            </ul>
+
             <div>
                 @if (CurrentStep == 1)
                 {
-                    <PasoDatosVehiculo OnNext="GoToNextStep" Vehiculo="@VehiculoData" />
+                    <PasoCliente OnClienteSeleccionado="ClienteSeleccionado" />
                 }
                 else if (CurrentStep == 2)
                 {
-                    <PasoServicio OnNext="GoToNextStep" OnPrevious="GoToPreviousStep" SelectedService="@SelectedService" OnServiceChanged="UpdateSelectedService" />
-                }
-                else if (CurrentStep == 3)
-                {
-                    @if (SelectedService != null)
+                    @if (ClientData != null)
                     {
-                        <PasoFecha OnNext="GoToNextStep" OnPrevious="GoToPreviousStep" ServiceDuration="@SelectedService.Duracion" />
+                        <PasoDatosVehiculo ClienteId="@ClientData.Id_Cliente" OnNext="GoToNextStep" OnPrevious="GoToPreviousStep" />
                     }
                     else
                     {
-                        <p>Por favor, selecciona un servicio primero.</p>
+                        <div class="alert alert-danger">
+                            No se ha seleccionado un cliente. Vuelve al paso anterior.
+                        </div>
                     }
+                }
+                else if (CurrentStep == 3)
+                {
+                    <PasoServicio 
+                        SelectedService="@SelectedService" 
+                        OnServiceChanged="UpdateSelectedService" 
+                        OnNext="GoToNextStep" 
+                        OnPrevious="GoToPreviousStep" />
                 }
                 else if (CurrentStep == 4)
                 {
-                    <PasoCliente OnNext="GoToNextStep" OnPrevious="GoToPreviousStep" Cliente="@ClientData" />
+                    @if (SelectedService == null || SelectedService.Duracion <= 0)
+                    {
+                        <div class="alert alert-danger">
+                            No se seleccionó un servicio válido. Vuelve al paso anterior.
+                        </div>
+                    }
+                    else
+                    {
+                    <PasoFecha 
+                        OnDateTimeSelected="HandleDateTimeSelected" 
+                        OnPrevious="GoToPreviousStep" 
+                        ServiceDuration="@SelectedService.Duracion" />
+                    }
                 }
                 else if (CurrentStep == 5)
                 {
@@ -57,7 +82,7 @@
                         OnNext="ConfirmAppointment" />
                 }
             </div>
-            }
+        }
     </div>
 </div>
 
@@ -67,56 +92,69 @@
 
     [Inject] private NavigationManager Navigation { get; set; } = null!;
 
+    private Cliente? ClientData;
+    private Vehiculo VehiculoData = new Vehiculo
+    {
+        Fabricante = new Fabricante
+        {
+            Nombre = string.Empty,
+            Grupo = new Grupo
+            {
+                Nombre = string.Empty,
+                Fabricantes = new List<Fabricante>()
+            }
+        },
+        Modelo = string.Empty,
+        Matricula = string.Empty,
+        Motorizacion = string.Empty,
+        Motor = string.Empty,
+        Fecha_matriculacion = DateTime.Now,
+        Color = string.Empty,
+        Citas = new List<Cita>(),
+        Cliente = new Cliente
+        {
+            Nombre = string.Empty,
+            Apellido1 = string.Empty,
+            Apellido2 = string.Empty,
+            DNI = string.Empty,
+            Vehiculos = new List<Vehiculo>()
+        }
+    };
+    private Servicio SelectedService = new Servicio();
+    private DateTime SelectedDateTime;
+
+    private void ClienteSeleccionado(Cliente cliente)
+    {
+        ClientData = cliente;
+        Console.WriteLine($"Cliente seleccionado: {cliente.Id_Cliente}"); // Depuración
+        GoToNextStep();
+    }
+
     private void UpdateSelectedService(Servicio? selectedService)
     {
-        if (selectedService == null)
+        if (selectedService == null || selectedService.Duracion <= 0)
         {
-            throw new ArgumentNullException(nameof(selectedService), "El servicio seleccionado no puede ser nulo.");
+            Console.WriteLine("Error: No se seleccionó un servicio válido.");
+            return;
         }
 
         SelectedService = selectedService;
-        Console.WriteLine($"Servicio seleccionado: {selectedService.Nombre}");
+        Console.WriteLine($"Servicio seleccionado: {SelectedService.Nombre}");
     }
 
-
-
-    // Step Data Models
-    private Vehiculo VehiculoData = new Vehiculo{
-        Fabricante = new Fabricante
+        private async Task HandleDateTimeSelected(DateTime dateTime)
         {
-            Grupo = new Grupo
-            {
-                Fabricantes = new List<Fabricante>()
-            },
-            Vehiculos = new List<Vehiculo>()
-        },
-        Cliente = new Cliente
-        {
-            Vehiculos = new List<Vehiculo>()
-        },
-        Citas = new List<Cita>(),
-        Modelo = string.Empty,
-        Motorizacion = string.Empty,
-        Motor = string.Empty,
-        Matricula = string.Empty,
-        Fecha_matriculacion = DateTime.Now,
-        Color = "Rojo"
-    };
-    private Servicio SelectedService = new Servicio
-    {
-        Nombre = string.Empty,
-        Precio = 0,
-        Duracion = 0
-    };
-    private DateTime SelectedDateTime;
-private Cliente ClientData = new Cliente
-{
-    Vehiculos = new List<Vehiculo>()
-};
+            SelectedDateTime = dateTime;
+            Console.WriteLine($"Fecha y hora seleccionadas: {SelectedDateTime}");
+            GoToNextStep();
+        }
 
     private void GoToNextStep()
     {
-        CurrentStep++;
+        if (CurrentStep < 5)
+        {
+            CurrentStep++;
+        }
     }
 
     private void GoToPreviousStep()
@@ -129,18 +167,16 @@ private Cliente ClientData = new Cliente
 
     private async Task ConfirmAppointment()
     {
-        // Simulación de guardar en la base de datos
         await GuardarCitaEnBaseDeDatos();
         IsConfirmed = true;
 
-        Navigation.NavigateTo("/?citaConfirmada=true");
+        Navigation.NavigateTo("/?citaConfirmada=true", true);
     }
 
-    // Ejemplo de método para guardar en base de datos
     private async Task GuardarCitaEnBaseDeDatos()
     {
-        // Aquí realizarías una llamada real a un servicio o contexto de base de datos
-        await Task.Delay(500); // Simula una operación que toma tiempo
+        // Simulación de guardar en base de datos
+        await Task.Delay(500); // Simula una operación de guardado
+        Console.WriteLine("Cita guardada en la base de datos.");
     }
-
 }

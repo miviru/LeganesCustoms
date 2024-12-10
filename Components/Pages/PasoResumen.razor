@@ -1,23 +1,16 @@
 @using LeganesCustomsBlazor.Models
 
 <h4>Resumen de la Cita</h4>
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Datos del Vehículo</h5>
-        <p><strong>Fabricante:</strong> @VehicleData.Fabricante?.Nombre</p>
-        <p><strong>Modelo:</strong> @VehicleData.Modelo</p>
-        <p><strong>Motorización:</strong> @VehicleData.Motorizacion</p>
-        <p><strong>Motor:</strong> @VehicleData.Motor</p>
-        <p><strong>Matrícula:</strong> @VehicleData.Matricula</p>
-    </div>
-</div>
 
 <div class="card mt-3">
     <div class="card-body">
-        <h5 class="card-title">Servicio Seleccionado</h5>
-        <p><strong>Servicio:</strong> @SelectedService.Nombre</p>
-        <p><strong>Precio:</strong> @SelectedService.Precio.ToString("C")</p>
-        <p><strong>Duración:</strong> @SelectedService.Duracion horas</p>
+        <h5 class="card-title">Datos del Cliente</h5>
+        <p><strong>Nombre:</strong> @ClientData?.Nombre</p>
+        <p><strong>Apellidos:</strong> @ClientData?.Apellido1 @ClientData?.Apellido2</p>
+        <p><strong>DNI:</strong> @ClientData?.DNI</p>
+        <p><strong>Email:</strong> @ClientData?.Email</p>
+        <p><strong>Teléfono:</strong> @ClientData?.Telefono</p>
+        <p><strong>Dirección:</strong> @ClientData?.Direccion</p>
     </div>
 </div>
 
@@ -29,62 +22,29 @@
     </div>
 </div>
 
-<div class="card mt-3">
-    <div class="card-body">
-        <h5 class="card-title">Datos del Cliente</h5>
-        <p><strong>Nombre:</strong> @ClientData.Nombre</p>
-        <p><strong>Apellidos:</strong> @ClientData.Apellido1 @ClientData.Apellido2</p>
-        <p><strong>DNI:</strong> @ClientData.DNI</p>
-        <p><strong>Email:</strong> @ClientData.Email</p>
-        <p><strong>Teléfono:</strong> @ClientData.Telefono</p>
-        <p><strong>Dirección:</strong> @ClientData.Direccion</p>
-    </div>
+<div class="mt-3">
+    <button class="btn btn-primary" @onclick="ConfirmAppointment">Confirmar Cita</button>
+    <button class="btn btn-secondary ms-2" @onclick="PreviousStep">Anterior</button>
 </div>
 
-<button class="btn btn-primary mt-3" @onclick="ConfirmAppointment">Confirmar Cita</button>
-<button class="btn btn-secondary mt-3 ms-2" @onclick="PreviousStep">Anterior</button>
-
 @code {
-[Parameter] public Vehiculo VehicleData { get; set; } = new Vehiculo
-    {
-        Fabricante = new Fabricante
-        {
-            Grupo = new Grupo
-            {
-                Fabricantes = new List<Fabricante>()
-            },
-            Vehiculos = new List<Vehiculo>()
-        },
-        Cliente = new Cliente
-        {
-            Vehiculos = new List<Vehiculo>()
-        },
-        Citas = new List<Cita>(), // Lista vacía para evitar null
-        Modelo = string.Empty,
-        Motorizacion = string.Empty,
-        Motor = string.Empty,
-        Matricula = string.Empty,
-        Fecha_matriculacion = DateTime.Now,
-        Color = "Rojo"
-    };
-    [Parameter] public Servicio SelectedService { get; set; } = new Servicio();
+    [Parameter] public Cliente ClientData { get; set; }
     [Parameter] public DateTime SelectedDateTime { get; set; }
-    [Parameter] public Cliente ClientData { get; set; } = new Cliente
-    {
-        Vehiculos = new List<Vehiculo>()
-    };
-
-    [Parameter] public EventCallback OnNext { get; set; }
+    [Parameter] public Vehiculo VehicleData { get; set; }
+    [Parameter] public Servicio SelectedService { get; set; }
     [Parameter] public EventCallback OnPrevious { get; set; }
+    [Parameter] public EventCallback OnNext { get; set; }
 
     private async Task ConfirmAppointment()
     {
-        // Lógica para confirmar la cita (ejemplo: guardar en la base de datos o mostrar mensaje)
+        // Lógica para confirmar la cita
+        Console.WriteLine("Cita confirmada.");
         await OnNext.InvokeAsync();
     }
 
     private async Task PreviousStep()
     {
+        // Lógica para ir al paso anterior
         await OnPrevious.InvokeAsync();
     }
 }

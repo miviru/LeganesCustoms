@@ -47,7 +47,7 @@
               "target": "Package",
               "version": "[4.5.0, )"
             },
-            "Microsoft.AspNetCore.Authentication": {
+            "Microsoft.AspNetCore.Authentication.Cookies": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
@@ -63,6 +63,22 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Components.Authorization": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -71,10 +87,6 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
-            "Microsoft.AspNetCore.Mvc.ApiExplorer": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -82,6 +94,10 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
               "version": "[8.0.10, )"
             },
@@ -113,7 +129,7 @@
             },
             "Syncfusion.Blazor": {
               "target": "Package",
-              "version": "[27.2.2, )"
+              "version": "[27.2.5, )"
             }
           },
           "imports": [

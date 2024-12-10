@@ -1,16 +1,12 @@
 @page "/crearEmpleado"
-@inject EmpleadoService EmpleadoService
-@using LeganesCustomsBlazor.Models;
-@using LeganesCustomsBlazor.Dtos;
-@using Microsoft.AspNetCore.Antiforgery;
-@using Newtonsoft.Json;
-@using System.Text;
+@inject IEmpleadoService EmpleadoService
 @inject NavigationManager NavigationManager
-@inject IAntiforgery Antiforgery
-@inject IHttpContextAccessor HttpContextAccessor
 @inject IJSRuntime JSRuntime
 @inject HttpClient HttpClient
-
+@using LeganesCustomsBlazor.Services
+@using LeganesCustomsBlazor.Dtos
+@using System.Text.Json 
+@using System.Text
 
 <PageTitle>Crear Empleados</PageTitle>
 
@@ -22,234 +18,167 @@
     </div>
 
     <div class="row">
-        <EditForm Model="@empleado" OnValidSubmit="HandleValidSubmit" FormName="CrearEmpleado">
+        <EditForm Model="@empleado" OnValidSubmit="HandleValidSubmit">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
-            @if (Antiforgery != null && HttpContextAccessor.HttpContext != null)
-            {
-                var tokens = Antiforgery.GetAndStoreTokens(HttpContextAccessor.HttpContext);
-                <input type="hidden" name="X-XSRF-TOKEN" value="@tokens.RequestToken" />
-            }
-            else
-            {
-                <div class="alert alert-danger">No se pudo generar el token antiforgery.</div>
-            }
-
-            <!-- Mostrar mensaje de error -->
             @if (!string.IsNullOrEmpty(errorMessage))
             {
-                <div class="alert alert-danger">@errorMessage</div>
+                <div class="alert alert-danger" role="alert">@errorMessage</div>
             }
 
             <div class="form-group">
-                <label for="name" class="form-label">Nombre:</label>
+                <label for="name">Nombre:</label>
                 <div class="col-md-5">
                     <InputText id="name" class="form-control" @bind-Value="empleado.Nombre" />
-                    <ValidationMessage For="@(() => empleado.Nombre)" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Nombre)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="apellido1" class="form-label">Primer apellido:</label>
+                <label for="apellido1">Primer apellido:</label>
                 <div class="col-md-5">
                     <InputText id="apellido1" class="form-control" @bind-Value="empleado.Apellido1" />
-                    <ValidationMessage For="@(() => empleado.Apellido1)" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Apellido1)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="apellido2" class="form-label">Segundo apellido:</label>
+                <label for="apellido2">Segundo apellido:</label>
                 <div class="col-md-5">
                     <InputText id="apellido2" class="form-control" @bind-Value="empleado.Apellido2" />
-                    <ValidationMessage For="@(() => empleado.Apellido2)" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Apellido2)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="dni" class="form-label">DNI:</label>
+                <label for="dni">DNI:</label>
                 <div class="col-md-5">
                     <InputText id="dni" class="form-control" @bind-Value="empleado.DNI" />
-                    <ValidationMessage For="@(() => empleado.DNI)" />
                 </div>
+                <ValidationMessage For="@(() => empleado.DNI)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="email" class="form-label">Email:</label>
+                <label for="email">Email:</label>
                 <div class="col-md-5">
                     <InputText id="email" class="form-control" @bind-Value="empleado.Email" />
-                    <ValidationMessage For="@(() => empleado.Email)" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Email)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="telefono" class="form-label">Telefono:</label>
+                <label for="password">Contraseña:</label>
                 <div class="col-md-5">
-                    <InputText id="telefono" class="form-control" @bind-Value="empleado.Telefono" />
-                    <ValidationMessage For="@(() => empleado.Telefono)" />
+                    <InputText id="password" type="password" class="form-control" @bind-Value="empleado.Password" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Password)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="direccion" class="form-label">Dirección:</label>
+                <label for="confirmPassword">Confirmar Contraseña:</label>
+                <div class="col-md-5">
+                    <InputText id="confirmPassword" type="password" class="form-control" @bind-Value="empleado.ConfirmPassword" />
+                </div>
+                <ValidationMessage For="@(() => empleado.ConfirmPassword)" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="direccion">Dirección:</label>
                 <div class="col-md-5">
                     <InputText id="direccion" class="form-control" @bind-Value="empleado.Direccion" />
-                    <ValidationMessage For="@(() => empleado.Direccion)" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Direccion)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="puesto" class="form-label">Puesto:</label>
+                <label for="telefono">Teléfono:</label>
                 <div class="col-md-5">
-                <InputSelect id="puesto" class="form-control" @bind-Value="empleado.Puesto">
-                                <option value=""disabled selected>Seleccione un puesto</option>
-                                @foreach (var puesto in puestosDisponibles)
-                                {
-                                    <option value="@puesto">@puesto</option>
-                                }
-                    </InputSelect>
-                    <ValidationMessage For="@(() => empleado.Puesto)" />
+                    <InputText id="telefono" class="form-control" @bind-Value="empleado.Telefono" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Telefono)" />
             </div>
+
             <div class="form-group mt-3">
-                <label for="sueldo" class="form-label">Sueldo:</label>
+                <label for="puesto">Puesto:</label>
+                <div class="col-md-5">
+                    <InputSelect id="puesto" class="form-control" @bind-Value="empleado.Puesto">
+                        @foreach (var puesto in puestosDisponibles)
+                        {
+                            <option value="@puesto">@puesto</option>
+                        }
+                    </InputSelect>
+                </div>
+                <ValidationMessage For="@(() => empleado.Puesto)" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="sueldo">Sueldo:</label>
                 <div class="col-md-5">
                     <InputNumber id="sueldo" class="form-control" @bind-Value="empleado.Sueldo" />
-                    <ValidationMessage For="@(() => empleado.Sueldo)" />
                 </div>
+                <ValidationMessage For="@(() => empleado.Sueldo)" />
             </div>
-            <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Crear Empleado</button>
-            </div>
+
+            <button type="submit" class="btn btn-outline-warning mt-3">Crear Empleado</button>
         </EditForm>
     </div>
 </div>
 
 @code {
-    private EmpleadoDto empleado = new EmpleadoDto
-    {
-        Citas = new List<CitaDto>() // Inicialización con lista vacía
-    };
-
-    private List<string> puestosDisponibles = new List<string>
-    {
-        "Recepcionista",
-        "Mecánico"
-    };
-
+    private EmpleadoDto empleado = new EmpleadoDto();
     private string errorMessage = string.Empty;
-    private EditContext editContext = new EditContext(new EmpleadoDto());
-    private bool shouldRedirect = false;
-    private string antiforgeryToken = string.Empty;
+    private string confirmPassword = string.Empty;
 
+    private List<string> puestosDisponibles = new List<string> { "Recepcionista", "Mecánico" };
 
-    protected override void OnInitialized()
+    private async Task HandleValidSubmit()
     {
-        editContext = new EditContext(empleado);
-
-        if (HttpContextAccessor.HttpContext == null)
+        // Validar que las contraseñas coinciden
+        if (empleado.Password != empleado.ConfirmPassword) // Usa la propiedad correctamente
         {
-            Console.WriteLine("Error: HttpContext no disponible.");
-            antiforgeryToken = string.Empty; // Valor predeterminado
-            return;
-        }
-}
-
-
-private async Task HandleValidSubmit()
-{
-    // Imprimir los datos introducidos para ver si funciona
-    Console.WriteLine("Datos del formulario introducidos:");
-    Console.WriteLine(JsonConvert.SerializeObject(empleado, Formatting.Indented));
-    
-    if (!editContext.Validate())
-    {
-        Console.WriteLine("Errores de validación en el formulario.");
-        return;
-    }
-
-    try
-    {
-
-        // Verificar que HttpContext no sea nulo
-        if (HttpContextAccessor.HttpContext == null)
-        {
-            Console.WriteLine("Error: HttpContext no disponible.");
-            errorMessage = "No se puede obtener el contexto HTTP.";
+            errorMessage = "Las contraseñas no coinciden.";
             return;
         }
 
-        // Obtener los tokens antiforgery
-        var tokens = Antiforgery.GetAndStoreTokens(HttpContextAccessor.HttpContext);
-
-        // **Imprimir información del token para depuración**
-        Console.WriteLine($"Token Antiforgery generado: {tokens.RequestToken}");
-
-        // Crear la solicitud HTTP
-        var request = new HttpRequestMessage(HttpMethod.Post, "api/empleado")
+        // Validar la longitud de la contraseña
+        if (string.IsNullOrEmpty(empleado.Password) || empleado.Password.Length < 8)
         {
-            Content = new StringContent(JsonConvert.SerializeObject(empleado), Encoding.UTF8, "application/json")
-        };
-
-        // **Agregar el token antiforgery al encabezado**
-        request.Headers.Add("X-XSRF-TOKEN", tokens.RequestToken);
-
-        // **Incluir la cookie en la solicitud**
-        if (HttpContextAccessor.HttpContext.Request.Cookies.TryGetValue("XSRF-TOKEN", out var cookieValue))
-        {
-            request.Headers.Add("Cookie", $"XSRF-TOKEN={cookieValue}");
-            Console.WriteLine($"Cookie enviada: XSRF-TOKEN={cookieValue}");
-        }
-        else
-        {
-            Console.WriteLine("Advertencia: No se encontró la cookie XSRF-TOKEN.");
+            errorMessage = "La contraseña debe tener al menos 8 caracteres.";
+            return;
         }
 
-        // Enviar la solicitud
-        var response = await HttpClient.SendAsync(request);
-
-        // **Manejo de respuesta**
-        if (response.IsSuccessStatusCode)
+        try
         {
-            errorMessage = string.Empty;
-            Console.WriteLine("Empleado creado con éxito.");
+            var jsonContent = JsonSerializer.Serialize(empleado, new JsonSerializerOptions
+            {
+                WriteIndented = false
+            });
 
-            shouldRedirect = true;
-            StateHasChanged(); // Solicita un renderizado
+            Console.WriteLine($"JSON enviado: {jsonContent}"); // Depuración
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "api/empleado")
+            {
+                Content = new StringContent(jsonContent, Encoding.UTF8, "application/json")
+            };
+
+            var response = await HttpClient.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                NavigationManager.NavigateTo("/empleado");
+            }
+            else
+            {
+                errorMessage = $"Error: {response.StatusCode}";
+                Console.WriteLine($"Error: {response.StatusCode}");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            var errorContent = await response.Content.ReadAsStringAsync();
-            errorMessage = $"Error al crear empleado: {response.StatusCode}, {errorContent}";
-            Console.WriteLine(errorMessage);
+            errorMessage = $"Error al crear empleado: {ex.Message}";
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
-    catch (HttpRequestException ex)
-    {
-        Console.WriteLine($"Error al crear empleado: {ex.Message}");
-    }
-    catch (Exception ex)
-    {
-        errorMessage = $"Error al crear empleado: {ex.Message}";
-        Console.WriteLine(errorMessage);
-    }
-}
 
-
-protected override void OnAfterRender(bool firstRender)
-{
-    if (shouldRedirect)
-    {
-        shouldRedirect = false;
-        NavigationManager.NavigateTo("/empleado", forceLoad: true);
-    }
-}
-
-    private Empleado MapToEmpleado(EmpleadoDto dto)
-    {
-        return new Empleado
-        {
-            Id_Empleado = dto.Id_Empleado,
-            Nombre = dto.Nombre,
-            Apellido1 = dto.Apellido1,
-            Apellido2 = dto.Apellido2,
-            DNI = dto.DNI,
-            Email = dto.Email,
-            Telefono = dto.Telefono,
-            Direccion = dto.Direccion
-        };
-    }
 }

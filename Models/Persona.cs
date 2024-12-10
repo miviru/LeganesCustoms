@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace LeganesCustomsBlazor.Models;
@@ -27,4 +28,9 @@ public class Persona
     public string Telefono { get; set; } = string.Empty;
     
     public string? Direccion { get; set; }
+
+    // Relación con IdentityUser
+    public string? IdentityUserId { get; set; }
+    public IdentityUser? IdentityUser { get; set; }
+
 }

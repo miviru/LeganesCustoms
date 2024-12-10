@@ -1,0 +1,49 @@
+@page "/citasEmpleado/{empleadoId:int}"
+@inject ICitasService CitasService
+@using LeganesCustomsBlazor.Services
+@using LeganesCustomsBlazor.Models;
+
+<PageTitle>Citas del Empleado</PageTitle>
+
+<div class="container mt-4">
+    <h3>Citas de @empleadoNombre</h3>
+    @if (citas != null && citas.Any())
+    {
+        <ul>
+            @foreach (var cita in citas)
+            {
+                <li>
+                    <strong>Fecha:</strong> @cita.Fecha.ToDateTime().ToShortDateString() - 
+                    <strong>Hora:</strong> @cita.Hora.HoraCompleta.ToString("hh\\:mm") - 
+                    <strong>Cliente:</strong> @cita.Cliente.Nombre
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No hay citas para este empleado.</p>
+    }
+</div>
+
+@code {
+    [Parameter] public int empleadoId { get; set; }
+    private string? empleadoNombre;
+    private List<Cita>? citas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Obtén citas del empleado
+        citas = await CitasService.GetCitasPorEmpleadoAsync(empleadoId);
+
+        // Extraer el nombre del empleado de la primera cita si existe
+        if (citas != null && citas.Any())
+        {
+            empleadoNombre = citas.First().Empleado.Nombre;
+        }
+        else
+        {
+            empleadoNombre = "Sin información";
+        }
+    }
+}

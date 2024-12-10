@@ -221,5 +221,63 @@ namespace LeganesCustomsBlazor.Controllers
             }
         }
 
+        [HttpGet("sinpropietario")]
+        public async Task<ActionResult<IEnumerable<VehiculoDto>>> ObtenerVehiculosSinPropietario()
+        {
+            try
+            {
+                // Filtrar vehículos que no están asociados a un cliente
+                var vehiculosSinPropietario = await _context.Vehiculos
+                    .Where(v => v.Cliente == null) // Sin propietario
+                    .Select(v => new VehiculoDto
+                    {
+                        Id_Vehiculo = v.Id,
+                        Fabricante = v.Fabricante.Nombre,
+                        Modelo = v.Modelo,
+                        Matricula = v.Matricula,
+                        Color = v.Color,
+                        FotoUrl = v.FotoUrl
+                    })
+                    .ToListAsync();
+
+                return Ok(vehiculosSinPropietario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener vehículos sin propietario: {ex.Message}");
+                return StatusCode(500, "Error interno del servidor.");
+            }
+        }
+
+        [HttpGet("cliente/{clienteId}")]
+        public async Task<IActionResult> GetVehiculosPorCliente(long clienteId)
+        {
+            try
+            {
+                var vehiculos = await _context.Vehiculos
+                    .Include(v => v.Fabricante)
+                    .Where(v => v.Id_cliente == clienteId)
+                    .Select(v => new VehiculoDto
+                    {
+                        Id_Vehiculo = v.Id,
+                        Matricula = v.Matricula,
+                        Modelo = v.Modelo,
+                        Fabricante = v.Fabricante.Nombre,
+                        Color = v.Color
+                    })
+                    .ToListAsync();
+
+                if (!vehiculos.Any())
+                {
+                    return NotFound("No se encontraron vehículos para este cliente.");
+                }
+
+                return Ok(vehiculos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener vehículos: {ex.Message}");
+            }
+        }
     }
 }

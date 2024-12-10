@@ -2,10 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using LeganesCustomsBlazor.Models;
 using LeganesCustomsBlazor.Dtos;
 using LeganesCustomsBlazor.Data;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LeganesCustomsBlazor.Services
 {
-    public class CitaService
+    public class CitaService : ICitasService
     {
         private readonly AppDbContext _context;
 
@@ -204,5 +206,24 @@ namespace LeganesCustomsBlazor.Services
 
             return true;
         }
+
+        public async Task<List<Cita>> GetCitasPorEmpleadoAsync(long empleadoId)
+        {
+            return await _context.Citas
+                .Where(c => c.Empleado.Id == empleadoId)
+                .ToListAsync();
+        }
+
+        public async Task<List<Cita>> GetCitasPorClienteIdAsync(long clienteId)
+        {
+            return await _context.Citas
+                .Include(c => c.Vehiculo)
+                .Include(c => c.Empleado)
+                .Include(c => c.Cliente)
+                .Where(c => c.Cliente.Id == clienteId)
+                .ToListAsync();
+        }
+
     }
 }
+

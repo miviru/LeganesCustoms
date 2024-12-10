@@ -1,0 +1,54 @@
+@page "/citasCliente"
+@inject ICitasService CitaService
+@using LeganesCustomsBlazor.Models;
+@using LeganesCustomsBlazor.Services;
+
+<PageTitle>Mis Citas</PageTitle>
+
+<div class="container mt-4">
+    <h3>Mis Citas</h3>
+    @if (citas == null || citas.Count == 0)
+    {
+        <p class="text-muted">No tienes citas registradas.</p>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Vehículo</th>
+                    <th>Empleado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cita in citas)
+                {
+                    <tr>
+                        <td>@cita.Fecha.ToDateTime().ToShortDateString()</td>
+                        <td>@cita.Hora.HoraCompleta.ToString(@"hh\:mm")</td>
+                        <td>@cita.Vehiculo.Fabricante.Nombre</td>
+                        <td>@cita.Empleado.Nombre</td>
+                        <td>
+                            <NavLink class="btn btn-primary btn-sm" href="@($"/detallesCita/{cita.Id}")">Ver Detalles</NavLink>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    private List<Cita> citas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var clienteId = 1; // Simula el ID del cliente logueado
+
+        // Llamar al servicio para obtener las citas
+        citas = await CitaService.GetCitasPorClienteIdAsync(clienteId);
+    }
+}

@@ -1,8 +1,12 @@
 using LeganesCustomsBlazor.Models;
 using LeganesCustomsBlazor.Dtos;
 using System.Text.Json;
+using LeganesCustomsBlazor.Services;
+using System.Net;
+using System.Text;
+using System.Net.Http;
 
-public class EmpleadoService
+public class EmpleadoService : IEmpleadoService
 {
     private readonly HttpClient _http;
 
@@ -117,18 +121,29 @@ public class EmpleadoService
     {
         try
         {
-            Console.WriteLine($"URL generada: api/empleado/{empleadoDto.Id_Empleado}");
-            Console.WriteLine(JsonSerializer.Serialize(empleadoDto));
-            var response = await _http.PutAsJsonAsync($"api/empleado/{empleadoDto.Id_Empleado}", empleadoDto);
+            // Serializa el objeto empleadoDto a JSON
+            var jsonContent = new StringContent(
+                JsonSerializer.Serialize(empleadoDto),
+                Encoding.UTF8,
+                "application/json" // Tipo MIME correcto para JSON
+            );
 
+            // Realiza la solicitud PUT con el contenido JSON
+            var response = await _http.PutAsync(
+                $"api/empleado/{empleadoDto.Id_Empleado}",
+                jsonContent
+            );
+
+            // Verifica si la respuesta fue exitosa
             if (!response.IsSuccessStatusCode)
             {
                 var errorContent = await response.Content.ReadAsStringAsync();
-                throw new Exception($"Error al actualizar empleado: {response.StatusCode}");
+                throw new Exception($"Error al actualizar empleado: {response.StatusCode}, {errorContent}");
             }
         }
         catch (Exception ex)
         {
+            // Manejo de excepciones y logging
             Console.WriteLine($"Error inesperado al actualizar empleado: {ex.Message}");
             throw;
         }
@@ -149,5 +164,23 @@ public class EmpleadoService
         Console.WriteLine($"Empleado con ID {id} eliminado exitosamente.");
     }
 
+    public async Task<EmpleadoDto?> GetEmpleadoLogueadoAsync()
+    {
+        var response = await _http.GetAsync("api/empleado/logueado");
+
+        if (response.IsSuccessStatusCode)
+        {
+            var empleado = await response.Content.ReadFromJsonAsync<EmpleadoDto>();
+            return empleado;
+        }
+        else if (response.StatusCode == HttpStatusCode.BadRequest)
+        {
+            var errorContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error al obtener empleado logueado: {errorContent}");
+            return null; // Devuelve null si no hay empleado asociado
+        }
+
+        throw new Exception($"Error al obtener empleado logueado: {response.StatusCode}");
+    }
 
 }

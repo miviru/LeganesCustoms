@@ -29,6 +29,11 @@ namespace LeganesCustomsBlazor.Data
         public DbSet<Grupo> Grupos { get; set; } = null!;
         public DbSet<Persona> Personas { get; set; } = null!;
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql("Host=localhost;Database=LeganesCustoms;Username=postgres;Password=leganes13");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configura nombres explícitos de tablas en singular
@@ -231,6 +236,12 @@ namespace LeganesCustomsBlazor.Data
                     v => v.ToUniversalTime(), // Convertir a UTC al guardar
                     v => DateTime.SpecifyKind(v, DateTimeKind.Utc) // Convertir a UTC al leer
                 );
+
+            modelBuilder.Entity<Persona>()
+                .HasOne(p => p.IdentityUser)
+                .WithOne()
+                .HasForeignKey<Persona>(p => p.IdentityUserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

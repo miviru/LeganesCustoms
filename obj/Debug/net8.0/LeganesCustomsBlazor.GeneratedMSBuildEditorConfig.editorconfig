@@ -54,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc0luZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/LeganesCustomsBlazor/Components/Pages/Clientes/CitasCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xDaXRhc0NsaWVudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/LeganesCustomsBlazor/Components/Pages/Clientes/CrearCliente.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xDcmVhckNsaWVudGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -68,6 +72,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/LeganesCustomsBlazor/Components/Pages/Clientes/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/LeganesCustomsBlazor/Components/Pages/Clientes/VehiculosCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRlc1xWZWhpY3Vsb3NDbGllbnRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/LeganesCustomsBlazor/Components/Pages/Empleados/CitasEmpleado.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbXBsZWFkb3NcQ2l0YXNFbXBsZWFkby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/LeganesCustomsBlazor/Components/Pages/Empleados/CrearEmpleado.razor]

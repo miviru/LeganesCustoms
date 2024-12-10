@@ -1,59 +1,69 @@
 @using LeganesCustomsBlazor.Models
+@using LeganesCustomsBlazor.Dtos
+@inject ClienteService ClienteService
+@inject NavigationManager NavigationManager
 
-<h4>Datos del Cliente</h4>
+<h4>Selecciona un Cliente</h4>
 
 <div>
-    <label>Nombre</label>
-    <input type="text" class="form-control" @bind="Cliente.Nombre" />
+    <label for="cliente-select">Clientes Registrados</label>
+    <div class="col-md-5">
+        <select id="cliente-select" class="form-select" @bind="ClienteSeleccionadoId">
+            <option value="">-- Seleccione un cliente --</option>
+            @foreach (var cliente in ClientesDisponibles)
+            {
+                <option value="@cliente.Id_Cliente">@cliente.Nombre @cliente.Apellido1 @cliente.Apellido2 (@cliente.DNI)</option>
+            }
+        </select>
+    </div>
 
-    <label>Primer Apellido</label>
-    <input type="text" class="form-control" @bind="Cliente.Apellido1" />
-
-    <label>Segundo Apellido</label>
-    <input type="text" class="form-control" @bind="Cliente.Apellido2" />
-
-    <label>DNI</label>
-    <input type="text" class="form-control" @bind="Cliente.DNI" />
-
-    <label>Email</label>
-    <input type="email" class="form-control" @bind="Cliente.Email" />
-
-    <label>Teléfono</label>
-    <input type="tel" class="form-control" @bind="Cliente.Telefono" />
-
-    <label>Dirección</label>
-    <input type="text" class="form-control" @bind="Cliente.Direccion" />
-
-    <button class="btn btn-primary mt-3" @onclick="NextStep">Siguiente</button>
-    <button class="btn btn-secondary mt-3 ms-2" @onclick="PreviousStep">Anterior</button>
+    <button class="btn btn-primary mt-3" @onclick="SeleccionarCliente" disabled="@(ClienteSeleccionadoId == null)">Seleccionar</button>
+    <button class="btn btn-secondary mt-3 ms-2" @onclick="CrearCliente">Crear Nuevo Cliente</button>
 </div>
 
 @code {
-    [Parameter] public EventCallback OnNext { get; set; }
-    [Parameter] public EventCallback OnPrevious { get; set; }
-    [Parameter] public Cliente Cliente { get; set; } = null!;
+    private List<Cliente> ClientesDisponibles = new();
+    private long? ClienteSeleccionadoId;
 
-    private Cliente ClientData = new Cliente
-    {
-        Vehiculos = new List<Vehiculo>() // Inicialización como lista vacía
-    };
+    [Parameter] public EventCallback<Cliente> OnClienteSeleccionado { get; set; }
 
-        protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        if (Cliente == null)
+        try
         {
-            throw new InvalidOperationException("El parámetro 'Cliente' es obligatorio y no puede ser nulo.");
+            // Obtener clientes como ClienteDto
+            var clientesDto = await ClienteService.ObtenerClientesAsync();
+
+            // Mapear ClienteDto a Cliente
+            ClientesDisponibles = clientesDto.Select(dto => new Cliente
+            {
+                Id_Cliente = dto.Id_Cliente,
+                Nombre = dto.Nombre,
+                Apellido1 = dto.Apellido1,
+                Apellido2 = dto.Apellido2,
+                DNI = dto.DNI,
+                Email = dto.Email,
+                Telefono = dto.Telefono,
+                Direccion = dto.Direccion
+            }).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar clientes: {ex.Message}");
         }
     }
 
-    private async Task NextStep()
+    private async Task SeleccionarCliente()
     {
-        // Validaciones y lógica de paso
-        await OnNext.InvokeAsync();
+        var clienteSeleccionado = ClientesDisponibles.FirstOrDefault(c => c.Id_Cliente == ClienteSeleccionadoId);
+        if (clienteSeleccionado != null)
+        {
+            await OnClienteSeleccionado.InvokeAsync(clienteSeleccionado);
+        }
     }
 
-    private async Task PreviousStep()
+    private void CrearCliente()
     {
-        await OnPrevious.InvokeAsync();
+        NavigationManager.NavigateTo("/crearCliente");
     }
 }

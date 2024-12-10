@@ -192,6 +192,7 @@ F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Goo
 F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
 F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
 F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Authorization.dll
 F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
 F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
 F:\LeganesCustomsBlazor\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

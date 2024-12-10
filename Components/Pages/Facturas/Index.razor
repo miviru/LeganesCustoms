@@ -16,19 +16,6 @@
         </div>
     </div>
 
-    <div class="row mb-4">
-        <!-- Tarjeta para registrar una nueva factura -->
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
-                <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                    <NavLink class="btn btn-outline-warning" href="/crearFactura">
-                        Crear Factura 
-                    </NavLink>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="row">
         <!-- Tarjetas para las facturas existentes -->
         @if (facturas != null && facturas.Any())
@@ -42,7 +29,6 @@
                             <NavLink class="btn btn-outline-secondary text-white me-2" href="@($"/detallesFactura/{factura.Id}")">Detalles</NavLink>
                             <NavLink class="btn btn-outline-light me-2" href="@($"/editarFactura/{factura.Id}")">Editar</NavLink>
                             <button @onclick="() => DeleteFactura(factura.Id)" class="btn btn-outline-danger me-2">Eliminar</button>
-                            <button class="btn btn-outline-danger text-white" @onclick="() => GeneratePdf(factura)">PDF</button>
                         </div>
                     </div>
                 </div>

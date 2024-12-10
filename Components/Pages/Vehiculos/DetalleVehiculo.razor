@@ -70,15 +70,7 @@
                 <h4>Propietario/a</h4>
                @if (vehiculo.Cliente != null)
                 {
-                    <p>Propietario: @vehiculo.Cliente.Nombre @vehiculo.Cliente.Apellido1 @vehiculo.Cliente.Apellido2</p>
-                    <p>Email: @vehiculo.Cliente.Email</p>
-                    <h5>Otros Vehículos del Cliente:</h5>
-                    <ul>
-                        @foreach (var otherVehiculo in vehiculo.Cliente.Vehiculos)
-                        {
-                            <li>@otherVehiculo.Matricula - @otherVehiculo.Modelo (@otherVehiculo.Fabricante)</li>
-                        }
-                    </ul>
+                    <p> @vehiculo.Cliente.Nombre @vehiculo.Cliente.Apellido1 @vehiculo.Cliente.Apellido2</p>
                 }
                 else
                 {

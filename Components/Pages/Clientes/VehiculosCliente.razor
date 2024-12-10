@@ -1,0 +1,49 @@
+@page "/vehiculosCliente"
+@inject ClienteService ClienteService
+@using LeganesCustomsBlazor.Models;
+
+<PageTitle>Mis Vehículos</PageTitle>
+
+<div class="container mt-4">
+    <h3>Mis Vehículos</h3>
+    @if (vehiculos == null || vehiculos.Count == 0)
+    {
+        <p class="text-muted">No tienes vehículos registrados.</p>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fabricante</th>
+                    <th>Modelo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehiculo in vehiculos)
+                {
+                    <tr>
+                        <td>@vehiculo.Fabricante.Nombre</td>
+                        <td>@vehiculo.Modelo</td>
+                        <td>
+                            <NavLink class="btn btn-primary btn-sm" href="@($"/detallesVehiculo/{vehiculo.Id}")">Ver Detalles</NavLink>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    private List<Vehiculo> vehiculos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var clienteId = 1; // Simula el ID del cliente logueado
+
+        // Llamar al servicio para obtener los vehículos
+        vehiculos = await ClienteService.GetVehiculosPorClienteIdAsync(clienteId);
+    }
+}

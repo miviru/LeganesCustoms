@@ -313,6 +313,9 @@ namespace LeganesCustomsBlazor.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("text");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("text");
@@ -322,6 +325,9 @@ namespace LeganesCustomsBlazor.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdentityUserId")
+                        .IsUnique();
 
                     b.ToTable("Personas", (string)null);
 
@@ -860,6 +866,16 @@ namespace LeganesCustomsBlazor.Migrations
                         .IsRequired();
 
                     b.Navigation("Factura");
+                });
+
+            modelBuilder.Entity("LeganesCustomsBlazor.Models.Persona", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithOne()
+                        .HasForeignKey("LeganesCustomsBlazor.Models.Persona", "IdentityUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("IdentityUser");
                 });
 
             modelBuilder.Entity("LeganesCustomsBlazor.Models.Pieza", b =>

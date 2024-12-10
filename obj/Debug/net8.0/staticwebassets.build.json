@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/5iCGr7CtiuBQe2EQgYzwvNPyO6hl/hLGDzpFcj3CCU=",
+  "Hash": "6cYaZ75/PQWGV2mSczB/4/wvff4E8++gkKVUKjxr898=",
   "Source": "LeganesCustomsBlazor",
   "BasePath": "_content/LeganesCustomsBlazor",
   "Mode": "Default",
@@ -1157,10 +1157,10 @@
       "OriginalItemSpec": "D:\\NuGetCache\\microsoft.aspnetcore.identity.ui\\8.0.0\\staticwebassets\\V5\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\data.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\data.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/data.min.js",
       "AssetKind": "All",
@@ -1173,13 +1173,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\data.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\data.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\navigationsbase.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\navigationsbase.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/navigationsbase.min.js",
       "AssetKind": "All",
@@ -1192,13 +1192,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\navigationsbase.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\navigationsbase.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\popup.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\popup.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/popup.min.js",
       "AssetKind": "All",
@@ -1211,13 +1211,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\popup.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\popup.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\popupsbase.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\popupsbase.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/popupsbase.min.js",
       "AssetKind": "All",
@@ -1230,13 +1230,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\popupsbase.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\popupsbase.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-accordion.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-accordion.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-accordion.min.js",
       "AssetKind": "All",
@@ -1249,13 +1249,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-accordion.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-accordion.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-accumulation-chart.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-accumulation-chart.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-accumulation-chart.min.js",
       "AssetKind": "All",
@@ -1268,13 +1268,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-accumulation-chart.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-accumulation-chart.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-ai-assistview.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-ai-assistview.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-ai-assistview.min.js",
       "AssetKind": "All",
@@ -1287,13 +1287,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-ai-assistview.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-ai-assistview.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-barcode.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-barcode.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-barcode.min.js",
       "AssetKind": "All",
@@ -1306,13 +1306,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-barcode.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-barcode.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-breadcrumb.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-breadcrumb.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-breadcrumb.min.js",
       "AssetKind": "All",
@@ -1325,13 +1325,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-breadcrumb.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-breadcrumb.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-bullet-chart.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-bullet-chart.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-bullet-chart.min.js",
       "AssetKind": "All",
@@ -1344,13 +1344,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-bullet-chart.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-bullet-chart.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-calendar.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-calendar.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-calendar.min.js",
       "AssetKind": "All",
@@ -1363,13 +1363,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-calendar.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-calendar.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-carousel.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-carousel.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-carousel.min.js",
       "AssetKind": "All",
@@ -1382,13 +1382,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-carousel.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-carousel.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-chart.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-chart.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-chart.min.js",
       "AssetKind": "All",
@@ -1401,13 +1401,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-chart.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-chart.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-chart3D.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-chart3D.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-chart3D.min.js",
       "AssetKind": "All",
@@ -1420,13 +1420,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-chart3D.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-chart3D.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-circulargauge.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-circulargauge.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-circulargauge.min.js",
       "AssetKind": "All",
@@ -1439,13 +1439,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-circulargauge.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-circulargauge.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-colorpicker.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-colorpicker.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-colorpicker.min.js",
       "AssetKind": "All",
@@ -1458,13 +1458,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-colorpicker.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-colorpicker.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-contextmenu.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-contextmenu.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-contextmenu.min.js",
       "AssetKind": "All",
@@ -1477,13 +1477,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-contextmenu.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-contextmenu.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dashboard-layout.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dashboard-layout.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-dashboard-layout.min.js",
       "AssetKind": "All",
@@ -1496,13 +1496,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dashboard-layout.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dashboard-layout.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-datepicker.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-datepicker.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-datepicker.min.js",
       "AssetKind": "All",
@@ -1515,13 +1515,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-datepicker.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-datepicker.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-daterangepicker.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-daterangepicker.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-daterangepicker.min.js",
       "AssetKind": "All",
@@ -1534,13 +1534,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-daterangepicker.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-daterangepicker.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-diagramcomponent.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-diagramcomponent.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-diagramcomponent.min.js",
       "AssetKind": "All",
@@ -1553,13 +1553,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-diagramcomponent.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-diagramcomponent.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dialog.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dialog.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-dialog.min.js",
       "AssetKind": "All",
@@ -1572,13 +1572,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dialog.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dialog.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-drop-down-button.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-drop-down-button.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-drop-down-button.min.js",
       "AssetKind": "All",
@@ -1591,13 +1591,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-drop-down-button.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-drop-down-button.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dropdownlist.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dropdownlist.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-dropdownlist.min.js",
       "AssetKind": "All",
@@ -1610,13 +1610,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dropdownlist.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dropdownlist.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dropdowntree.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dropdowntree.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-dropdowntree.min.js",
       "AssetKind": "All",
@@ -1629,13 +1629,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-dropdowntree.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-dropdowntree.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-filemanager.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-filemanager.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-filemanager.min.js",
       "AssetKind": "All",
@@ -1648,13 +1648,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-filemanager.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-filemanager.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-floating-action-button.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-floating-action-button.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-floating-action-button.min.js",
       "AssetKind": "All",
@@ -1667,13 +1667,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-floating-action-button.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-floating-action-button.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-gantt.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-gantt.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-gantt.min.js",
       "AssetKind": "All",
@@ -1686,13 +1686,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-gantt.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-gantt.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-grid.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-grid.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-grid.min.js",
       "AssetKind": "All",
@@ -1705,13 +1705,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-grid.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-grid.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-heatmap.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-heatmap.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-heatmap.min.js",
       "AssetKind": "All",
@@ -1724,13 +1724,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-heatmap.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-heatmap.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-image-editor.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-image-editor.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-image-editor.min.js",
       "AssetKind": "All",
@@ -1743,13 +1743,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-image-editor.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-image-editor.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-inplaceeditor.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-inplaceeditor.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-inplaceeditor.min.js",
       "AssetKind": "All",
@@ -1762,13 +1762,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-inplaceeditor.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-inplaceeditor.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-kanban.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-kanban.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-kanban.min.js",
       "AssetKind": "All",
@@ -1781,13 +1781,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-kanban.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-kanban.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-lineargauge.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-lineargauge.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-lineargauge.min.js",
       "AssetKind": "All",
@@ -1800,13 +1800,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-lineargauge.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-lineargauge.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-listbox.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-listbox.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-listbox.min.js",
       "AssetKind": "All",
@@ -1819,13 +1819,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-listbox.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-listbox.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-listview.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-listview.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-listview.min.js",
       "AssetKind": "All",
@@ -1838,13 +1838,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-listview.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-listview.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-maps.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-maps.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-maps.min.js",
       "AssetKind": "All",
@@ -1857,13 +1857,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-maps.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-maps.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-maskedtextbox.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-maskedtextbox.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-maskedtextbox.min.js",
       "AssetKind": "All",
@@ -1876,13 +1876,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-maskedtextbox.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-maskedtextbox.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-mention.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-mention.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-mention.min.js",
       "AssetKind": "All",
@@ -1895,13 +1895,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-mention.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-mention.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-menu.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-menu.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-menu.min.js",
       "AssetKind": "All",
@@ -1914,13 +1914,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-menu.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-menu.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-multicolumncombobox.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-multicolumncombobox.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-multicolumncombobox.min.js",
       "AssetKind": "All",
@@ -1933,13 +1933,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-multicolumncombobox.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-multicolumncombobox.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-multiselect.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-multiselect.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-multiselect.min.js",
       "AssetKind": "All",
@@ -1952,13 +1952,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-multiselect.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-multiselect.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-numerictextbox.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-numerictextbox.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-numerictextbox.min.js",
       "AssetKind": "All",
@@ -1971,13 +1971,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-numerictextbox.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-numerictextbox.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-otp-input.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-otp-input.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-otp-input.min.js",
       "AssetKind": "All",
@@ -1990,13 +1990,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-otp-input.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-otp-input.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-pager.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-pager.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-pager.min.js",
       "AssetKind": "All",
@@ -2009,13 +2009,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-pager.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-pager.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-pivotview.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-pivotview.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-pivotview.min.js",
       "AssetKind": "All",
@@ -2028,13 +2028,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-pivotview.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-pivotview.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-progressbar.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-progressbar.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-progressbar.min.js",
       "AssetKind": "All",
@@ -2047,13 +2047,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-progressbar.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-progressbar.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-range-navigator.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-range-navigator.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-range-navigator.min.js",
       "AssetKind": "All",
@@ -2066,13 +2066,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-range-navigator.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-range-navigator.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-rating.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-rating.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-rating.min.js",
       "AssetKind": "All",
@@ -2085,13 +2085,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-rating.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-rating.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-richtexteditor.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-richtexteditor.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-richtexteditor.min.js",
       "AssetKind": "All",
@@ -2104,13 +2104,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-richtexteditor.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-richtexteditor.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-schedule.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-schedule.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-schedule.min.js",
       "AssetKind": "All",
@@ -2123,13 +2123,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-schedule.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-schedule.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-sidebar.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-sidebar.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-sidebar.min.js",
       "AssetKind": "All",
@@ -2142,13 +2142,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-sidebar.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-sidebar.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-signature.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-signature.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-signature.min.js",
       "AssetKind": "All",
@@ -2161,13 +2161,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-signature.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-signature.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-slider.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-slider.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-slider.min.js",
       "AssetKind": "All",
@@ -2180,13 +2180,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-slider.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-slider.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-smith-chart.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-smith-chart.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-smith-chart.min.js",
       "AssetKind": "All",
@@ -2199,13 +2199,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-smith-chart.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-smith-chart.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-sparkline.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-sparkline.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-sparkline.min.js",
       "AssetKind": "All",
@@ -2218,13 +2218,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-sparkline.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-sparkline.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-speeddial.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-speeddial.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-speeddial.min.js",
       "AssetKind": "All",
@@ -2237,13 +2237,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-speeddial.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-speeddial.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-spinner.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-spinner.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-spinner.min.js",
       "AssetKind": "All",
@@ -2256,13 +2256,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-spinner.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-spinner.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-splitter.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-splitter.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-splitter.min.js",
       "AssetKind": "All",
@@ -2275,13 +2275,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-splitter.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-splitter.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-stepper.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-stepper.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-stepper.min.js",
       "AssetKind": "All",
@@ -2294,13 +2294,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-stepper.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-stepper.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-stock-chart.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-stock-chart.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-stock-chart.min.js",
       "AssetKind": "All",
@@ -2313,13 +2313,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-stock-chart.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-stock-chart.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-svg-export.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-svg-export.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-svg-export.min.js",
       "AssetKind": "All",
@@ -2332,13 +2332,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-svg-export.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-svg-export.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-tab.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-tab.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-tab.min.js",
       "AssetKind": "All",
@@ -2351,13 +2351,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-tab.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-tab.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-textarea.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-textarea.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-textarea.min.js",
       "AssetKind": "All",
@@ -2370,13 +2370,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-textarea.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-textarea.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-textbox.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-textbox.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-textbox.min.js",
       "AssetKind": "All",
@@ -2389,13 +2389,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-textbox.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-textbox.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-timepicker.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-timepicker.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-timepicker.min.js",
       "AssetKind": "All",
@@ -2408,13 +2408,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-timepicker.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-timepicker.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-toast.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-toast.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-toast.min.js",
       "AssetKind": "All",
@@ -2427,13 +2427,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-toast.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-toast.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-toolbar.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-toolbar.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-toolbar.min.js",
       "AssetKind": "All",
@@ -2446,13 +2446,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-toolbar.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-toolbar.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-tooltip.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-tooltip.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-tooltip.min.js",
       "AssetKind": "All",
@@ -2465,13 +2465,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-tooltip.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-tooltip.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-treegrid.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-treegrid.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-treegrid.min.js",
       "AssetKind": "All",
@@ -2484,13 +2484,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-treegrid.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-treegrid.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-treemap.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-treemap.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-treemap.min.js",
       "AssetKind": "All",
@@ -2503,13 +2503,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-treemap.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-treemap.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-treeview.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-treeview.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-treeview.min.js",
       "AssetKind": "All",
@@ -2522,13 +2522,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-treeview.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-treeview.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-uploader.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-uploader.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sf-uploader.min.js",
       "AssetKind": "All",
@@ -2541,13 +2541,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sf-uploader.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sf-uploader.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sortable.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sortable.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/sortable.min.js",
       "AssetKind": "All",
@@ -2560,13 +2560,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\sortable.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\sortable.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\spinner.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\spinner.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/spinner.min.js",
       "AssetKind": "All",
@@ -2579,13 +2579,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\spinner.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\spinner.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\splitbuttonsbase.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\splitbuttonsbase.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/splitbuttonsbase.min.js",
       "AssetKind": "All",
@@ -2598,13 +2598,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\splitbuttonsbase.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\splitbuttonsbase.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\svgbase.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\svgbase.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/svgbase.min.js",
       "AssetKind": "All",
@@ -2617,13 +2617,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\svgbase.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\svgbase.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\syncfusion-blazor-base.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\syncfusion-blazor-base.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/syncfusion-blazor-base.min.js",
       "AssetKind": "All",
@@ -2636,13 +2636,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\syncfusion-blazor-base.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\syncfusion-blazor-base.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\syncfusion-blazor.min.js",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\syncfusion-blazor.min.js",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "scripts/syncfusion-blazor.min.js",
       "AssetKind": "All",
@@ -2655,13 +2655,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\scripts\\syncfusion-blazor.min.js"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\scripts\\syncfusion-blazor.min.js"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bds-dark-lite.css",
       "AssetKind": "All",
@@ -2674,13 +2674,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bds-dark.css",
       "AssetKind": "All",
@@ -2693,13 +2693,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bds-lite.css",
       "AssetKind": "All",
@@ -2712,13 +2712,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bds.css",
       "AssetKind": "All",
@@ -2731,13 +2731,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bds.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bds.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap-dark-lite.css",
       "AssetKind": "All",
@@ -2750,13 +2750,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap-dark.css",
       "AssetKind": "All",
@@ -2769,13 +2769,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap-lite.css",
       "AssetKind": "All",
@@ -2788,13 +2788,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap.css",
       "AssetKind": "All",
@@ -2807,13 +2807,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap4-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap4-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap4-lite.css",
       "AssetKind": "All",
@@ -2826,13 +2826,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap4-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap4-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap4.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap4.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap4.css",
       "AssetKind": "All",
@@ -2845,13 +2845,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap4.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap4.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5-dark-lite.css",
       "AssetKind": "All",
@@ -2864,13 +2864,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5-dark.css",
       "AssetKind": "All",
@@ -2883,13 +2883,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5-lite.css",
       "AssetKind": "All",
@@ -2902,13 +2902,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5.3-dark-lite.css",
       "AssetKind": "All",
@@ -2921,13 +2921,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5.3-dark.css",
       "AssetKind": "All",
@@ -2940,13 +2940,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5.3-lite.css",
       "AssetKind": "All",
@@ -2959,13 +2959,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5.3.css",
       "AssetKind": "All",
@@ -2978,13 +2978,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.3.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.3.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/bootstrap5.css",
       "AssetKind": "All",
@@ -2997,13 +2997,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\bootstrap5.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\bootstrap5.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\material-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\material-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/customized/material-dark.css",
       "AssetKind": "All",
@@ -3016,13 +3016,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\material-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\material-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\material.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\material.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/customized/material.css",
       "AssetKind": "All",
@@ -3035,13 +3035,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\material.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\material.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\tailwind-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\tailwind-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/customized/tailwind-dark.css",
       "AssetKind": "All",
@@ -3054,13 +3054,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\tailwind-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\tailwind-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\tailwind.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\tailwind.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/customized/tailwind.css",
       "AssetKind": "All",
@@ -3073,13 +3073,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\customized\\tailwind.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\customized\\tailwind.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fabric-dark-lite.css",
       "AssetKind": "All",
@@ -3092,13 +3092,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fabric-dark.css",
       "AssetKind": "All",
@@ -3111,13 +3111,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fabric-lite.css",
       "AssetKind": "All",
@@ -3130,13 +3130,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fabric.css",
       "AssetKind": "All",
@@ -3149,13 +3149,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fabric.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fabric.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent-dark-lite.css",
       "AssetKind": "All",
@@ -3168,13 +3168,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent-dark.css",
       "AssetKind": "All",
@@ -3187,13 +3187,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent-lite.css",
       "AssetKind": "All",
@@ -3206,13 +3206,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent.css",
       "AssetKind": "All",
@@ -3225,13 +3225,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent2-dark-lite.css",
       "AssetKind": "All",
@@ -3244,13 +3244,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent2-dark.css",
       "AssetKind": "All",
@@ -3263,13 +3263,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-highcontrast-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-highcontrast-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent2-highcontrast-lite.css",
       "AssetKind": "All",
@@ -3282,13 +3282,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-highcontrast-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-highcontrast-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-highcontrast.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-highcontrast.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent2-highcontrast.css",
       "AssetKind": "All",
@@ -3301,13 +3301,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-highcontrast.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-highcontrast.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent2-lite.css",
       "AssetKind": "All",
@@ -3320,13 +3320,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/fluent2.css",
       "AssetKind": "All",
@@ -3339,13 +3339,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\fluent2.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\fluent2.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\highcontrast-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\highcontrast-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/highcontrast-lite.css",
       "AssetKind": "All",
@@ -3358,13 +3358,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\highcontrast-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\highcontrast-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\highcontrast.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\highcontrast.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/highcontrast.css",
       "AssetKind": "All",
@@ -3377,13 +3377,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\highcontrast.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\highcontrast.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material-dark-lite.css",
       "AssetKind": "All",
@@ -3396,13 +3396,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material-dark.css",
       "AssetKind": "All",
@@ -3415,13 +3415,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material-lite.css",
       "AssetKind": "All",
@@ -3434,13 +3434,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material.css",
       "AssetKind": "All",
@@ -3453,13 +3453,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material3-dark-lite.css",
       "AssetKind": "All",
@@ -3472,13 +3472,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material3-dark.css",
       "AssetKind": "All",
@@ -3491,13 +3491,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material3-lite.css",
       "AssetKind": "All",
@@ -3510,13 +3510,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/material3.css",
       "AssetKind": "All",
@@ -3529,13 +3529,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\material3.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\material3.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind-dark-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind-dark-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/tailwind-dark-lite.css",
       "AssetKind": "All",
@@ -3548,13 +3548,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind-dark-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind-dark-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind-dark.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind-dark.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/tailwind-dark.css",
       "AssetKind": "All",
@@ -3567,13 +3567,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind-dark.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind-dark.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind-lite.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind-lite.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/tailwind-lite.css",
       "AssetKind": "All",
@@ -3586,13 +3586,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind-lite.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind-lite.css"
     },
     {
-      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind.css",
+      "Identity": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind.css",
       "SourceId": "Syncfusion.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\",
+      "ContentRoot": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\",
       "BasePath": "_content/Syncfusion.Blazor",
       "RelativePath": "styles/tailwind.css",
       "AssetKind": "All",
@@ -3605,7 +3605,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.2\\staticwebassets\\styles\\tailwind.css"
+      "OriginalItemSpec": "D:\\NuGetCache\\syncfusion.blazor\\27.2.5\\staticwebassets\\styles\\tailwind.css"
     },
     {
       "Identity": "F:\\LeganesCustomsBlazor\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LeganesCustomsBlazor.styles.css",

@@ -1,9 +1,10 @@
 @page "/editarEmpleado/{Id:long}"
-@inject EmpleadoService EmpleadoService
+@inject IEmpleadoService EmpleadoService
 @inject NavigationManager NavigationManager
-@using LeganesCustomsBlazor.Models;
-@using LeganesCustomsBlazor.Dtos;
+@using LeganesCustomsBlazor.Models
+@using LeganesCustomsBlazor.Dtos
 @using System.Text.Json
+@using LeganesCustomsBlazor.Services
 
 <PageTitle>Editar Empleado</PageTitle>
 
@@ -21,62 +22,76 @@
     else
     {
         <div class="row">
-        <EditForm Model="@empleado" OnValidSubmit="HandleValidSubmit" FormName="EditarEmpleado">
-            <DataAnnotationsValidator />
-
-            <!-- Mostrar mensaje de error -->
-            @if (!string.IsNullOrEmpty(errorMessage))
-            {
+            <EditForm Model="@empleado" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
                     <div class="alert alert-danger">@errorMessage</div>
-            }
-            <div class="form-group mt-3">
-                <label for="email" class="form-label">Email:</label>
-                <div class="col-md-5">
-                    <InputText id="email" class="form-control" @bind-Value="empleado.Email" />
+                }
+
+                <div class="form-group mt-3">
+                    <label for="email">Email:</label>
+                    <div class="col-md-5">
+                        <InputText id="email" class="form-control" @bind-Value="empleado.Email" />
+                    </div>
                     <ValidationMessage For="@(() => empleado.Email)" />
                 </div>
-            </div>
 
-            <div class="form-group mt-3">
-                <label for="telefono" class="form-label">Teléfono:</label>
-                <div class="col-md-5">
-                    <InputText id="telefono" class="form-control" @bind-Value="empleado.Telefono" />
+                <div class="form-group mt-3">
+                    <label for="telefono">Teléfono:</label>
+                    <div class="col-md-5">
+                        <InputText id="telefono" class="form-control" @bind-Value="empleado.Telefono" />
+                    </div>
                     <ValidationMessage For="@(() => empleado.Telefono)" />
                 </div>
-            </div>
 
-            <div class="form-group mt-3">
-                <label for="direccion" class="form-label">Dirección:</label>
-                <div class="col-md-5">
-                    <InputText id="direccion" class="form-control" @bind-Value="empleado.Direccion" />
+                <div class="form-group mt-3">
+                    <label for="direccion">Dirección:</label>
+                    <div class="col-md-5">
+                        <InputText id="direccion" class="form-control" @bind-Value="empleado.Direccion" />
+                    </div>
                     <ValidationMessage For="@(() => empleado.Direccion)" />
                 </div>
-            </div>
 
-            <div class="form-group mt-3">
-                <label for="puesto" class="form-label">Puesto:</label>
-                <div class="col-md-5">
-                    <InputSelect id="puesto" class="form-control" @bind-Value="empleado.Puesto">
-                        <option value=""disabled selected>Seleccione un puesto</option>
+                <div class="form-group mt-3">
+                    <label for="puesto">Puesto:</label>
+                    <div class="col-md-5">
+                        <InputSelect id="puesto" class="form-control" @bind-Value="empleado.Puesto">
                             @foreach (var puesto in puestosDisponibles)
                             {
                                 <option value="@puesto">@puesto</option>
                             }
-                    </InputSelect>
+                        </InputSelect>
+                    </div>
                     <ValidationMessage For="@(() => empleado.Puesto)" />
                 </div>
-            </div>
 
-            <div class="form-group mt-3">
-                <label for="sueldo" class="form-label">Sueldo:</label>
-                <div class="col-md-5">
-                    <InputNumber id="sueldo" class="form-control" @bind-Value="empleado.Sueldo" />
+                <div class="form-group mt-3">
+                    <label for="sueldo">Sueldo:</label>
+                    <div class="col-md-5">
+                        <InputNumber id="sueldo" class="form-control" @bind-Value="empleado.Sueldo" />
+                    </div>
                     <ValidationMessage For="@(() => empleado.Sueldo)" />
                 </div>
-            </div>
+
+                <div class="form-group mt-3">
+                    <label for="password">Contraseña:</label>
+                    <div class="col-md-5">
+                        <InputText id="password" class="form-control" @bind-Value="empleado.Password" type="password" />
+                    </div>
+                    <ValidationMessage For="@(() => empleado.Password)" />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <div class="col-md-5">
+                        <InputText id="confirmPassword" class="form-control" @bind-Value="empleado.ConfirmPassword" type="password" />
+                    </div>
+                    <ValidationMessage For="@(() => empleado.ConfirmPassword)" />
+                </div>
 
                 <div class="mt-3">
-                    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-outline-success">Guardar Cambios</button>
                     <NavLink class="btn btn-outline-secondary ms-2 text-white" href="/empleado">Cancelar</NavLink>
                 </div>
             </EditForm>
@@ -86,11 +101,11 @@
 
 @code {
     [Parameter]
-    public long Id { get; set; } // Parámetro recibido desde la URL
+    public long Id { get; set; }
 
     private EmpleadoDto empleado = new EmpleadoDto
     {
-        Citas = new List<CitaDto>() // Inicialización con lista vacía
+        Citas = new List<CitaDto>()
     };
 
     private List<string> puestosDisponibles = new List<string>
@@ -101,79 +116,66 @@
 
     private string errorMessage = string.Empty;
     private EditContext? editContext;
+
     protected override void OnInitialized()
     {
         editContext = new EditContext(empleado);
     }
 
-    // Cargar datos del empleado
     protected override async Task OnParametersSetAsync()
     {
-        Console.WriteLine("Entrando a OnParametersSetAsync");
         try
         {
-            Console.WriteLine($"Cargando datos del empleado con ID: {Id}");
-            empleado = await EmpleadoService.GetEmpleadoByIdAsync(Id); // Vuelve a cargar los datos
+            Console.WriteLine($"[View] Cargando datos del empleado con ID: {Id}");
+            empleado = await EmpleadoService.GetEmpleadoByIdAsync(Id);
             if (empleado == null)
             {
                 errorMessage = "Empleado no encontrado.";
-                Console.WriteLine(errorMessage);
+                Console.WriteLine($"[View] {errorMessage}");
             }
             else
             {
-                Console.WriteLine($"Datos del empleado cargados: {JsonSerializer.Serialize(empleado)}");
+                Console.WriteLine($"[View] Datos cargados: {JsonSerializer.Serialize(empleado)}");
             }
         }
         catch (Exception ex)
         {
             errorMessage = $"Error al cargar los datos del empleado: {ex.Message}";
-            Console.WriteLine(errorMessage);
+            Console.WriteLine($"[View] {errorMessage}");
         }
-        Console.WriteLine("Saliendo de OnParametersSetAsync");
     }
 
     private async Task HandleValidSubmit()
     {
-        if (!editContext.Validate())
+        // Validar que la contraseña y la confirmación coinciden, si están presentes
+        if (!string.IsNullOrEmpty(empleado.Password) && empleado.Password != empleado.ConfirmPassword)
         {
-            Console.WriteLine("Errores de validación en el formulario.");
+            errorMessage = "La contraseña y la confirmación no coinciden.";
+            Console.WriteLine("[View] " + errorMessage);
             return;
+        }
+
+        // Evitar enviar ConfirmPassword al backend
+        empleado.ConfirmPassword = null;
+
+        // Opcional: Limpia el campo de contraseña si no se modificó
+        if (string.IsNullOrEmpty(empleado.Password))
+        {
+            empleado.Password = null;
         }
 
         try
         {
-            // Actualiza los datos en la base de datos
+            Console.WriteLine($"[View] Enviando datos para actualizar: {JsonSerializer.Serialize(empleado)}");
             await EmpleadoService.UpdateEmpleadoAsync(empleado);
-
-            // Recarga los datos del servidor
-            empleado = await EmpleadoService.GetEmpleadoByIdAsync(empleado.Id_Empleado);
-            Console.WriteLine($"Datos actualizados del empleado: {JsonSerializer.Serialize(empleado)}");
-
-            Console.WriteLine("Empleado actualizado correctamente.");
-            errorMessage = string.Empty;
-
-            NavigationManager.NavigateTo($"/empleado");
-
+            Console.WriteLine("[View] Actualización exitosa, redirigiendo a /empleado");
+            NavigationManager.NavigateTo("/empleado");
         }
         catch (Exception ex)
         {
             errorMessage = $"Error al guardar los cambios: {ex.Message}";
-            Console.WriteLine(errorMessage);
+            Console.WriteLine($"[View] {errorMessage}");
         }
     }
 
-    private Empleado MapToEmpleado(EmpleadoDto dto)
-    {
-        return new Empleado
-        {
-            Id_Empleado = dto.Id_Empleado,
-            Nombre = dto.Nombre,
-            Apellido1 = dto.Apellido1,
-            Apellido2 = dto.Apellido2,
-            DNI = dto.DNI,
-            Email = dto.Email,
-            Telefono = dto.Telefono,
-            Direccion = dto.Direccion
-        };
-    }
 }

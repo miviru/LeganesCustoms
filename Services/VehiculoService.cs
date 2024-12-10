@@ -148,4 +148,48 @@ public class VehiculoService
         }
     }
 
+    public async Task<List<VehiculoDto>> ObtenerVehiculosSinPropietarioAsync()
+    {
+        try
+        {
+            // Llama al endpoint de la API para obtener vehículos sin propietario
+            var response = await _http.GetAsync("api/vehiculo/sinpropietario");
+            if (response.IsSuccessStatusCode)
+            {
+                var vehiculos = await response.Content.ReadFromJsonAsync<List<VehiculoDto>>();
+                return vehiculos ?? new List<VehiculoDto>();
+            }
+            else
+            {
+                throw new Exception($"Error al obtener vehículos sin propietario: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error inesperado al obtener vehículos sin propietario: {ex.Message}");
+            throw;
+        }
+    }
+
+    public async Task<List<VehiculoDto>> ObtenerVehiculosPorClienteAsync(long clienteId)
+    {
+        try
+        {
+            var response = await _http.GetAsync($"api/vehiculo/cliente/{clienteId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<VehiculoDto>>() ?? new List<VehiculoDto>();
+            }
+            else
+            {
+                throw new Exception($"Error al obtener vehículos para el cliente {clienteId}: {response.ReasonPhrase}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al obtener vehículos: {ex.Message}");
+            throw;
+        }
+    }
+
 }

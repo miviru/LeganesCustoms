@@ -1,7 +1,9 @@
 @page "/clientesIndex"
 @inject ClienteService ClienteService
+@inject ICitasService CitaService
 @inject NavigationManager NavigationManager
 @using LeganesCustomsBlazor.Models;
+@using LeganesCustomsBlazor.Services;
 
 <PageTitle>Cliente</PageTitle>
 
@@ -18,7 +20,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card mt-4" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
                 <div class="card-body d-flex justify-content-center align-items-center h-100">
-                    <NavLink class=" text-white me-2" href="@($"/detallesCliente/{cliente.Id}")" style="text-decoration: none;">MIS DATOS</NavLink>
+                    <NavLink class="text-white me-2" href="@($"/detallesCliente/{cliente.Id}")" style="text-decoration: none;">MIS DATOS</NavLink>
                 </div>
             </div>
         </div>
@@ -26,90 +28,45 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card mt-4" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
                 <div class="card-body d-flex justify-content-center align-items-center h-100">
-                    <NavLink class=" text-white me-2" href="@($"/detallesVehiculo/{vehiculo.Id}")" style="text-decoration: none;">VEHÍCULOS</NavLink>
+                    <NavLink class="text-white me-2" href="/vehiculosCliente" style="text-decoration: none;">VEHÍCULOS</NavLink>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-6 col-md-4 col-lg-2"></div>
+        <div class="col-8 col-md-4 col-lg-2"></div>
 
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card mt-4" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
                 <div class="card-body d-flex justify-content-center align-items-center h-100">
-                    <NavLink class=" text-white me-2" href="@($"/detallesCita/{cita.Id}")" style="text-decoration: none;">CITAS</NavLink>
+                    <NavLink class="text-white me-2" href="/citasCliente" style="text-decoration: none;">CITAS</NavLink>
                 </div>
             </div>
         </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card mt-4" style="background-image: url('/fondo2.jpg'); background-size: cover; background-position: center;">
-                <div class="card-body d-flex justify-content-center align-items-center h-100">
-                    <NavLink class=" text-white me-2" href="@($"/detallesFactura/{factura.Id}")" style="text-decoration: none;">FACTURAS</NavLink>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>ç
 </div>
+      
 
 @code {
-    private Cliente cliente = new Cliente();
-    private Vehiculo vehiculo = new Vehiculo
+    private Cliente cliente = new Cliente
     {
         Id = 1,
-        Fabricante = new Fabricante
-        {
-            Id = 101,
-            Nombre = "Toyota",
-            Grupo = new Grupo
-            {
-                Id = 1,
-                Nombre = "Grupo Automotriz",
-                Fabricantes = new List<Fabricante>()
-            },
-            Vehiculos = new List<Vehiculo>()
-        },
-        Cliente = new Cliente
-        {
-            Id = 1,
-            Nombre = "Juan Pérez"
-        }
-    };
-    private Cita cita;
-    private Factura factura = new Factura
-    {
-        Cliente = new Cliente
-        {
-            Id = 1,
-            Nombre = "Juan Pérez"
-        }
+        Nombre = "Maikel Delafont"
     };
 
-    protected override void OnInitialized()
+    private List<Cita> citas;
+
+    protected override async Task OnInitializedAsync()
     {
         // Simulación de cliente logueado
         cliente = new Cliente
         {
             Id = 1,
-            Nombre = "Juan Pérez"
+            Nombre = "Maikel Delafont"
         };
 
-        cita = new Cita
-    {
-        Fecha = new Fecha(DateTime.Now),
-        Hora = new Hora(DateTime.Now),
-        Vehiculo = vehiculo, // Ahora vehiculo está listo para usarse
-        Empleado = new Empleado
-        {
-            Id = 1,
-            Nombre = "Carlos García"
-        },
-        Cliente = new Cliente
-        {
-            Id = 1,
-            Nombre = "Juan Pérez"
-        }
-    };
+        // Cargar las citas del cliente logueado desde el servicio
+        citas = await CitaService.GetCitasPorClienteIdAsync(cliente.Id);
     }
 }

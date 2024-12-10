@@ -1,6 +1,8 @@
 @page "/recepcionista"
 @inject NavigationManager NavigationManager
+@inject ICitasService CitaService
 @using LeganesCustomsBlazor.Models;
+@using LeganesCustomsBlazor.Services;
 
 <PageTitle>Admin</PageTitle>
 
@@ -61,7 +63,7 @@
         empleado = new Empleado
         {
             Id = 1,
-            Nombre = "Sergio Encina"
+            Nombre = "Miguel Vicario"
         };
     }
 }
